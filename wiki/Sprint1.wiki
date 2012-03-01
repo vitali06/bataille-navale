@@ -1,5 +1,7 @@
 = Sprint 1 =
 
+{{Avancement|85}}
+
 Le premier sprint va permettre de donner un premier aperçu à tout les membres de l'équipe pour pouvoir mieux évaluer la charge de travail et pouvoir donner des premières estimations de temps pour mettre en place les différents planning et diagramme de Gantt.
 
 == IDE ==
