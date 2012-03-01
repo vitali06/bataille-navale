@@ -14,7 +14,6 @@ Pour ce premier Sprint, chaque membre de l'équipe c'est vu attribué leur premi
  # *Alexis* : Création de la première Grille de positionnement des navires
   * Grille extensible
   * Grille avec l'axe des abscisses (Alphabet) et des ordonnées (Chiffres)
-  
  # *Mélissa* : Rotation et navires
   * Au début nous ne travaillerons pas sur des images mes des formes géométriques tel que des rectangles qui feront office de navires.
   * Le but de ce module est de pouvoir créer une rotation de 90° dans un sens ou dans l'autre grâce au flèches multidirectionnelle.
