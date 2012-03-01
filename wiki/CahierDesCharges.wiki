@@ -1,5 +1,3 @@
-<wiki:toc />
-
 = Le Projet =
 == Cahier des Charges ==
 
@@ -11,6 +9,10 @@ En ce qui concerne le choix de la méthode Agile qui va servir à gérer notre p
 
 Une particularité de Scrum est une gestion très légère. L’art de *Scrum* insiste sur la bonne conduite des réunions (*sprint*), qui vont rythmer le projet.
 
+{{boîte déroulante
+| titre = Liens
+| contenu = http://www.agiliste.fr/Home/bien-demarrer-avec-scrum
+}}
 Lien SRCUM: http://www.agiliste.fr/Home/bien-demarrer-avec-scrum
 
 == Serveur de sauvegarde ==
