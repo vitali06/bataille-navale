@@ -1,0 +1,13 @@
+#Première phase de développement.
+
+= Grille =
+
+créer une grille extensible dans une JFrame
+
+
+= Détails =
+
+Cette grille doit comprendre :
+  * Axe des ordonnées (Chiffres)
+  * Axe des abscisses (Alphabète)
+  * Grille de carrées
