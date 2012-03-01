@@ -1,6 +1,6 @@
 == Index ==
-[Articles Acceuil CahierDesCharges]
+CahierDesCharges
 
 ---
 
-[Articles Sprint1 Sprint1]
+Sprint1
