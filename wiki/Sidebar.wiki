@@ -4,10 +4,7 @@
 ----
 == Sprint ==
 
-[Sprint1 Sprint 1]
-
-[Sprint2 Sprint 2]
-
-[Sprint3 Sprint 3]
-
-[Sprint4 Sprint 4]
+[Sprint1 Sprint 1]<br />
+[Sprint2 Sprint 2]<br />
+[Sprint3 Sprint 3]<br />
+[Sprint4 Sprint 4]<br />
