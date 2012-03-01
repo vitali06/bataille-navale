@@ -1,0 +1,17 @@
+# Mise à l'écrit des décisions du Jeudi 1er Mars 2012.
+
+= Travaux =
+== Chaier des Charges ==
+
+Avant de commencer à coder, il est nécessaire de mettre à l'écrit toutes les décisions et idées qui ont puent être proposé lors de notre première réunion sur le sujet le Jeudi 1er Mars 2012.
+
+
+= SCRUM =
+En ce qui concerne le choix de la méthode Agile qui va servir à gérer notre projet, il a été décidé d'utiliser le méthode SCRUM.
+
+Une particularité de Scrum est une gestion très légère. L’art de scrum insiste sur la bonne conduite des réunions (srpint), qui vont rythmer le projet.
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
