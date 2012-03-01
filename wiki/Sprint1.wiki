@@ -17,3 +17,8 @@ Pour ce premier Sprint, chaque membre de l'équipe c'est vu attribué leur premi
  # *Mélissa* : Rotation et navires
   * Au début nous ne travaillerons pas sur des images mes des formes géométriques tel que des rectangles qui feront office de navires.
   * Le but de ce module est de pouvoir créer une rotation de 90° dans un sens ou dans l'autre grâce au flèches multidirectionnelle.
+ # *Laurent* : Curseur
+  * Récupérer les coordonnées du curseur
+  * Arrondir la valeur du curseur au Pressed ou au Drag
+  * Changer de curseur
+  * Gérer les différents événements du curseur avec OpenGL
