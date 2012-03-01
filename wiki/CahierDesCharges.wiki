@@ -9,7 +9,7 @@ Avant de commencer à coder, il est nécessaire de mettre à l'écrit toutes les
 == SCRUM ==
 En ce qui concerne le choix de la méthode Agile qui va servir à gérer notre projet, il a été décidé d'utiliser la méthode *SCRUM*.
 
-Une particularité de Scrum est une gestion très légère. L’art de *Scrum* insiste sur la bonne conduite des réunions (*srpint*), qui vont rythmer le projet.
+Une particularité de Scrum est une gestion très légère. L’art de *Scrum* insiste sur la bonne conduite des réunions (*sprint*), qui vont rythmer le projet.
 
 Lien SRCUM: http://www.agiliste.fr/Home/bien-demarrer-avec-scrum
 
