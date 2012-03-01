@@ -1,3 +1,5 @@
+<wiki:toc />
+
 = Le Projet =
 == Cahier des Charges ==
 
