@@ -1,7 +1,5 @@
 # Mise à l'écrit des décisions du Jeudi 1er Mars 2012.
 
-#sidebar Sprint1
-
 = Le Projet =
 == Cahier des Charges ==
 
