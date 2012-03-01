@@ -1,5 +1,3 @@
-# Mise à l'écrit des décisions du Jeudi 1er Mars 2012.
-
 = Le Projet =
 == Cahier des Charges ==
 
