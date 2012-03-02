@@ -20,14 +20,14 @@ Avant de commencer à coder, il est nécessaire de mettre à l'écrit toutes les
 
 ===Expression des besoins non fonctionnels=== 
 
-* Langage: Java
-* Effet: 3D isométrique
-* Logiciel pour modeler des images 3D : Bendler ou SolidWorks
-* Librairie graphique: OpenGL
-* IDE: NetBeans
-* Sauvegarde: Base de données MySQL ou fichiers XML MySQL Workbench pour le schéma de la base de données SQLyog pour gestion de la base de données (à voir)
-* UML: Enterprise Architect
-* Gestion de versions: Subversion
+ * Langage: Java
+ * Effet: 3D isométrique
+ * Logiciel pour modeler des images 3D : Bendler ou SolidWorks
+ * Librairie graphique: OpenGL
+ * IDE: NetBeans
+ * Sauvegarde: Base de données MySQL ou fichiers XML MySQL Workbench pour le schéma de la base de données SQLyog pour gestion de la base de données (à voir)
+ * UML: Enterprise Architect
+ * Gestion de versions: Subversion
  
 
 == SCRUM ==
