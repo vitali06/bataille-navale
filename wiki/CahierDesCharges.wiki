@@ -8,6 +8,12 @@ Avant de commencer à coder, il est nécessaire de mettre à l'écrit toutes les
 ||*Nom*||*Description*||*Priorité*||
 ||Placement des navires||L'utilisateur pourra placer ses navires sur la carte lui étant destinée||Essentielle||
 ||Rotation des navires||Après avoir placé ses navires sur la carte, l'utilisateur pourra, s'il le souhaite, effectuer une rotation sur ces derniers||Essentielle||
+||Validation||Après avoir placé ses navires, l'utilisateur devra cliquer sur un bouton afin de valider sa carte et ses placements||Essentielle||
+||Coordonnées de tir||L'utilisateur pourra choisir sur quelle case de la carte de l'adversaire il voudra tirer afin de toucher ou non un navire appartenant au joueur adverse||
+||Message retour||Après avoir tiré sur la carte de l'adversaire, un message indiquera au joueur si un des navires adverses a été touché, coulé ou si au contraire il a tiré dans le vide. Le message sera aussi affiché pour le joueur adverse||Essentielle||
+||Chat||Les deux joueurs pourront s'ils le désirent, chater ensemble||Complémentaire||
+||Configuration de la partie||Le joueur peut configurer la partie en y ajoutant des navires, en agrandissant la taille de la carte ou en jouant dans un temps limité||Complémentaire||
+  
 
 
 == SCRUM ==
