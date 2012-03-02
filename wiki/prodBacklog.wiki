@@ -14,4 +14,17 @@ Cette liste pourra être modifiée et complétée tout au long du projet, c'est 
 
 == Estimations ==
 
+L'ensemble des fonctionnalités de la liste seront estimées par les membres du projet (Les fonctionnalités pourront faire lieu à une _Histoire_ _d'utilisateur_). sachant que nous sommes une équipe nouvelle (nous n'avons pas forcement l'habitude de travailler ensemble et ne connaissons pas notre débit de travail) nous ne sommes pas capable dans l'immédiat de traiter l'estimation de temps. Ces estimations pourront être faites après avoir passé quelques sprints et permettront d'obtenir la charge totale du projet.
+
+
 == Démarrage ==
+
+Nous avons commencé le projet par le *sprint0* qui correspond aux points suivants :
+ * Méthode agile à utiliser
+ * Préparation des environnements
+ * Mise en place de l'intégration continue
+ * Définition de l'architecture générale du projet 
+  * Exigences fonctionnelles et non fonctionnelles
+ * Premières tâches des membre de l'équipe
+
+Par la suite nous avons déterminé la durée d'un Sprint (Une durée à laquelle tous les membres devront s'y tenir).
