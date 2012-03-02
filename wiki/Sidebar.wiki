@@ -1,6 +1,12 @@
 == Index ==
 [CahierDesCharges  Main Page]<br />
-[pbacklog Product Backlog]
+[prodBacklog Product Backlog]<br />
+[BurndownChart Burndown Chart]<br />
+[Sprints Les Sprints]<br />
+[Reunions Les Réunions]<br />
+[Avancement Avancement]
+[HistUtilisteur Histoire d'utilisateur]
+
 ----
 == Sprint ==
 
