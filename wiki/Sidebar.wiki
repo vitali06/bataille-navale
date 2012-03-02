@@ -4,7 +4,7 @@
 [BurndownChart Burndown Chart]<br />
 [Sprints Les Sprints]<br />
 [Reunions Les Réunions]<br />
-[Avancement Avancement]
+[Avancement Avancement]<br />
 [HistUtilisteur Histoire d'utilisateur]
 
 ----
