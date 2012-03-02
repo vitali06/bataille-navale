@@ -3,7 +3,7 @@
 
 Avant de commencer à coder, il est nécessaire de mettre à l'écrit toutes les décisions et idées qui ont puent être proposées lors de notre première réunion pour notre projet le Jeudi 1er Mars 2012.
 
-*Expression des besoins fonctionnels*
+===Expression des besoins fonctionnels===
 
 ||*Nom*||*Description*||*Priorité*||
 ||Placement des navires||L'utilisateur pourra placer ses navires sur la carte lui étant destinée||Essentielle||
@@ -18,8 +18,8 @@ Avant de commencer à coder, il est nécessaire de mettre à l'écrit toutes les
 ||Classement des scores||L'utilisateur pourra consulter ses meilleurs scores ainsi que ceux des autres joueurs. Selon le classement, le joueur peut obtenir des bonus||Complémentaire||
 ||Effets graphiques||Des effets seront réalisés lors de certains évènements (tir dans l'eau, navire qui brule etc.)||Secondaire||
 
-*Expression des besoins non fonctionnels*  
-
+===Expression des besoins non fonctionnels=== 
+Langage Java
 
 == SCRUM ==
 En ce qui concerne le choix de la méthode Agile qui va servir à gérer notre projet, il a été décidé d'utiliser la méthode *SCRUM*.
