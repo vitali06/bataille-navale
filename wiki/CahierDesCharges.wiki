@@ -3,6 +3,9 @@
 
 Avant de commencer à coder, il est nécessaire de mettre à l'écrit toutes les décisions et idées qui ont puent être proposées lors de notre première réunion pour notre projet le Jeudi 1er Mars 2012.
 
+||*Nom*||*Description*||*Priorité*||
+||Placement des navires||L'utilisateur pourra placer ses navires sur la carte lui étant destinée||Essentielle||
+
 
 == SCRUM ==
 En ce qui concerne le choix de la méthode Agile qui va servir à gérer notre projet, il a été décidé d'utiliser la méthode *SCRUM*.
