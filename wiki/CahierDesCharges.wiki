@@ -13,6 +13,10 @@ Avant de commencer à coder, il est nécessaire de mettre à l'écrit toutes les
 ||Message retour||Après avoir tiré sur la carte de l'adversaire, un message indiquera au joueur si un des navires adverses a été touché, coulé ou si au contraire il a tiré dans le vide. Le message sera aussi affiché pour le joueur adverse||Essentielle||
 ||Chat||Les deux joueurs pourront s'ils le désirent, chater ensemble||Complémentaire||
 ||Configuration de la partie||Le joueur peut configurer la partie en y ajoutant des navires, en agrandissant la taille de la carte ou en jouant dans un temps limité||Complémentaire||
+||Bonus||Des bonus pourront être gagnés au fil de la partie (missiles attaquant une plus grande zone de la carte lorsque le joueur a réussi à toucher un navire au premier coup par exemple)||Complémentaire||
+||Intelligence artificielle||L'utilisateur aura le choix de jouer contre l'ordinateur ou contre le réseau||Complémentaire||
+||Classement des scores||L'utilisateur pourra consulter ses meilleurs scores ainsi que ceux des autres joueurs. Selon le classement, le joueur peut obtenir des bonus||Complémentaire||
+||Effets graphiques||Des effets seront réalisés lors de certains évènements (tir dans l'eau, navire qui brule etc.)||Secondaire||
   
 
 
