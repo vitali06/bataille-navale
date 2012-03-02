@@ -31,20 +31,7 @@ Avant de commencer à coder, il est nécessaire de mettre à l'écrit toutes les
  * UML: Enterprise Architect
  * Gestion de versions: Subversion
  
-
-== SCRUM ==
-En ce qui concerne le choix de la méthode Agile qui va servir à gérer notre projet, il a été décidé d'utiliser la méthode *SCRUM*.
-
-Une particularité de Scrum est une gestion très légère. L’art de *Scrum* insiste sur la bonne conduite des réunions (*sprint*), qui vont rythmer le projet.
-
-<img src="https://bataille-navale.googlecode.com/svn/wiki/img/agile_org.jpg" align="middle"/>
-
-Lien SRCUM: http://www.agiliste.fr/Home/bien-demarrer-avec-scrum
-
-== Serveur de sauvegarde ==
-Pour ce qui concerne la mise en commun et sauvegarde du projet en ligne, il a été décidé d'utiliser Google Code qui va nous permettre d'utiliser le logiciel de gestion de version *Subversion*.
-
-== Langage ==
+==== Langage ====
 Dès le début de l'exposition ds projets, notre équipe a décidé de mener ce projet à terme en utilisant le langage de programmation JAVA pour plusieurs raisons :
   * Connaissances du langage
   * Multi-Plateformes (Compatibilité)
@@ -57,3 +44,15 @@ Liens pour apprendre à utiliser OpenGL :
   * http://info-rital.developpez.com/tutoriel/java/opengl/opengl1/#L2-3
   * http://www.siteduzero.com/tutoriel-3-90674-presentation-de-bibliotheque-sdl-en-java.html
   * http://www.siteduzero.com/tutoriel-3-5014-creez-des-programmes-en-3d-avec-opengl.html
+
+== SCRUM ==
+En ce qui concerne le choix de la méthode Agile qui va servir à gérer notre projet, il a été décidé d'utiliser la méthode *SCRUM*.
+
+Une particularité de Scrum est une gestion très légère. L’art de *Scrum* insiste sur la bonne conduite des réunions (*sprint*), qui vont rythmer le projet.
+
+<img src="https://bataille-navale.googlecode.com/svn/wiki/img/agile_org.jpg" align="middle"/>
+
+Lien SRCUM: http://www.agiliste.fr/Home/bien-demarrer-avec-scrum
+
+== Serveur de sauvegarde ==
+Pour ce qui concerne la mise en commun et sauvegarde du projet en ligne, il a été décidé d'utiliser Google Code qui va nous permettre d'utiliser le logiciel de gestion de version *Subversion*.
