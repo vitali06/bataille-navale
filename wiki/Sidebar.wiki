@@ -7,7 +7,7 @@
  [Avancement Avancement]<br />
  [HistUtilisteur Histoire d'utilisateur]<br />
 
- *[FAQ]
+ *FAQ
   * [openGL OpenGL]
 
 ----
