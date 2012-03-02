@@ -20,7 +20,7 @@ Avant de commencer à coder, il est nécessaire de mettre à l'écrit toutes les
 
 ===Expression des besoins non fonctionnels=== 
 
-Langage: Java
+Langage: Java <br />
 Effet: 3D isométrique
 Logiciel pour modeler des images 3D : Bendler ou SolidWorks
 Librairie graphique: OpenGL
