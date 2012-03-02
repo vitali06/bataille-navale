@@ -1,20 +1,20 @@
 == Index ==
-[CahierDesCharges  Main Page]<br />
-[prodBacklog Product Backlog]<br />
-[BurndownChart Burndown Chart]<br />
-[Sprints Les Sprints]<br />
-[Reunions Les Réunions]<br />
-[Avancement Avancement]<br />
-[HistUtilisteur Histoire d'utilisateur]<br />
+ [CahierDesCharges  Main Page]<br />
+ [prodBacklog Product Backlog]<br />
+ [BurndownChart Burndown Chart]<br />
+ [Sprints Les Sprints]<br />
+ [Reunions Les Réunions]<br />
+ [Avancement Avancement]<br />
+ [HistUtilisteur Histoire d'utilisateur]<br />
 
  *[FAQ]
-  * [oopenGL OpenGL]
+  * [openGL OpenGL]
 
 ----
 == Sprints ==
 
-[Sprint0 Sprint 0]<br />
-[Sprint1 Sprint 1]<br />
-[Sprint2 Sprint 2]<br />
-[Sprint3 Sprint 3]<br />
-[Sprint4 Sprint 4]<br />
+ [Sprint0 Sprint 0]<br />
+ [Sprint1 Sprint 1]<br />
+ [Sprint2 Sprint 2]<br />
+ [Sprint3 Sprint 3]<br />
+ [Sprint4 Sprint 4]<br />
