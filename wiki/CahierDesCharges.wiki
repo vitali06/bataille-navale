@@ -3,8 +3,11 @@
 
 Avant de commencer à coder, il est nécessaire de mettre à l'écrit toutes les décisions et idées qui ont puent être proposées lors de notre première réunion pour notre projet le Jeudi 1er Mars 2012.
 
+*Expression des besoins fonctionnels*
+
 ||*Nom*||*Description*||*Priorité*||
 ||Placement des navires||L'utilisateur pourra placer ses navires sur la carte lui étant destinée||Essentielle||
+||Rotation des navires||Après avoir placé ses navires sur la carte, l'utilisateur pourra, s'il le souhaite, effectuer une rotation sur ces derniers||Essentielle||
 
 
 == SCRUM ==
