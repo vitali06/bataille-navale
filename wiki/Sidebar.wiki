@@ -5,10 +5,13 @@
 [Sprints Les Sprints]<br />
 [Reunions Les Réunions]<br />
 [Avancement Avancement]<br />
-[HistUtilisteur Histoire d'utilisateur]
+[HistUtilisteur Histoire d'utilisateur]<br />
+
+ *[faq FAQ]
+  * [oopenGL OpenGL]
 
 ----
-== Sprint ==
+== Sprints ==
 
 [Sprint0 Sprint 0]<br />
 [Sprint1 Sprint 1]<br />
