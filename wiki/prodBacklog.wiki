@@ -1,6 +1,14 @@
 = Vision du Projet et Product Backlog =
 
+La vision du projet pour tout les membres de l'équipe est primordial pour que tous les membres partent du même avis et ont la même vision du projet pour un développement cohérent. Cela inclus :
+ * Objectifs
+ * Jalons
+ * Résultat voulu
+ * etc.
+
+Une fois la vision commune avec toutes les personnes en rapport avec le projet il sera possible d'établir la liste des principales fonctionnalités, 
+
+
 == Estimations ==
 
 == Démarrage ==
-
