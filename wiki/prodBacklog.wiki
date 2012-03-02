@@ -25,6 +25,6 @@ Nous avons commencé le projet par le *sprint0* qui correspond aux points suivan
  * Mise en place de l'intégration continue
  * Définition de l'architecture générale du projet 
   * Exigences fonctionnelles et non fonctionnelles
- * Premières tâches des membre de l'équipe
+ * Premières tâches des membres de l'équipe
 
 Par la suite nous avons déterminé la durée d'un Sprint (Une durée à laquelle tous les membres devront s'y tenir).
