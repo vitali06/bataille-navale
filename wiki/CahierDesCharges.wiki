@@ -19,7 +19,18 @@ Avant de commencer à coder, il est nécessaire de mettre à l'écrit toutes les
 ||Effets graphiques||Des effets seront réalisés lors de certains évènements (tir dans l'eau, navire qui brule etc.)||Secondaire||
 
 ===Expression des besoins non fonctionnels=== 
-Langage Java
+
+Langage: Java
+Effet: 3D isométrique
+Logiciel pour modeler des images 3D : Bendler ou SolidWorks
+Librairie graphique: OpenGL
+IDE: NetBeans
+Sauvegarde: Base de données MySQL ou fichiers XML
+MySQL Workbench pour le schéma de la base de données
+SQLyog pour gestion de la base de données (à voir)
+UML: Enterprise Architect
+Gestion de versions: Subversion 
+ 
 
 == SCRUM ==
 En ce qui concerne le choix de la méthode Agile qui va servir à gérer notre projet, il a été décidé d'utiliser la méthode *SCRUM*.
