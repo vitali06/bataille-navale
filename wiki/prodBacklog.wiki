@@ -6,7 +6,8 @@ La vision du projet pour tout les membres de l'équipe est primordial pour que t
  * Résultat voulu
  * etc.
 
-Une fois la vision commune avec toutes les personnes en rapport avec le projet il sera possible d'établir la liste des principales fonctionnalités, 
+Une fois que tous les membres du projet disposent de la même *vision*, il sera possible d'établir la liste des principales _fonctionnalités_, *prioriser* cette liste de fonctionnalités (La priorité d'une fonctionnalité peut être effectuée avec un niveau d'importance _Élevé_, _Moyen_,_Bas_) et implémenter cette liste.
+Cette liste pourra être modifiée et complétée tout au long du projet, c'est elle qui constitue le "*Product Backlog*"
 
 
 == Estimations ==
