@@ -13,6 +13,7 @@ Tableau des itérations :
 || *Tâche* || *Propriétaire* || *02/03/2012* || *03/03/2012* ||
 || Google Code Wiki (Méthode et bases du Wiki) || Laurent || 2 || 3 ||
 || Cahier des charges || Mélissa || 2 || ||
+||  || *TOTAL* || 4 || 3 ||
 
 
 Le tableau ne fourni que les titres des tâches à effectuer, pour disposer de plus de détails il faudra regarder dans les différents sprints.
