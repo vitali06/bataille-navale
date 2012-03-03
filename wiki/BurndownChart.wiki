@@ -16,5 +16,3 @@ Tableau des itérations :
 
 
 Le tableau ne fourni que les titres des tâches à effectuer, pour disposer de plus de détails il faudra regarder dans les différents sprints.
-
-<img src="http://chart.apis.google.com/chart?cht=p3&chs=450x200&chd=t:2,4,3,1&chl=Phones|Computers|Services|Other&chtt=Company%20Sales&chco=ff0000" />
