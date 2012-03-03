@@ -1,0 +1,20 @@
+= Burndown Chart =
+
+Appelé aussi : *Graphique d'avancement*
+
+Ce graphique permet de voir facilement l'état d'avancement d'une itération (sprint).
+
+Il sera possible de voir la personne propriétaire du Sprint et le temps passé dessus par jour. Les chiffres correspondent au nombre d'heures de travail restant sur chaque jour de l'itération.
+
+Le but du graphique est de montrer une courbe décroissante constante. Il peut arriver qu'une petite augmentation ponctuelle apparaisse pour différentes raisons qui seront spécifiées à chaque réunion de fin de sprint.
+
+Tableau des itérations :
+
+|| *Tâche* || *Propriétaire* || *02/03/2012* || *03/03/2012* ||
+|| Google Code Wiki (Méthode et bases du Wiki) || Laurent || 2 || 3 ||
+|| Cahier des charges || Mélissa || 2 || ||
+
+
+Le tableau ne fourni que les titres des tâches à effectuer, pour disposer de plus de détails il faudra regarder dans les différents sprints.
+
+<img src="http://chart.apis.google.com/chart?cht=p3&chs=450x200&chd=t:2,4,3,1&chl=Phones|Computers|Services|Other&chtt=Company%20Sales&chco=ff0000" />
