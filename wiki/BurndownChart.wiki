@@ -17,3 +17,5 @@ Tableau des itérations :
 
 
 Le tableau ne fourni que les titres des tâches à effectuer, pour disposer de plus de détails il faudra regarder dans les différents sprints.
+
+<wiki:gadget url="http://www.google.com/ig/modules/line-chart.xml" up__table_query_url="http://spreadsheets.google.com/spreadsheet/tq?range=A1%3AE12&key=0AqluivbqEsgydEViU1plYi1FZEtIaFNudnFkckxFZ1E&gid=3&headers=-1" height="210" width="350" border="1" title="Diagramme" />
