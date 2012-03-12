@@ -1,6 +1,6 @@
 = Sprint 1 =
 
-Date : 06 Mars 2012
+<img src="https://bataille-navale.googlecode.com/svn/wiki/img/calendarIcone.jpg" width="25px" height="30px" align="left" /> 06 Mars 2012
 
 Le premier sprint va permettre de donner un premier aperçu à tout les membres de l'équipe pour pouvoir mieux évaluer la charge de travail et pouvoir donner des premières estimations de temps pour mettre en place les différents planning et diagramme de Gantt.
 
