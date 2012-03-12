@@ -1,5 +1,8 @@
 = Sprint 0 =
 
+<img src="https://bataille-navale.googlecode.com/svn/wiki/img/calendarIcone.jpg" width="25px" height="30px" align="left" />1 Mars 2012
+
+
 Le Sprint0 à pour but de faire les premières préparations pour mener à bien le projet. Ce Sprint à eu lieu lors de la première session de TP Projet à l'ITII ou tous les membres de l'équipe était présent et ont donné leur avis et proposition sur le déroulement du projet.
 
 == Méthode Agile ==
