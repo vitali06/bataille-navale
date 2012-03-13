@@ -1,0 +1,5 @@
+= libgdx JAVA =
+
+Une alternative beaucoup plus performante et fonctionnel que je recommande est libgdx pour java
+
+http://code.google.com/p/libgdx/wiki/MyFirstTriangle
