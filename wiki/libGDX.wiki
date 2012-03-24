@@ -1,5 +1,11 @@
 = libgdx JAVA =
 
-Une alternative beaucoup plus performante et fonctionnel que je recommande est libgdx pour java
+Ligdx est une bibliothèque qui va nous permettre de faire un jeux réactif et nous laisser d'énormes possibilités graphique.
 
-http://code.google.com/p/libgdx/wiki/MyFirstTriangle
+
+Voici des liens sur une documentation et des exemples d'utilisation :
+ * http://libgdx.badlogicgames.com/
+ * http://libgdx.l33tlabs.org/docs/api/
+ * http://code.google.com/p/libgdx/
+
+Le dernier lien est surement l'un des plus complet pour la mise en oeuvre de LibGDX ainsi qu'un nombre formidable d'exemple d'utilisation.
