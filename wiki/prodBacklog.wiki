@@ -13,7 +13,7 @@ Cette liste pourra être modifiée et complétée tout au long du projet, c'est 
 
 Notre *Product Blacklog* est disponible sur l'onglet _Issues_ au format _Grid_.
 Pour disposer du même affichage il faut :
- * Rows = Story
+ * Rows = Package
  * Cols = Status
 
 == Estimations ==
