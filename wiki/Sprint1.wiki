@@ -8,8 +8,8 @@ Le premier sprint va permettre de donner un premier aperçu à tout les membres 
 Pour des raisons d'homogénéité des sources il a été décidé d'utiliser l'IDE Netbeans pour mener le projet.
 NetBeans est un outil de développement complet et gratuit qui nous permettra de travail dans des conditions assez convenables.
 
-== OpenGL ==
-Lors de ce premier sprint il est nécessaire que tout les membre de l'équipe ce familiarise avec la librairie OpenGL pour pouvoir développer ce projet JAVA.
+== libGDX ==
+Lors de ce premier sprint il est nécessaire que tout les membre de l'équipe ce familiarise avec la librairie libGDX pour pouvoir développer ce projet JAVA.
 
 == Tâches Sprint 1 ==
 Pour ce premier Sprint, chaque membre de l'équipe c'est vu attribué leur première tâche :
@@ -23,4 +23,4 @@ Pour ce premier Sprint, chaque membre de l'équipe c'est vu attribué leur premi
   * Récupérer les coordonnées du curseur
   * Arrondir la valeur du curseur au Pressed ou au Drag
   * Changer de curseur
-  * Gérer les différents événements du curseur avec OpenGL
+  * Gérer les différents événements du curseur avec libGDX
