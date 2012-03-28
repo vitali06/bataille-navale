@@ -11,6 +11,7 @@
   * [openGL OpenGL]
   * [libGDX libGDX]
    * [libGDX3D Vue isométrique]
+   * [Sprites Les Sprites]
 <br />
 ----
 == Sprints ==
