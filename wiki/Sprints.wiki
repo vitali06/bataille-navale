@@ -10,4 +10,4 @@ C'est pour cela que nous avons décidés de faire deux types de sprints hebdomad
 
 Pourquoi avoir choisi de gérer des sprints hebdomadaire et pas plus long? Il s'agit d'un petit projet et nous ne connaissons pas encore notre capacité de travail. Alors pour garder un rythme de travail assez soutenu, nous faisons des sprints très courts qui vont permettre de découvrir le langage JAVA avec chaque fonctionnalités que peut nous apporter ce langage ainsi que les Librairies complémentaires.
 
-<img src="https://bataille-navale.googlecode.com/svn/wiki/img/Sprints/Capacite_a_faire.jpg" />
+<img src="https://bataille-navale.googlecode.com/svn/wiki/img/Sprints/Capacite_bttc.png" />
