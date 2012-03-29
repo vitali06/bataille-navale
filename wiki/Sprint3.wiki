@@ -19,4 +19,4 @@
    * Image de fond, etc.
  # *Laurent* : Début d'animation
   * Créer une animation
-  * Créer une classe permettant de créer une animation en ne renseignant que quelques argument (path images, width, height, etc.)
+  * Créer une classe permettant de créer une animation en ne renseignant un minimum d'arguments (path images, width, height, etc.)
