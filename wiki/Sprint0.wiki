@@ -18,6 +18,23 @@ Le cahier des charges est quand à lui aussi le point le plus important. C'est c
 
 == Environnement ==
 
-== Architecture ==
+Environnement répond à plusieurs besoins au sein même du projet.
+Le premier étant quel *langage* utiliser? Dans notre cas le *JAVA*.
+Une fois le langage choisi, il est possible de choisir une *plate-forme* (*IDE*) de développement commun à tous les développeur faisant partie du projet. Dans notre cas nous avons choisi d'utiliser *NetBeans*.
+Et enfin, quel logiciel utiliser pour gérer notre *historique* de code sur le serveur. Dans notre cas nous avons choisi *Subversion*
 
 == Tâches Sprint 0 ==
+
+ # *Alexis* : Diagrammes
+  * Création de tous les graphiques 
+   * Use case
+   * Diagramme d'activité
+   * Diagramme de classe
+ # *Mélissa* : Cahier des charges
+  * Dressement du cahier des charges du projet
+ # *Laurent* : Wiki
+  * Mise en place de Google Code
+  * Gestion des bases de l'affichage du Wiki
+   * Menu
+   * Disposition des pages et images
+   * Contenu des pages
