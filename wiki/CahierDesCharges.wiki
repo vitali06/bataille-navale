@@ -18,7 +18,7 @@ Avant de commencer à coder, il est nécessaire de mettre à l'écrit toutes les
 ||Classement des scores||L'utilisateur pourra consulter ses meilleurs scores ainsi que ceux des autres joueurs. Selon le classement, le joueur peut obtenir des bonus||Complémentaire||
 ||Effets graphiques||Des effets seront réalisés lors de certains évènements (tir dans l'eau, navire qui brule etc.)||Secondaire||
 
-===Expression des besoins non fonctionnels=== 
+=== Expression des besoins non fonctionnels === 
 
  * Langage: Java
  * Effet: 3D isométrique
@@ -37,13 +37,15 @@ Dès le début de l'exposition ds projets, notre équipe a décidé de mener ce 
   * Multi-Plateformes (Compatibilité)
   * Documentation disponible
   * etc.
+<table border="0" align="center">
+<tr>
+<td>
+<wiki:gadget url="http://www.ohloh.net/p/596582/widgets/project_languages.xml" border="0" width="400" height="200"/>
+</td>
+</tr>
+</table>
 
-En ce qui concerne la partie interface, puisqu'il s'agit de faire une interface la plus fluide et propre possible avec une vue 3D Isométrique il a été décidé d'utiliser la Librairie de OpenGL pour répondre aux besoins graphiques.
-
-Liens pour apprendre à utiliser OpenGL :
-  * http://info-rital.developpez.com/tutoriel/java/opengl/opengl1/#L2-3
-  * http://www.siteduzero.com/tutoriel-3-90674-presentation-de-bibliotheque-sdl-en-java.html
-  * http://www.siteduzero.com/tutoriel-3-5014-creez-des-programmes-en-3d-avec-opengl.html
+En ce qui concerne la partie interface, puisqu'il s'agit de faire une interface la plus fluide et propre possible avec une vue 3D Isométrique il a été décidé d'utiliser la Librairie de libGDX pour répondre aux besoins graphiques.
 
 ==== Serveur de sauvegarde ====
 Pour ce qui concerne la mise en commun et sauvegarde du projet en ligne, il a été décidé d'utiliser Google Code qui va nous permettre d'utiliser le logiciel de gestion de version *Subversion*.
