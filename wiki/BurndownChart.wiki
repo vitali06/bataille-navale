@@ -8,14 +8,15 @@ Il sera possible de voir la personne propriétaire du Sprint et le temps passé 
 
 Le but du graphique est de montrer une courbe décroissante constante. Il peut arriver qu'une petite augmentation ponctuelle apparaisse pour différentes raisons qui seront spécifiées à chaque réunion de fin de sprint.
 
-Tableau des itérations :
+<br />
 
-|| *Tâche* || *Propriétaire* || *02/03/2012* || *03/03/2012* ||
-|| Google Code Wiki (Méthode et bases du Wiki) || Laurent || 2 || 3 ||
-|| Cahier des charges || Mélissa || 2 || ||
-||  || *TOTAL* || 4 || 3 ||
-
-
-Le tableau ne fourni que les titres des tâches à effectuer, pour disposer de plus de détails il faudra regarder dans les différents sprints.
-
-<wiki:gadget url="http://www.google.com/ig/modules/line-chart.xml" up__table_query_url="http://spreadsheets.google.com/spreadsheet/tq?range=A1%3AE12&key=0AqluivbqEsgydEViU1plYi1FZEtIaFNudnFkckxFZ1E&gid=3&headers=-1" height="210" width="350" border="1" title="Diagramme" />
+<table border="0" align="center">
+<tr>
+<td>
+<wiki:gadget url="http://www.ohloh.net/p/596582/widgets/project_basic_stats.xml" height="220" width="350" border="0"/>
+</td>
+<td>
+<wiki:gadget url="http://www.ohloh.net/p/596582/widgets/project_factoids.xml" height="160" width="350" border="0"/>
+</td>
+</tr>
+</table>
