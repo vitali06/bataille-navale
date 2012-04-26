@@ -4,6 +4,7 @@
  * Alexis Dörr - Mélissa Weissmuller - Laurent Sittler
  */
 package com.bataillenavale.input.gdx;
+
 import com.bataillenavale.input.Input;
 import org.lwjgl.input.Mouse;
 
@@ -15,7 +16,7 @@ public class InputGDX implements Input{
 
     @Override
     public void update() {
-       System.out.println("Input run");
+       // System.out.println("Input run");
        
        if(Mouse.isCreated()){
            // Gestion de la souris

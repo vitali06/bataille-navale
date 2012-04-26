@@ -9,9 +9,8 @@ package com.bataillenavale.scene;
  * 
  * @author Alexis, Mélissa, Laurent
  */
-public interface Scene {
+public interface SceneModel {
     public void init();
     public void update();
     public void destroy();
-    public boolean getFps();
 }

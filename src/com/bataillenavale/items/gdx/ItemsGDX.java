@@ -15,7 +15,7 @@ public class ItemsGDX implements Items{
 
     @Override
     public void update() {
-        System.out.println("Item run");
+        // System.out.println("Item run");
     }
     
 }

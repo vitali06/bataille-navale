@@ -15,7 +15,7 @@ public class SoundGDX implements Sound{
 
     @Override
     public void update() {
-        System.out.println("Sound run");
+        // System.out.println("Sound run");
     }
     
 }

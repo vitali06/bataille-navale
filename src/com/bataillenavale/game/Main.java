@@ -5,6 +5,7 @@
  */
 package com.bataillenavale.game;
 
+import com.bataillenavale.scene.content.SceneModelGDX;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -21,10 +22,18 @@ public class Main {
      */
     public static void main(String[] args) {
         
-        Singleton.getGraphic().init(800, 600, "BattleShip", false);
+        Singleton.getGraphic().init(800, 600, "Bataille Navale - Game", false);
+        
+        while(!Singleton.getGraphic().isInit()){
+            try {
+                Thread.sleep(10);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
         
         while(true){
-            try {
+           try {
                 Singleton.getGraphic().update();
                 Singleton.getInput().update();
                 Singleton.getItems().update();
