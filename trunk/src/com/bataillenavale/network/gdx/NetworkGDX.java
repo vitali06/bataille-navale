@@ -15,7 +15,7 @@ public class NetworkGDX implements Network {
 
     @Override
     public void update() {
-        System.out.println("Network run");
+        // System.out.println("Network run");
     }
     
 }

@@ -13,7 +13,7 @@ public class IntelligenceArtificielle implements AIInterface{
 
     @Override
     public void update() {
-        System.out.println("AI run");
+        // System.out.println("AI run");
     }
     
 }
