@@ -15,13 +15,13 @@ import java.util.logging.Logger;
  *
  * @author Alexis, Mélissa, Laurent
  */
-public class MenuScene implements Scene {
+public class MainMenuScene implements Scene {
 
     private boolean m_init;
     private boolean m_fps;    
     private Table table;
 
-    public MenuScene(boolean _fps) {        
+    public MainMenuScene(boolean _fps) {        
         m_fps = _fps;
         m_init = false;
     }
@@ -29,11 +29,11 @@ public class MenuScene implements Scene {
     @Override
     public void init() {
         if (!m_init) {
-            System.out.println("Menu Scene (Init)");
+            System.out.println("Main Menu Scene (Init)");
             try {
-                Singleton.getGraphic().loadSprites("config/menu.xml");
+                Singleton.getGraphic().loadSprites("config/mainMenu.xml");
             } catch (Exception ex) {
-                Logger.getLogger(MenuScene.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(MainMenuScene.class.getName()).log(Level.SEVERE, null, ex);
             }
             m_init = true;
         }
@@ -43,7 +43,7 @@ public class MenuScene implements Scene {
     @Override
     public void update() {
         if (m_init) {            
-            System.out.println("MenuScene update");
+            System.out.println("MainMenuScene update");
         }
     }
 

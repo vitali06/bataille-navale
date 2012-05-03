@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<menus>
+<mainMenu>
 	<menu name="Jouer" path="data/menus/play.png"  width="212" height="76" posX="0" posY="0" spriteX="0" spriteY="0" frame="1" />
-</menus>
+</mainMenu>
