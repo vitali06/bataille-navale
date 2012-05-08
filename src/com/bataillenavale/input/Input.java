@@ -6,9 +6,24 @@
 package com.bataillenavale.input;
 
 /**
- * Interface Input
+ * Input Interface
+ * 
  * @author Alexis, Mélissa, Laurent
  */
 public interface Input {
+    
+    /**
+     * Initialize input components
+     */
+    public void init();
+    
+    /**
+     * Update input components
+     */
     public abstract void update();
+    
+    /**
+     * Destroy input components
+     */
+    public abstract void destroy();
 }

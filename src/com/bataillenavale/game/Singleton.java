@@ -22,10 +22,12 @@ import com.bataillenavale.sounds.gdx.SoundGDX;
 
 /**
  * Singleton factory
+ * 
  * @author Alexis, Mélissa, Laurent
  */
 public class Singleton {
     
+    /// Attributes
     private static Graphic m_graphic = null;
     private static Input m_input = null;
     private static Items m_items = null;
@@ -35,7 +37,7 @@ public class Singleton {
     private static SceneModel m_sceneModel = null;
     
     /**
-     * @return 
+     * @return the Graphic component singleton
      */
     public static Graphic getGraphic(){
         if (m_graphic == null){
@@ -45,7 +47,7 @@ public class Singleton {
     }
     
     /**
-     * @return 
+     * @return the Input component singleton
      */
     public static Input getInput(){
         if (m_input == null){
@@ -55,7 +57,7 @@ public class Singleton {
     }
     
     /**
-     * @return 
+     * @return the Items components singleton
      */
     public static Items getItems(){
         if (m_items == null){
@@ -65,7 +67,7 @@ public class Singleton {
     }
     
     /**
-     * @return 
+     * @return the Sound component singleton
      */
     public static Sound getSound(){
         if (m_sound == null){
@@ -75,7 +77,7 @@ public class Singleton {
     }
     
     /**
-     * @return 
+     * @return the Artificial Intelligence component singleton
      */
     public static AIInterface getAI(){
         if (m_ai == null){
@@ -85,7 +87,7 @@ public class Singleton {
     }
     
     /**
-     * @return Network
+     * @return the Network component singleton
      */
     public static Network getNetwork(){
         if (m_network == null){
@@ -96,7 +98,7 @@ public class Singleton {
     
     /**
      * 
-     * @return SceneModel
+     * @return the SceneModel singleton
      */
     public static SceneModel getSceneModel(){
         if (m_sceneModel == null){

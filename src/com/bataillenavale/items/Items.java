@@ -6,9 +6,14 @@
 package com.bataillenavale.items;
 
 /**
- * Interface Items
+ * Items Interface
+ * 
  * @author Alexis, Mélissa, Laurent
  */
 public interface Items {
+    
+    /**
+     * Update components
+     */
     public abstract void update();
 }
