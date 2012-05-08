@@ -5,12 +5,12 @@
  */
 package com.bataillenavale.game;
 
-import com.bataillenavale.scene.content.SceneModelGDX;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
  * Main Class
+ * 
  * @author Alexis, Mélissa, Laurent
  */
 public class Main {
@@ -22,8 +22,13 @@ public class Main {
      */
     public static void main(String[] args) {
         
+        // Graphic
         Singleton.getGraphic().init(800, 600, "Bataille Navale - Game", false);
         
+        // Input
+        Singleton.getInput().init();
+        
+        // Check Graphic run
         while(!Singleton.getGraphic().isInit()){
             try {
                 Thread.sleep(10);
@@ -32,8 +37,11 @@ public class Main {
             }
         }
         
+        // Singleton.getSceneModel().init();
+        
         while(true){
            try {
+                // Singleton.getSceneModel().update();
                 Singleton.getGraphic().update();
                 Singleton.getInput().update();
                 Singleton.getItems().update();

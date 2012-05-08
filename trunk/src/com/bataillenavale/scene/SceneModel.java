@@ -12,5 +12,6 @@ package com.bataillenavale.scene;
 public interface SceneModel {
     public void init();
     public void update();
+    public Scene getScene();
     public void destroy();
 }

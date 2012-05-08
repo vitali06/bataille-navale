@@ -5,55 +5,59 @@
  */
 package com.bataillenavale.scene.content;
 
-import com.badlogic.gdx.scenes.scene2d.ui.tablelayout.Table;
-import com.bataillenavale.game.Singleton;
 import com.bataillenavale.scene.Scene;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
- *
+ * Main Menu Scene
+ * 
  * @author Alexis, Mélissa, Laurent
  */
-public class MainMenuScene implements Scene {
+public class MainMenuScene implements Scene{
 
+    /// Attributes
     private boolean m_init;
-    private boolean m_fps;    
-    private Table table;
-
-    public MainMenuScene(boolean _fps) {        
-        m_fps = _fps;
-        m_init = false;
+    private boolean m_fps;
+    
+    /**
+     * Constructor
+     * @param _fps True if show fps 
+     */
+    public MainMenuScene(boolean _fps){
+        this.m_fps = _fps;
+        this.m_init = false;
     }
-
+    
+    /**
+     * @see Scene#init() 
+     */
     @Override
     public void init() {
-        if (!m_init) {
-            System.out.println("Main Menu Scene (Init)");
-            try {
-                Singleton.getGraphic().loadSprites("config/mainMenu.xml");
-            } catch (Exception ex) {
-                Logger.getLogger(MainMenuScene.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            m_init = true;
-        }
-
     }
 
+    /**
+     * @see Scene#update()
+     */
     @Override
     public void update() {
-        if (m_init) {            
-            System.out.println("MainMenuScene update");
-        }
     }
 
+    /**
+     * @see Scene#destroy()
+     */
     @Override
     public void destroy() {
-        Singleton.getGraphic().getGame().delAllActors();
+    }
+
+    /**
+     * @see Scene#getFps()
+     */
+    @Override
+    public boolean getFps() {
+        return this.m_fps;
     }
 
     @Override
-    public boolean getFps() {
-        return m_fps;
-    }
+    public boolean isInit() {
+        return this.m_init;
+    }    
 }

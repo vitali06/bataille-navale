@@ -6,9 +6,14 @@
 package com.bataillenavale.sounds;
 
 /**
- * Interface Sound
+ * Sound Interface
+ * 
  * @author Alexis, Mélissa, Laurent
  */
 public interface Sound {
+    
+    /**
+     * Update components
+     */
     public abstract void update();
 }

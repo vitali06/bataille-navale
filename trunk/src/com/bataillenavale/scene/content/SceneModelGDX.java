@@ -14,33 +14,46 @@ import com.bataillenavale.scene.SceneModel;
  */
 public class SceneModelGDX implements SceneModel{
 
+    /// Attributes
     private Scene m_scene;
-    private int m_count;
     private boolean m_init;
     
+    /**
+     * Constructor
+     */
     public SceneModelGDX(){
         m_init = false;
     }
 
+    /**
+     * @see SceneModel#init()
+     */
     @Override
     public void init(){
-        m_count = 0;
-        m_scene = new Splashsreen(false);
+        m_scene = new Splashscreen(false);
         m_scene.init();
+        this.m_init = true;
     }
     
+    /**
+     * @see SceneModel#update()
+     */
     @Override
     public void update(){
-        m_scene.update();
-        
-        m_count++;
-        if (m_count > 500){
-            m_scene.destroy();
-            m_scene = new Gamescene(true);
+        if (this.m_init){
+            m_scene.update();
         }
     }
 
+    /**
+     * @see SceneModel#destroy()
+     */
     @Override
     public void destroy() {
+    }
+
+    @Override
+    public Scene getScene() {
+        return this.m_scene;
     }
 }

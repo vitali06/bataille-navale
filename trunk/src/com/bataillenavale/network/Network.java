@@ -6,9 +6,14 @@
 package com.bataillenavale.network;
 
 /**
- * Interface Network
+ * Network Interface
+ * 
  * @author Alexis, Mélissa, Laurent
  */
 public interface Network {
+    
+    /**
+     * Update components
+     */
     public abstract void update();
 }

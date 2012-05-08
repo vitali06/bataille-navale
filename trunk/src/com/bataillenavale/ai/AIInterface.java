@@ -6,9 +6,14 @@
 package com.bataillenavale.ai;
 
 /**
- * Interface Artificiel Intelligence
+ * Artificial Intelligence Interface
+ * 
  * @author Alexis, Mélissa, Laurent
  */
 public interface AIInterface {
+    
+    /**
+     * Update AI components
+     */
     public abstract void update();
 }
