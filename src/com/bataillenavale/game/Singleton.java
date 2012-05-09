@@ -15,8 +15,6 @@ import com.bataillenavale.items.Items;
 import com.bataillenavale.items.gdx.ItemsGDX;
 import com.bataillenavale.network.Network;
 import com.bataillenavale.network.gdx.NetworkGDX;
-import com.bataillenavale.scene.SceneModel;
-import com.bataillenavale.scene.content.SceneModelGDX;
 import com.bataillenavale.sounds.Sound;
 import com.bataillenavale.sounds.gdx.SoundGDX;
 
@@ -34,7 +32,6 @@ public class Singleton {
     private static Sound m_sound = null;
     private static AIInterface m_ai = null;
     private static Network m_network = null;
-    private static SceneModel m_sceneModel = null;
     
     /**
      * @return the Graphic component singleton
@@ -94,16 +91,5 @@ public class Singleton {
             m_network = new NetworkGDX();
         }
         return m_network;
-    }
-    
-    /**
-     * 
-     * @return the SceneModel singleton
-     */
-    public static SceneModel getSceneModel(){
-        if (m_sceneModel == null){
-            m_sceneModel = new SceneModelGDX();
-        }
-        return m_sceneModel;
     }
 }

@@ -33,5 +33,15 @@ public interface Scene {
      */
     public boolean getFps();
     
+    /**
+     * Get if scene initialized
+     * @return True if initialized
+     */
     public boolean isInit();
+    
+    /**
+     * Next scene change
+     * @return Scene
+     */
+    public boolean newScene();
 }

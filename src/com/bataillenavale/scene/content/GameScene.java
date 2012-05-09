@@ -33,13 +33,10 @@ public class GameScene implements Scene {
      */
     @Override
     public void init() {
-        if (!this.m_init){
-            //if (Singleton.getGraphic().getGame().getGroup().getActors().isEmpty()){
-                System.out.println("Game Scene (init)");
-                System.out.println("(Init) Init Graphic Game : " + Singleton.getGraphic().isInit());
-                Singleton.getGraphic().createTextActor("NouveauTest", "Game Scene", 350, 200);
-                this.m_init = true;
-            //}
+        if (!this.m_init) {
+            System.out.println("Game Scene (init)");
+            Singleton.getGraphic().createTextActor("NouveauTest", "Game Scene", 350, 200);
+            this.m_init = true;
         }
     }
 
@@ -49,14 +46,7 @@ public class GameScene implements Scene {
     @Override
     public void update() {
         if (this.m_init){
-            //if ( this.i < 1){
-            System.out.println("GameScene Update");
-            // Singleton.getGraphic().createTextActor("Nouveau Test", "Game Scene", 350, 200);
-            System.out.println("(Update) Graphic Game : " + Singleton.getGraphic().isInit());
-            //}
-            //this.i++;
-            // System.out.println("GameScene Update " + this.i);
-            
+            //System.out.println("GameScene Update");
         }
     }
 
@@ -65,7 +55,10 @@ public class GameScene implements Scene {
      */
     @Override
     public void destroy() {
-        Singleton.getGraphic().getGame().delAllActors();
+        this.m_init = false;
+        Singleton.getGraphic().getActors().clear();
+        Singleton.getGraphic().getAnim().clear();
+        Singleton.getGraphic().getText().clear();
     }
 
     /**
@@ -76,8 +69,19 @@ public class GameScene implements Scene {
         return this.m_fps;
     }
     
+    /**
+     * @see Scene#isInit()
+     */
     @Override
     public boolean isInit(){
         return this.m_init;
+    }
+
+    /**
+     * @see Scene#newScene()
+     */
+    @Override
+    public boolean newScene() {
+        return false;
     }
 }

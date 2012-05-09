@@ -22,6 +22,7 @@ public class Splashscreen implements Scene{
     private int m_compteur;
     private int m_fondu;
     private boolean m_fps;
+    private boolean m_newScene;
     
     /**
      * Constructror
@@ -32,6 +33,7 @@ public class Splashscreen implements Scene{
         this.m_init = false;
         this.m_compteur = 0;
         this.m_fondu = 0;
+        this.m_newScene = false;
     }
     
     /**
@@ -68,7 +70,8 @@ public class Splashscreen implements Scene{
                 Singleton.getGraphic().setAlphaActor("Java", -this.m_compteur/2);
                 Singleton.getGraphic().setAlphaActor("LibGDX", -this.m_compteur/2);
             }
-            if (this.m_compteur > 500 && this.m_compteur < 900){
+            if (this.m_compteur > 
+                    500 && this.m_compteur < 900){
                 this.m_fondu++;
                 Singleton.getGraphic().setAlphaActor("Java", 0);
                 Singleton.getGraphic().setAlphaActor("LibGDX", 0);
@@ -84,9 +87,11 @@ public class Splashscreen implements Scene{
                 Singleton.getGraphic().setAlphaText("Test", this.m_fondu/2);
                 Singleton.getGraphic().setAlphaActor("Backgound Slpashsreen", this.m_fondu/2);
             }
+            // Changement de scene
             if (this.m_compteur == 1400){
-                // Avant il faut vérifier que tout les elements de la scene précedente soient détruits
-                Singleton.getGraphic().getGame().setScene(new GameScene(true));
+                this.m_init = false;
+                Singleton.getGraphic().getGame().getScreen().nextScene(new GameScene(true));
+                this.m_newScene = true;
             }
 
         }
@@ -98,28 +103,12 @@ public class Splashscreen implements Scene{
     @Override
     public void destroy() {
         this.m_init = false;
-        System.out.println("Avant suppression reste Actor : " + Singleton.getGraphic().getGame().getGroup().getActors().size());
-        System.out.println("Avant suppression reste HashMap Actor : " + Singleton.getGraphic().getActors().size());
-        System.out.println("Avant suppression reste HashMap Anim : " + Singleton.getGraphic().getAnim().size());
-        System.out.println("Avant suppression reste HashMap Text : " + Singleton.getGraphic().getText().size());
-        System.out.println("\nSuppression !\n");
-//        for (Actor a : Singleton.getGraphic().getActors().values()){
-//            Singleton.getGraphic().getGame().delActor(a);
-//        }
-//        for (Actor a : Singleton.getGraphic().getAnim().values()){
-//            Singleton.getGraphic().getGame().delActor(a);
-//        }
-//        for (Actor a : Singleton.getGraphic().getText().values()){
-//            Singleton.getGraphic().getGame().delActor(a);
-//        }
-        // Singleton.getGraphic().getGame().delAllActors();
-        System.out.println("Après suppression reste Actor : " + Singleton.getGraphic().getGame().getGroup().getActors().size());
         Singleton.getGraphic().getActors().clear();
-        System.out.println("Après suppression reste HashMap Actor : " + Singleton.getGraphic().getActors().size());
+        // System.out.println("Après suppression reste HashMap Actor : " + Singleton.getGraphic().getActors().size());
         Singleton.getGraphic().getAnim().clear();
-        System.out.println("Après suppression reste HashMap Anim : " + Singleton.getGraphic().getAnim().size());
+        // System.out.println("Après suppression reste HashMap Anim : " + Singleton.getGraphic().getAnim().size());
         Singleton.getGraphic().getText().clear();
-        System.out.println("Après suppression reste HashMap Text : " + Singleton.getGraphic().getText().size());
+        // System.out.println("Après suppression reste HashMap Text : " + Singleton.getGraphic().getText().size());
     }
     
     /**
@@ -129,25 +118,20 @@ public class Splashscreen implements Scene{
     public boolean getFps(){
         return this.m_fps;
     }
-    
-    /**
-     * Transition for to show Actor
-     * @param actor Actor name
-     * @param count Number actions
-     */
-    public void showActor(String actor, int count){
-    }
-    
-    /**
-     * Transition for to hide Actor
-     * @param actor Actor name
-     * @param count Number actions
-     */
-    public void hideActor(String actor, int count){
-    }
 
+    /**
+     * @see Scene#isInit() 
+     */
     @Override
     public boolean isInit() {
         return this.m_init;
+    }
+    
+    /**
+     * @see Scene#newScene()
+     */
+    @Override
+    public boolean newScene(){
+        return this.m_newScene;
     }
 }
