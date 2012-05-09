@@ -17,6 +17,7 @@ Avant de commencer à coder, il est nécessaire de mettre à l'écrit toutes les
 ||Intelligence artificielle||L'utilisateur aura le choix de jouer contre l'ordinateur ou contre le réseau||Complémentaire||
 ||Classement des scores||L'utilisateur pourra consulter ses meilleurs scores ainsi que ceux des autres joueurs. Selon le classement, le joueur peut obtenir des bonus||Complémentaire||
 ||Effets graphiques||Des effets seront réalisés lors de certains évènements (tir dans l'eau, navire qui brule etc.)||Secondaire||
+||Bruitages, musique||Effets sonores lors de certains évènements et musique d'ambiance||Confort||
 
 === Expression des besoins non fonctionnels === 
 
