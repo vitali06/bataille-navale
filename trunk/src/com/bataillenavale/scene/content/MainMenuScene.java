@@ -56,8 +56,19 @@ public class MainMenuScene implements Scene{
         return this.m_fps;
     }
 
+    /**
+     * @see Scene#isInit()
+     */
     @Override
     public boolean isInit() {
         return this.m_init;
-    }    
+    }
+
+    /**
+     * @see  Scene#newScene()
+     */
+    @Override
+    public boolean newScene() {
+        return false;
+    }
 }

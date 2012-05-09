@@ -28,7 +28,7 @@ import org.xml.sax.SAXException;
 public class GraphicGDX implements Graphic{
     
     /// Attributes
-    private AppGDX m_appGDX;
+    private GameGDX m_gameGDX;
     private LwjglApplication m_application;
     private boolean  m_init = false;
     private HashMap<String, ActorGDX> m_listActors;
@@ -47,8 +47,11 @@ public class GraphicGDX implements Graphic{
      */
     @Override
     public void update() {
-        if (this.m_appGDX.getInit()){
-            this.m_appGDX.getScene().update();
+        // if (this.m_appGDX.getInit()){
+        //    this.m_appGDX.getScene().update();
+        //}
+        if (this.m_gameGDX.getInit()){
+            this.m_gameGDX.getScene().update();
         }
     }
     
@@ -60,8 +63,8 @@ public class GraphicGDX implements Graphic{
         this.m_listActors = new HashMap<>();
         this.m_listAnim = new HashMap<>();
         this.m_listText = new HashMap<>();
-        this.m_appGDX = new AppGDX(conf.fullscreen);
-        this.m_application = new LwjglApplication(this.m_appGDX, conf);
+        this.m_gameGDX = new GameGDX(conf.fullscreen);
+        this.m_application = new LwjglApplication(this.m_gameGDX, conf);
         // System.out.print("Create Run termined!!!!");
     }
     
@@ -89,7 +92,7 @@ public class GraphicGDX implements Graphic{
     public void createSprite(String _name, String _path, float _posX, float _posY, int _width, int _height, int spriteX, int spriteY, int _frame) {
         ActorGDX actor = new ActorGDX(_name, _path, _posX, _posY, _width, _height, spriteX, spriteY, _frame);
         this.m_listActors.put(_name, actor);
-        this.m_appGDX.addActor(actor);
+        this.m_gameGDX.addActor(actor);
     }
     
     /**
@@ -99,7 +102,7 @@ public class GraphicGDX implements Graphic{
     public void createAnimation(String _name, String _path, float _posX, float _posY, int _width, int _height, int spriteX, int spriteY, int _frame){
         AnimationGDX anim = new AnimationGDX(_name, _path, _posX, _posY, _width, _height, spriteX, spriteY, _frame);
         this.m_listAnim.put(_name, anim);
-        this.m_appGDX.addActor(anim);
+        this.m_gameGDX.addActor(anim);
     }
     
     /**
@@ -109,7 +112,7 @@ public class GraphicGDX implements Graphic{
     public void createTextActor(String _name, String _content, float _posX, float _posY){
         TextGDX text = new TextGDX(_name, _content, _posX, _posY);
         this.m_listText.put(_name, text);
-        this.m_appGDX.addActor(text);
+        this.m_gameGDX.addActor(text);
     }
 
     /**
@@ -161,8 +164,8 @@ public class GraphicGDX implements Graphic{
      * @see Graphic#getGame()
      */
     @Override
-    public AppGDX getGame() {
-        return this.m_appGDX;
+    public GameGDX getGame() {
+        return this.m_gameGDX;
     }
     
     /**
@@ -203,16 +206,25 @@ public class GraphicGDX implements Graphic{
         }
     }
     
+    /**
+     * @see Graphic#getActors()  
+     */
     @Override
     public HashMap<String, ActorGDX> getActors(){
         return this.m_listActors;
     }
     
+    /**
+     * @see Graphic#getAnim() 
+     */
     @Override
     public HashMap<String, AnimationGDX> getAnim(){
         return this.m_listAnim;
     }
     
+    /**
+     * @see Graphic#getText()  
+     */
     @Override
     public HashMap<String, TextGDX> getText(){
         return this.m_listText;

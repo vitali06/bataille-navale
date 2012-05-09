@@ -7,7 +7,7 @@ package com.bataillenavale.graphic;
 
 import com.bataillenavale.graphic.gdx.ActorGDX;
 import com.bataillenavale.graphic.gdx.AnimationGDX;
-import com.bataillenavale.graphic.gdx.AppGDX;
+import com.bataillenavale.graphic.gdx.GameGDX;
 import com.bataillenavale.graphic.gdx.TextGDX;
 import java.io.IOException;
 import java.util.HashMap;
@@ -25,7 +25,8 @@ public interface Graphic {
      * Get current Game render
      * @return AppGDX Game
      */
-    public AppGDX getGame();
+    // public AppGDX getGame();
+    public GameGDX getGame();
     
     /**
      * Update all actors
@@ -119,9 +120,21 @@ public interface Graphic {
      */
     public void destroy();
     
+    /**
+     * Get HashMap Element ActorGDX
+     * @return HashMap ActorGDX
+     */
     public HashMap<String, ActorGDX> getActors();
     
+    /**
+     * Get HashMap Element AnimationGDX
+     * @return HashMap AnimationGDX
+     */
     public HashMap<String, AnimationGDX> getAnim();
     
+    /**
+     * Get HashMap Element TextGDX
+     * @return HashMap TextGDX
+     */
     public HashMap<String, TextGDX> getText();
 }

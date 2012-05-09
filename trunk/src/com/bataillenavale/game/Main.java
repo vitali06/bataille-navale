@@ -37,11 +37,8 @@ public class Main {
             }
         }
         
-        // Singleton.getSceneModel().init();
-        
         while(true){
            try {
-                // Singleton.getSceneModel().update();
                 Singleton.getGraphic().update();
                 Singleton.getInput().update();
                 Singleton.getItems().update();
