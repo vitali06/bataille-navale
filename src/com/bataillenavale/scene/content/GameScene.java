@@ -5,6 +5,7 @@
  */
 package com.bataillenavale.scene.content;
 
+import com.badlogic.gdx.math.Rectangle;
 import com.bataillenavale.game.Singleton;
 import com.bataillenavale.scene.Scene;
 
@@ -18,6 +19,7 @@ public class GameScene implements Scene {
     /// Attributes
     private boolean m_init;
     private boolean m_fps;
+    private Rectangle m_sizeGame;
     
     /**
      * Constructor
@@ -25,6 +27,7 @@ public class GameScene implements Scene {
      */
     public GameScene(boolean _fps){
         this.m_fps = _fps;
+        m_sizeGame = Singleton.getGraphic().getDimensions();
         this.m_init = false;
     }
     
@@ -35,7 +38,8 @@ public class GameScene implements Scene {
     public void init() {
         if (!this.m_init) {
             System.out.println("Game Scene (init)");
-            Singleton.getGraphic().createTextActor("NouveauTest", "Game Scene", 350, 200);
+            Singleton.getGraphic().createTextFont("NouveauTest", "{Game Scene}", 270, 50, "Ascent");
+            Singleton.getGraphic().setColorText("NouveauTest", 1.f, 0.f, 0.f);
             this.m_init = true;
         }
     }

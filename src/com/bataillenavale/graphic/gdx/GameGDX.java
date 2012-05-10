@@ -7,7 +7,6 @@ package com.bataillenavale.graphic.gdx;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.scenes.scene2d.Actor;
-import com.bataillenavale.Screen.gdx.ScreenGDX;
 import com.bataillenavale.scene.Scene;
 
 /**

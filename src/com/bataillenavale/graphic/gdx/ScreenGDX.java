@@ -3,7 +3,7 @@
  * http://code.google.com/p/bataille-navale/
  * Alexis Dörr - Mélissa Weissmuller - Laurent Sittler
  */
-package com.bataillenavale.Screen.gdx;
+package com.bataillenavale.graphic.gdx;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
@@ -138,6 +138,10 @@ public class ScreenGDX implements Screen {
      */
     public void nextScene(Scene scene){
         this.m_nextScene = scene;
+    }
+    
+    public Group getGroup(){
+        return this.m_group;
     }
     
     /**

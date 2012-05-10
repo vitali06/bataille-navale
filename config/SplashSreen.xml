@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <splashscreen>
 	<item name="Backgound Slpashsreen" path="data/sprites/SplashScreen_sprite.png" width="800" height="600" posX="0" posY="0" spriteX="0" spriteY="0" frame="1" />
-	<item name="Java" path="data/sprites/SplashScreen_sprite.png" width="64" height="64" posX="290" posY="310" spriteX="850" spriteY="0" frame="1" />
-	<!--<item name="LibGDX" path="data/sprites/SplashScreen_sprite.png" width="64" height="64" posX="720" posY="10" spriteX="850" spriteY="75" frame="1" />-->
-	<item name="LibGDX" path="data/sprites/SplashScreen_sprite.png" width="128" height="50" posX="400" posY="300" spriteX="850" spriteY="150" frame="1" />
+	<item name="Java" path="data/sprites/SplashScreen_sprite.png" width="64" height="64" posX="270" posY="310" spriteX="850" spriteY="0" frame="1" />
+	<item name="LibGDX" path="data/sprites/SplashScreen_sprite.png" width="128" height="50" posX="380" posY="300" spriteX="850" spriteY="150" frame="1" />
 	<item name="Animation" path="data/sprites/battleshipwr6.png" width="512" height="135" posX="10" posY="10" spriteX="0" spriteY="0" frame="4" />
 </splashscreen>
