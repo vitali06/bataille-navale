@@ -7,6 +7,8 @@ package com.bataillenavale.graphic.gdx;
 
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
+import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.bataillenavale.graphic.Graphic;
 import java.io.File;
 import java.io.IOException;
@@ -30,6 +32,7 @@ public class GraphicGDX implements Graphic{
     /// Attributes
     private GameGDX m_gameGDX;
     private LwjglApplication m_application;
+    private Rectangle m_gameDimensions;
     private boolean  m_init = false;
     private HashMap<String, ActorGDX> m_listActors;
     private HashMap<String, AnimationGDX> m_listAnim;
@@ -40,6 +43,7 @@ public class GraphicGDX implements Graphic{
      */
     public GraphicGDX(){
         super();
+        this.m_gameDimensions = new Rectangle();
     }
     
     /**
@@ -47,9 +51,6 @@ public class GraphicGDX implements Graphic{
      */
     @Override
     public void update() {
-        // if (this.m_appGDX.getInit()){
-        //    this.m_appGDX.getScene().update();
-        //}
         if (this.m_gameGDX.getInit()){
             this.m_gameGDX.getScene().update();
         }
@@ -76,13 +77,23 @@ public class GraphicGDX implements Graphic{
         LwjglApplicationConfiguration conf = new LwjglApplicationConfiguration();
         
         conf.width = _width;
+        this.m_gameDimensions.setWidth(_width);
         conf.height = _height;
+        this.m_gameDimensions.setHeight(_height);
         conf.title = _title;
         conf.fullscreen = _fullScreen;
         
         init(conf);
         System.out.println("Graphic is initiliaze!!!");
         this.m_init = true;
+    }
+    
+    /**
+     * @see Graphic#getDimensions() 
+     */
+    @Override
+    public Rectangle getDimensions(){
+        return this.m_gameDimensions;
     }
 
     /**
@@ -113,6 +124,20 @@ public class GraphicGDX implements Graphic{
         TextGDX text = new TextGDX(_name, _content, _posX, _posY);
         this.m_listText.put(_name, text);
         this.m_gameGDX.addActor(text);
+    }
+    
+    @Override
+    public void createTextFont(String _name, String _content, float _posX, float _posY, String _font) {
+        TextGDX text = new TextGDX(_name, _content, _posX, _posY, _font);
+        this.m_listText.put(_name, text);
+        this.m_gameGDX.addActor(text);
+    }
+    
+    @Override
+    public void setPositionActor(String name, float posX, float posY){
+        if (m_listText.containsKey(name)){
+            this.m_listText.get(name).setPosition(posY, posY);
+        }
     }
 
     /**
@@ -203,6 +228,16 @@ public class GraphicGDX implements Graphic{
     public void setAlphaText(String name, float alpha){
         if (this.m_listText.containsKey(name)){
             this.m_listText.get(name).setAlpha(alpha);
+        }
+    }
+    
+    /**
+     * @see Graphic#setColorText(java.lang.String, float, float, float) 
+     */
+    @Override
+    public void setColorText(String name, float r, float g, float b){
+        if (this.m_listText.containsKey(name)){
+            this.m_listText.get(name).setColor(r, g, b);
         }
     }
     

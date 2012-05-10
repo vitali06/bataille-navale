@@ -48,8 +48,7 @@ public class Splashscreen implements Scene{
             } catch (Exception ex) {
                 Logger.getLogger(Splashscreen.class.getName()).log(Level.SEVERE, null, ex);
             }
-            Singleton.getGraphic().createTextActor("Test", "              Presente par\n\n         Laurent SITTLER\nMelissa WEISSMULLER\n             Alexis DORR", 320, 250);
-            
+            Singleton.getGraphic().createTextFont("Test", "         Presented by\n\n      Laurent SITTLER\nMelissa WEISSMULLER\n         Alexis DORR", 320, 220, "Calibri");
             Singleton.getGraphic().setAlphaActor("Backgound Slpashsreen", 0);
             Singleton.getGraphic().setAlphaAnim("Animation", 0);
             Singleton.getGraphic().setAlphaText("Test", 0);
@@ -90,7 +89,8 @@ public class Splashscreen implements Scene{
             // Changement de scene
             if (this.m_compteur == 1400){
                 this.m_init = false;
-                Singleton.getGraphic().getGame().getScreen().nextScene(new GameScene(true));
+                // Singleton.getGraphic().getGame().getScreen().nextScene(new GameScene(true));
+                Singleton.getGraphic().getGame().getScreen().nextScene(new MainMenuScene(false));
                 this.m_newScene = true;
             }
 
