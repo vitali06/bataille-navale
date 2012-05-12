@@ -67,7 +67,7 @@ public class TextGDX extends Actor{
      * @see Actor#touchDown(float, float, int)  
      */
     @Override
-    public boolean touchDown(float x, float y, int pointer) {
+    public boolean touchDown(float x, float y, int pointer) {        
         return true;
     }
 

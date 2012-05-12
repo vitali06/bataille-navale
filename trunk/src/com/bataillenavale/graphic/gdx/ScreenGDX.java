@@ -85,6 +85,7 @@ public class ScreenGDX implements Screen {
         this.m_group = new Group("GroupeActors");
         
         this.m_stage.addActor(m_group);
+        Gdx.input.setInputProcessor(m_stage);
         
         this.m_scene.init();
         System.out.println("Show ScreenGDX");

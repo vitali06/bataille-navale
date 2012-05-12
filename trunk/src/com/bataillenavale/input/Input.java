@@ -26,4 +26,19 @@ public interface Input {
      * Destroy input components
      */
     public abstract void destroy();
+    
+    /**
+     * Return true if Enter is pressed
+     */
+    public boolean isEnterPressed();
+    
+    /**
+     * Return true if the arrow down is pressed
+     */
+    public boolean isDownPressed();
+    
+    /**
+     * Return true if the arrow up is pressed
+     */
+    public boolean isUpPressed();
 }
