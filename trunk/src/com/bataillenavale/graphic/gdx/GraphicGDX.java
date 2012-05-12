@@ -8,7 +8,6 @@ package com.bataillenavale.graphic.gdx;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 import com.badlogic.gdx.math.Rectangle;
-import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.bataillenavale.graphic.Graphic;
 import java.io.File;
 import java.io.IOException;
@@ -126,6 +125,9 @@ public class GraphicGDX implements Graphic{
         this.m_gameGDX.addActor(text);
     }
     
+    /**
+     * @see Graphic#createTextFont(java.lang.String, java.lang.String, float, float, java.lang.String)  
+     */
     @Override
     public void createTextFont(String _name, String _content, float _posX, float _posY, String _font) {
         TextGDX text = new TextGDX(_name, _content, _posX, _posY, _font);
@@ -133,10 +135,44 @@ public class GraphicGDX implements Graphic{
         this.m_gameGDX.addActor(text);
     }
     
+    /**
+     * @see Graphic#setPositionActor(java.lang.String, float, float)  
+     */
     @Override
     public void setPositionActor(String name, float posX, float posY){
-        if (m_listText.containsKey(name)){
+        boolean t_check = false;
+        if (!t_check && this.m_listText.containsKey(name)){
             this.m_listText.get(name).setPosition(posY, posY);
+            t_check = true;
+        }
+        if (!t_check && this.m_listActors.containsKey(name)){
+            this.m_listActors.get(name).setPosition(posY, posY);
+            t_check = true;
+        }
+        if (!t_check && this.m_listAnim.containsKey(name)){
+            this.m_listAnim.get(name).setPosition(posY, posY);
+        }
+        else{
+            System.out.println("[Position] : L'Actor n'existe pas !");
+        }
+    }
+    
+    /**
+     * @see Graphic#setAlpha(java.lang.String, float) 
+     */
+    @Override
+    public void setAlpha(String name, float alpha){
+        boolean t_check = false;
+        if (!t_check && this.m_listText.containsKey(name)){
+            this.m_listText.get(name).setAlpha(alpha);
+            t_check = true;
+        }
+        if (!t_check && this.m_listActors.containsKey(name)){
+            this.m_listActors.get(name).setAlpha(alpha);
+            t_check = true;
+        }
+        if (!t_check && this.m_listAnim.containsKey(name)){
+            this.m_listAnim.get(name).setAlpha(alpha);
         }
     }
 
@@ -199,36 +235,6 @@ public class GraphicGDX implements Graphic{
     @Override
     public void destroy(){
         this.m_application.exit();
-    }
-    
-    /**
-     * @see Graphic#setAlphaActor(java.lang.String, float)
-     */
-    @Override
-    public void setAlphaActor(String name, float alpha){
-        if (this.m_listActors.containsKey(name)){
-            this.m_listActors.get(name).setAlpha(alpha);
-        }
-    }
-    
-    /**
-     * @see Graphic#setAlphaAnim(java.lang.String, float) 
-     */
-    @Override
-    public void setAlphaAnim(String name, float alpha){
-        if (this.m_listAnim.containsKey(name)){
-            this.m_listAnim.get(name).setAlpha(alpha);
-        }
-    }
-    
-    /**
-     * @see Graphic#setAlphaText(java.lang.String, float)
-     */
-    @Override
-    public void setAlphaText(String name, float alpha){
-        if (this.m_listText.containsKey(name)){
-            this.m_listText.get(name).setAlpha(alpha);
-        }
     }
     
     /**

@@ -13,6 +13,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.bataillenavale.game.Singleton;
 import com.bataillenavale.scene.Scene;
 import com.bataillenavale.scene.content.Splashscreen;
 
@@ -76,7 +77,9 @@ public class ScreenGDX implements Screen {
     @Override
     public void show() {
         this.m_spriteBatch = new SpriteBatch();
-        this.m_stage = new Stage(800, 600, true);
+        
+        this.m_stage = new Stage(Singleton.getGraphic().getDimensions().width, Singleton.getGraphic().getDimensions().height, true);
+        System.out.println("Size Screen : " + Singleton.getGraphic().getDimensions().width + "x" + Singleton.getGraphic().getDimensions().height);
         this.m_font = new BitmapFont();
         this.m_scene = new Splashscreen(false);
         this.m_group = new Group("GroupeActors");
@@ -140,6 +143,10 @@ public class ScreenGDX implements Screen {
         this.m_nextScene = scene;
     }
     
+    /**
+     * Get Group Actors
+     * @return Group Actors
+     */
     public Group getGroup(){
         return this.m_group;
     }

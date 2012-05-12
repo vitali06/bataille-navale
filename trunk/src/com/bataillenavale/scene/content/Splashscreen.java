@@ -5,6 +5,7 @@
  */
 package com.bataillenavale.scene.content;
 
+import com.badlogic.gdx.Gdx;
 import com.bataillenavale.game.Singleton;
 import com.bataillenavale.scene.Scene;
 import java.util.logging.Level;
@@ -48,10 +49,12 @@ public class Splashscreen implements Scene{
             } catch (Exception ex) {
                 Logger.getLogger(Splashscreen.class.getName()).log(Level.SEVERE, null, ex);
             }
-            Singleton.getGraphic().createTextFont("Test", "         Presented by\n\n      Laurent SITTLER\nMelissa WEISSMULLER\n         Alexis DORR", 320, 220, "Calibri");
-            Singleton.getGraphic().setAlphaActor("Backgound Slpashsreen", 0);
-            Singleton.getGraphic().setAlphaAnim("Animation", 0);
-            Singleton.getGraphic().setAlphaText("Test", 0);
+            Singleton.getGraphic().createTextFont("Test", "Presented by : Laurent SITTLER, Melissa WEISSMULLER, Alexis DORR", 150, 20, "Calibri");
+            Singleton.getGraphic().createTextFont("Press", "Press ENTER", 300, 270, "SimHei");
+            Singleton.getGraphic().setAlpha("Backgound Slpashsreen", 0);
+            Singleton.getGraphic().setAlpha("Enter", 0);
+            Singleton.getGraphic().setAlpha("Bandeau", 0);
+            Singleton.getGraphic().setAlpha("Press", 0);
             
             this.m_init = true;
         }
@@ -64,30 +67,18 @@ public class Splashscreen implements Scene{
     public void update() {
         if(this.m_init){
             this.m_compteur++;
-            
-            if (this.m_compteur < 500){
-                Singleton.getGraphic().setAlphaActor("Java", -this.m_compteur/2);
-                Singleton.getGraphic().setAlphaActor("LibGDX", -this.m_compteur/2);
-            }
-            if (this.m_compteur > 
-                    500 && this.m_compteur < 900){
-                this.m_fondu++;
-                Singleton.getGraphic().setAlphaActor("Java", 0);
-                Singleton.getGraphic().setAlphaActor("LibGDX", 0);
-                Singleton.getGraphic().setAlphaActor("Backgound Slpashsreen", -this.m_fondu/2);
-                Singleton.getGraphic().setAlphaAnim("Animation", -this.m_fondu/2);
-                Singleton.getGraphic().setAlphaText("Test", -this.m_fondu/2);
-            }
-            if (this.m_compteur == 900){
-                this.m_fondu = 0;
-            }
-            if (this.m_compteur > 900){
-                this.m_fondu++;
-                Singleton.getGraphic().setAlphaText("Test", this.m_fondu/2);
-                Singleton.getGraphic().setAlphaActor("Backgound Slpashsreen", this.m_fondu/2);
+
+            if (this.m_compteur > 300 && this.m_compteur < 750){
+                Singleton.getGraphic().setAlpha("Java", 0);
+                Singleton.getGraphic().setAlpha("LibGDX", 0);
+                Singleton.getGraphic().setAlpha("Test", 0);
+                Singleton.getGraphic().setAlpha("Backgound Slpashsreen", 1);
+                Singleton.getGraphic().setAlpha("Bandeau", 1);
+                Singleton.getGraphic().setAlpha("Enter", 1);
+                Singleton.getGraphic().setAlpha("Press", 1);
             }
             // Changement de scene
-            if (this.m_compteur == 1400){
+            if (this.m_compteur == 1100){
                 this.m_init = false;
                 // Singleton.getGraphic().getGame().getScreen().nextScene(new GameScene(true));
                 Singleton.getGraphic().getGame().getScreen().nextScene(new MainMenuScene(false));
