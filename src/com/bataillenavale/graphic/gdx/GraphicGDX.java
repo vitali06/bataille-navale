@@ -142,18 +142,18 @@ public class GraphicGDX implements Graphic{
     public void setPositionActor(String name, float posX, float posY){
         boolean t_check = false;
         if (!t_check && this.m_listText.containsKey(name)){
-            this.m_listText.get(name).setPosition(posY, posY);
+            this.m_listText.get(name).setPosition(posX, posY);
             t_check = true;
         }
-        if (!t_check && this.m_listActors.containsKey(name)){
-            this.m_listActors.get(name).setPosition(posY, posY);
+        else if (!t_check && this.m_listActors.containsKey(name)){
+            this.m_listActors.get(name).setPosition(posX, posY);
             t_check = true;
         }
-        if (!t_check && this.m_listAnim.containsKey(name)){
-            this.m_listAnim.get(name).setPosition(posY, posY);
+        else if (!t_check && this.m_listAnim.containsKey(name)){
+            this.m_listAnim.get(name).setPosition(posX, posY);
         }
         else{
-            System.out.println("[Position] : L'Actor n'existe pas !");
+            System.out.println("[Position] : L'Actor" + name + " n'existe pas !");
         }
     }
     

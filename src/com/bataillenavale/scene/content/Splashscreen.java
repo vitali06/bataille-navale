@@ -6,6 +6,7 @@
 package com.bataillenavale.scene.content;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.bataillenavale.game.Singleton;
 import com.bataillenavale.scene.Scene;
 import java.util.logging.Level;
@@ -78,7 +79,7 @@ public class Splashscreen implements Scene{
                 Singleton.getGraphic().setAlpha("Press", 1);
             }
             // Changement de scene
-            if (this.m_compteur == 1100){
+            if (Singleton.getInput().isEnterPressed()) {
                 this.m_init = false;
                 // Singleton.getGraphic().getGame().getScreen().nextScene(new GameScene(true));
                 Singleton.getGraphic().getGame().getScreen().nextScene(new MainMenuScene(false));
