@@ -8,6 +8,8 @@ package com.bataillenavale.scene.content;
 import com.badlogic.gdx.Gdx;
 import com.bataillenavale.game.Singleton;
 import com.bataillenavale.scene.Scene;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Main Menu Scene
@@ -20,6 +22,7 @@ public class MainMenuScene implements Scene{
     private boolean m_init;
     private boolean m_fps;
     private boolean m_newScene;
+    private int m_count;
     
     /**
      * Constructor
@@ -27,6 +30,7 @@ public class MainMenuScene implements Scene{
      */
     public MainMenuScene(boolean _fps){
         this.m_fps = _fps;
+        this.m_count = 0;
         this.m_init = false;
         this.m_newScene = false;
     }
@@ -38,7 +42,16 @@ public class MainMenuScene implements Scene{
     public void init() {
         if (!this.m_init) {
             System.out.println("Main Menu Scene (init)");
-            Singleton.getGraphic().createTextFont("Main Menu", "{Main Menu Scene}", 220, 50, "Ascent");
+            System.out.println("Splash Screen Scene (Init)");
+            try {
+                Singleton.getGraphic().loadSprites("config/MainMenuSreen.xml");
+            } catch (Exception ex) {
+                Logger.getLogger(Splashscreen.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            Singleton.getGraphic().createTextFont("Main Menu", "{Main Menu}", 30, 550, "Ascent");
+            Singleton.getGraphic().createTextFont("Game", "GAME", 230, 450, "Calibrib");
+            Singleton.getGraphic().createTextFont("Settings", "SETTINGS", 195, 400, "Calibrib");
+            Singleton.getGraphic().createTextFont("About", "ABOUT", 220, 350, "Calibrib");
             this.m_init = true;
         }
     }
@@ -49,7 +62,9 @@ public class MainMenuScene implements Scene{
     @Override
     public void update() {
         if (this.m_init){
+            this.m_count++;
             //System.out.println("GameScene Update");
+            Singleton.getGraphic().setAlpha("Game", this.m_count / 0.25f);
             if (Gdx.input.isTouched()){
                 this.m_init = false;
                 Singleton.getGraphic().getGame().getScreen().nextScene(new GameScene(true));

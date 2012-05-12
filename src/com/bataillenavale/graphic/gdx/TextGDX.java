@@ -8,7 +8,6 @@ package com.bataillenavale.graphic.gdx;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 
 /**
@@ -23,11 +22,11 @@ public class TextGDX extends Actor{
     private String m_content;
 
     /**
-     * 
-     * @param _name
-     * @param _content
-     * @param _posX
-     * @param _posY 
+     * Constructor without Font
+     * @param _name Name Actor
+     * @param _content Content text
+     * @param _posX Position X Screen
+     * @param _posY Position Y Screen
      */
     public TextGDX(String _name, String _content, float _posX, float _posY){
         super(_name);
@@ -38,6 +37,14 @@ public class TextGDX extends Actor{
         this.y = _posY;
     }
     
+    /**
+     * Constructeur with Font
+     * @param _name Name Actor
+     * @param _content Content text
+     * @param _posX Position X Screen
+     * @param _posY Position Y Screen
+     * @param _font Font Style
+     */
     public TextGDX(String _name, String _content, float _posX, float _posY, String _font){
         super(_name);
         this.m_content = _content;
@@ -61,7 +68,7 @@ public class TextGDX extends Actor{
      */
     @Override
     public boolean touchDown(float x, float y, int pointer) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return true;
     }
 
     /**
@@ -69,7 +76,6 @@ public class TextGDX extends Actor{
      */
     @Override
     public void touchUp(float x, float y, int pointer) {
-        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     /**
@@ -77,7 +83,6 @@ public class TextGDX extends Actor{
      */
     @Override
     public void touchDragged(float x, float y, int pointer) {
-        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     /**
@@ -130,12 +135,5 @@ public class TextGDX extends Actor{
     public void setPosition(float x, float y){
         this.x = x;
         this.y = y;
-    }
-    
-    public Rectangle getSize(){
-        Rectangle result = new Rectangle();
-        result.height = this.height;
-        result.width = this.width;
-        return result;
     }
 }

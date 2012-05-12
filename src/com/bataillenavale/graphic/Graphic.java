@@ -36,10 +36,10 @@ public interface Graphic {
     
     /**
      * Initialize components of game
-     * @param _width
-     * @param _height
-     * @param _title
-     * @param _fullScreen 
+     * @param _width Width Size Windows
+     * @param _height Height Size Windows
+     * @param _title Title Windows
+     * @param _fullScreen True if FullScreen
      */
     public void init(int _width, int _height, String _title, boolean _fullScreen);
     
@@ -51,29 +51,29 @@ public interface Graphic {
     
     /**
      * Create Simple Actor
-     * @param _name
-     * @param _path
-     * @param _posX
-     * @param _posY
-     * @param _width
-     * @param _height
-     * @param spriteX
-     * @param spriteY
-     * @param _frame 
+     * @param _name Name Actor
+     * @param _path Path texture
+     * @param _posX Position X Screen
+     * @param _posY Position Y Screen
+     * @param _width Width TextureRegion
+     * @param _height Height TextureRegion
+     * @param spriteX Position X Sprite
+     * @param spriteY Position Y Sprite
+     * @param _frame Number Frame (1)
      */
     public void createSprite(String _name, String _path, float _posX, float _posY, int _width, int _height, int spriteX, int spriteY, int _frame);
     
     /**
      * Create animated Actor
-     * @param _name
-     * @param _path
-     * @param _posX
-     * @param _posY
-     * @param _width
-     * @param _height
-     * @param spriteX
-     * @param spriteY
-     * @param _frame 
+     * @param _name Name Actor
+     * @param _path Path texture
+     * @param _posX Position X Screen
+     * @param _posY Position Y Screen
+     * @param _width Width TextureRegion
+     * @param _height Height TextureRegion
+     * @param spriteX Position X Sprite
+     * @param spriteY Position Y Sprite
+     * @param _frame Number Frame (>1)
      */
     public void createAnimation(String _name, String _path, float _posX, float _posY, int _width, int _height, int spriteX, int spriteY, int _frame);
     
@@ -81,10 +81,20 @@ public interface Graphic {
      * Create Text Actor
      * @param _name Actor name
      * @param _content Content text Actor
-     * @param _posX
-     * @param _posY 
+     * @param _posX Position X Screen
+     * @param _posY Position Y Screen
      */
     public void createTextActor(String _name, String _content, float _posX, float _posY);
+    
+    /**
+     * Text Actor with Font
+     * @param _name Actor name
+     * @param _content Content text Actor
+     * @param _posX Position X Screen
+     * @param _posY Position Y Screen
+     * @param _font Font style
+     */
+    public void createTextFont(String _name, String _content, float _posX, float _posY, String _font);
     
     /**
      * Set Color Text Actor
@@ -96,15 +106,11 @@ public interface Graphic {
     public void setColorText(String name, float r, float g, float b);
     
     /**
-     * Text Actor with Font
-     * @param _name
-     * @param _content
-     * @param _posX
-     * @param _posY
-     * @param _font Font style
+     * Set position actor
+     * @param name Name Actor
+     * @param posX Position X Screen
+     * @param posY Position Y Screen
      */
-    public void createTextFont(String _name, String _content, float _posX, float _posY, String _font);
-    
     public void setPositionActor(String name, float posX, float posY);
     
     /**
@@ -127,21 +133,7 @@ public interface Graphic {
      * @param name Actor name
      * @param alpha Alpha
      */
-    public void setAlphaActor(String name, float alpha);
-    
-    /**
-     * Set alpha Actor animated
-     * @param name Actor name
-     * @param alpha Alpha
-     */
-    public void setAlphaAnim(String name, float alpha);
-    
-    /**
-     * Set alpha Actor Text
-     * @param name
-     * @param alpha 
-     */
-    public void setAlphaText(String name, float alpha);
+    public void setAlpha(String name, float alpha);
     
     /**
      * Destroy Component

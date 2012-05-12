@@ -101,4 +101,14 @@ public class ActorGDX extends Actor {
     public Actor hit(float x, float y) {
         return x > 0 && x < this.width && y > 0 && y < this.height ? this : null;
     }
+    
+    /**
+     * Set position current Actor
+     * @param x Position X
+     * @param y Position Y
+     */
+    public void setPosition(float x, float y){
+        this.x = x;
+        this.y = y;
+    }
 }
