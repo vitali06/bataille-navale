@@ -6,6 +6,7 @@
 package com.bataillenavale.input.gdx;
 
 import com.badlogic.gdx.Gdx;
+import com.bataillenavale.game.Singleton;
 import com.bataillenavale.input.Input;
 import java.util.Date;
 import org.lwjgl.input.Mouse;
@@ -60,6 +61,9 @@ public class InputGDX implements Input {
         
     }
 
+    /**
+     * @see Input#isEnterPressed()
+     */
     @Override
     public boolean isEnterPressed() {
         if (Gdx.input.isKeyPressed(com.badlogic.gdx.Input.Keys.ENTER)) {
@@ -67,17 +71,22 @@ public class InputGDX implements Input {
             if (lastKeyPressed != com.badlogic.gdx.Input.Keys.ENTER) {
                 lastKeyPressed = com.badlogic.gdx.Input.Keys.ENTER;
                 lastPressedTime = now;
+                Singleton.getSound().enterPressed();
                 return true;
             }
             if (now - lastPressedTime > 200 && lastKeyPressed == com.badlogic.gdx.Input.Keys.ENTER) {
                 lastKeyPressed = com.badlogic.gdx.Input.Keys.ENTER;
                 lastPressedTime = now;
+                Singleton.getSound().enterPressed();
                 return true;
             }
         }
         return false;
     }
     
+    /**
+     * @see Input#isDownPressed()
+     */
     @Override
     public boolean isDownPressed() {
         if (Gdx.input.isKeyPressed(com.badlogic.gdx.Input.Keys.DOWN)) {
@@ -100,6 +109,9 @@ public class InputGDX implements Input {
         return false;
     }
     
+    /**
+     * @see Input#isUpPressed()
+     */
     @Override
     public boolean isUpPressed() {
         if (Gdx.input.isKeyPressed(com.badlogic.gdx.Input.Keys.UP)) {
