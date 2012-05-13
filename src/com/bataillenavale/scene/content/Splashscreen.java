@@ -57,6 +57,8 @@ public class Splashscreen implements Scene{
             Singleton.getGraphic().setAlpha("Bandeau", 0);
             Singleton.getGraphic().setAlpha("Press", 0);
             
+            Singleton.getSound().introductionScene();
+            
             this.m_init = true;
         }
     }

@@ -58,8 +58,8 @@ public class MainMenuScene implements Scene {
 
             listMenu.add("Game");
             listMenu.add("Settings");
-            listMenu.add("About");
-
+            listMenu.add("About");           
+            
             this.m_init = true;
         }
     }
@@ -74,7 +74,7 @@ public class MainMenuScene implements Scene {
 
             Singleton.getGraphic().setAlpha(listMenu.get(indexSelectedMenu), this.m_count / 0.25f);
 
-            if (Singleton.getInput().isEnterPressed()) {
+            if (Singleton.getInput().isEnterPressed()) {                
                 if ("Game".equals(listMenu.get(indexSelectedMenu))) {
                     this.m_init = false;
                     Singleton.getGraphic().getGame().getScreen().nextScene(new GameScene(true));
@@ -94,14 +94,16 @@ public class MainMenuScene implements Scene {
 
             if (Singleton.getInput().isDownPressed()) {                
                 if (indexSelectedMenu + 1 < listMenu.size()) {
+                    Singleton.getSound().changeMenu();
                     Singleton.getGraphic().setAlpha(listMenu.get(indexSelectedMenu), 1f);
                     indexSelectedMenu++;
                     Singleton.getGraphic().setPositionActor("BandeauNoir", 0, Singleton.getGraphic().getText().get(listMenu.get(indexSelectedMenu)).y - 23);                                                                    
                 }                
             }
 
-            if (Singleton.getInput().isUpPressed()) {
+            if (Singleton.getInput().isUpPressed()) {                
                 if (indexSelectedMenu - 1 >= 0) {
+                    Singleton.getSound().changeMenu();
                     Singleton.getGraphic().setAlpha(listMenu.get(indexSelectedMenu), 1f);
                     indexSelectedMenu--;
                     Singleton.getGraphic().setPositionActor("BandeauNoir", 0, Singleton.getGraphic().getText().get(listMenu.get(indexSelectedMenu)).y - 23);                            

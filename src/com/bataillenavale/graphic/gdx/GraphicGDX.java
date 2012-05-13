@@ -140,16 +140,16 @@ public class GraphicGDX implements Graphic{
      */
     @Override
     public void setPositionActor(String name, float posX, float posY){
-        boolean t_check = false;
-        if (!t_check && this.m_listText.containsKey(name)){
+        //boolean t_check = false;
+        if (this.m_listText.containsKey(name)){
             this.m_listText.get(name).setPosition(posX, posY);
-            t_check = true;
+            //t_check = true;
         }
-        else if (!t_check && this.m_listActors.containsKey(name)){
+        else if (this.m_listActors.containsKey(name)){
             this.m_listActors.get(name).setPosition(posX, posY);
-            t_check = true;
+            //t_check = true;
         }
-        else if (!t_check && this.m_listAnim.containsKey(name)){
+        else if (this.m_listAnim.containsKey(name)){
             this.m_listAnim.get(name).setPosition(posX, posY);
         }
         else{
