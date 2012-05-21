@@ -28,7 +28,6 @@ public class InputGDX implements Input {
      */
     public InputGDX(){
         this.m_init = false;
-        
     }
     
     /**
@@ -100,7 +99,7 @@ public class InputGDX implements Input {
              * If DOWN is the last button clicked 
              * And if the time since you clicked this button is greater than 0,2 seconds
              */
-            else if (now - lastPressedTime > 200) {
+            else if (now - lastPressedTime > 100) {
                 lastKeyPressed = com.badlogic.gdx.Input.Keys.DOWN;
                 lastPressedTime = now;
                 return true;
