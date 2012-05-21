@@ -41,4 +41,14 @@ public interface Input {
      * Return true if the arrow up is pressed
      */
     public boolean isUpPressed();
+    
+    /**
+     * Return true if the arrow right is pressed
+     */
+    public boolean isRightPressed();
+    
+    /**
+     * Return true if the arrow left is pressed
+     */
+    public boolean isLeftPressed(); 
 }

@@ -37,4 +37,10 @@ public interface Sound {
      * Sound played when the key ENTER is pressed
      */
     public void enterPressed();
+    
+    /**
+     * change the volume of the sounds which are played
+     * @param volume volume of the sounds which are played 
+     */    
+    public void changeVolume(float volume);
 }

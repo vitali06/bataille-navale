@@ -89,7 +89,7 @@ public class MainMenuScene implements Scene {
                     this.m_init = false;
                     Singleton.getGraphic().getGame().getScreen().nextScene(new AboutScene(true));
                     this.m_newScene = true;
-                }
+                }                
             }
 
             if (Singleton.getInput().isDownPressed()) {                
