@@ -15,7 +15,8 @@ import com.badlogic.gdx.audio.Sound;
  */
 public class SoundGDX implements com.bataillenavale.sounds.Sound {
     
-    private Sound sound;
+    private Sound sound;    
+    private float volume = 1f;
 
     /**
      * @see Sound#update()
@@ -31,7 +32,7 @@ public class SoundGDX implements com.bataillenavale.sounds.Sound {
     @Override
     public void play(String _file) {
         sound = Gdx.audio.newSound(Gdx.files.internal(_file));
-        sound.play();
+        sound.play(volume);
     }
 
     /**
@@ -57,4 +58,14 @@ public class SoundGDX implements com.bataillenavale.sounds.Sound {
     public void enterPressed() {
         play("data/sounds/enterPressed.mp3");        
     }
+    
+    /**
+     * @see Sound#changeVolume(float volume)
+     */
+    @Override
+    public void changeVolume(float volume)
+    {
+        this.volume = volume;
+    }
+    
 }

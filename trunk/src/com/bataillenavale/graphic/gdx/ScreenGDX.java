@@ -27,6 +27,7 @@ public class ScreenGDX implements Screen {
     /// Attributes
     private Scene m_scene;
     private Scene m_nextScene;
+    private Scene m_previousScene;
     private Group m_group;
     private Stage m_stage;
     private SpriteBatch m_spriteBatch;
@@ -141,6 +142,7 @@ public class ScreenGDX implements Screen {
      * @param scene Next Scene
      */
     public void nextScene(Scene scene){
+        this.m_previousScene = m_scene;
         this.m_nextScene = scene;
     }
     
@@ -156,12 +158,15 @@ public class ScreenGDX implements Screen {
      * Set new Scene
      */
     public void setScene(){
+        System.out.println("Before Clean");
         if (this.m_scene != null){
             this.m_group.clear();
             this.m_scene.destroy();
         }
         
+        System.out.println("Previous Scene : " + this.m_scene.toString());
         this.m_scene = m_nextScene;
+        System.out.println("Next Scene : " + this.m_scene.toString());
         
         if (this.m_scene != null){
             this.m_scene.init();

@@ -129,4 +129,40 @@ public class InputGDX implements Input {
         }
         return false;
     }
+    
+    @Override
+    public boolean isRightPressed() {
+        if (Gdx.input.isKeyPressed(com.badlogic.gdx.Input.Keys.RIGHT)) {            
+            long now = new Date().getTime();
+            if (lastKeyPressed != com.badlogic.gdx.Input.Keys.RIGHT) {
+                lastKeyPressed = com.badlogic.gdx.Input.Keys.RIGHT;
+                lastPressedTime = now;                
+                return true;
+            }
+            if (now - lastPressedTime > 200 && lastKeyPressed == com.badlogic.gdx.Input.Keys.RIGHT) {
+                lastKeyPressed = com.badlogic.gdx.Input.Keys.RIGHT;
+                lastPressedTime = now;                
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    @Override
+    public boolean isLeftPressed() {
+        if (Gdx.input.isKeyPressed(com.badlogic.gdx.Input.Keys.LEFT)) {
+            long now = new Date().getTime();
+            if (lastKeyPressed != com.badlogic.gdx.Input.Keys.LEFT) {
+                lastKeyPressed = com.badlogic.gdx.Input.Keys.LEFT;
+                lastPressedTime = now;
+                return true;
+            }
+            if (now - lastPressedTime > 200 && lastKeyPressed == com.badlogic.gdx.Input.Keys.LEFT) {
+                lastKeyPressed = com.badlogic.gdx.Input.Keys.LEFT;
+                lastPressedTime = now;
+                return true;
+            }
+        }
+        return false;
+    }
 }
