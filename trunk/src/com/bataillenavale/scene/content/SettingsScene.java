@@ -5,6 +5,7 @@
  */
 package com.bataillenavale.scene.content;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Rectangle;
 import com.bataillenavale.game.Singleton;
 import com.bataillenavale.scene.Scene;
@@ -42,11 +43,11 @@ public class SettingsScene implements Scene {
         m_sizeGame = Singleton.getGraphic().getDimensions();
         this.m_init = false;
         this.m_newScene = false;
-        mainMenuSelected = true;
-        indexSelectedMenu = 0;
-        indexSelectedSoundMenu = 0;
-        listMenu = new ArrayList<>();
-        listMenuSound = new ArrayList<>();        
+        this.mainMenuSelected = true;
+        this.indexSelectedMenu = 0;
+        this.indexSelectedSoundMenu = 0;
+        this.listMenu = new ArrayList<>();
+        this.listMenuSound = new ArrayList<>();        
     }
 
     /**
@@ -57,7 +58,7 @@ public class SettingsScene implements Scene {
         if (!this.m_init) {
 //            System.out.println("Settings Scene (init)");
             try {
-                Singleton.getGraphic().loadSprites("config/MainMenuSreen.xml");
+                Singleton.getGraphic().loadSprites("config/SettingsScreen.xml");
             } catch (Exception ex) {
                 Logger.getLogger(Splashscreen.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -87,7 +88,7 @@ public class SettingsScene implements Scene {
             //System.out.println("SettingsScene Update");
             this.m_count++;
 
-            if (mainMenuSelected) {
+            if (this.mainMenuSelected) {
                 Singleton.getGraphic().setAlpha(listMenu.get(indexSelectedMenu), this.m_count / 0.25f);
             } else {
                 if ("Sound".equals(listMenu.get(indexSelectedMenu))) {
@@ -98,15 +99,11 @@ public class SettingsScene implements Scene {
 
             if (Singleton.getInput().isEnterPressed()) {
                 if ("BackMainMenu".equals(listMenu.get(indexSelectedMenu))) {
-                    /**
-                     * Retour au menu principal
-                     */
+                    // Retour au menu principal
                     this.m_init = false;
                     Singleton.getGraphic().getGame().getScreen().nextScene(new MainMenuScene(false));
-                    // System.out.println("Next Scene Main Menu Scene");
                     this.m_newScene = true;
                 }
-
                 if ("Sound".equals(listMenu.get(indexSelectedMenu))) {
                     if (mainMenuSelected) {
                         Singleton.getGraphic().setAlpha(listMenu.get(indexSelectedMenu), 1f);
@@ -121,6 +118,7 @@ public class SettingsScene implements Scene {
                         }
                     }
                 }
+               
             }
 
             if (Singleton.getInput().isDownPressed()) {
@@ -205,6 +203,6 @@ public class SettingsScene implements Scene {
      */
     @Override
     public boolean newScene() {
-        return false;
+        return this.m_newScene;
     }
 }

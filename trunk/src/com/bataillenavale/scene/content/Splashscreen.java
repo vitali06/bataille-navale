@@ -46,12 +46,12 @@ public class Splashscreen implements Scene{
         if(!this.m_init){
             System.out.println("Splash Screen Scene (Init)");
             try {
-                Singleton.getGraphic().loadSprites("config/SplashSreen.xml");
+                Singleton.getGraphic().loadSprites("config/SplashScreen.xml");
             } catch (Exception ex) {
                 Logger.getLogger(Splashscreen.class.getName()).log(Level.SEVERE, null, ex);
             }
             Singleton.getGraphic().createTextFont("Test", "Presented by : Laurent SITTLER, Melissa WEISSMULLER, Alexis DORR", 150, 20, "Calibri");
-            Singleton.getGraphic().createTextFont("Press", "Press ENTER", 300, 270, "SimHei");
+            Singleton.getGraphic().createTextFont("Press", "Press ENTER", 270, 270, "SimHei");
             Singleton.getGraphic().setAlpha("Backgound Slpashsreen", 0);
             Singleton.getGraphic().setAlpha("Enter", 0);
             Singleton.getGraphic().setAlpha("Bandeau", 0);

@@ -23,7 +23,7 @@ public class Main {
     public static void main(String[] args) {
         
         // Graphic
-        Singleton.getGraphic().init(800, 600, "Bataille Navale - Game", false);
+        Singleton.getGraphic().init(800, 600, "BattleShip - Game", false);
         
         // Input
         Singleton.getInput().init();

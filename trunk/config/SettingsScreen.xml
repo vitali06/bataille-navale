@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<splashscreen>
+	<item name="Backgound MainMenu" path="data/menus/MainMenuScreen.png" width="800" height="600" posX="0" posY="0" spriteX="0" spriteY="0" frame="1" />
+	<item name="Ship" path="data/menus/MainMenuScreen.png" width="450" height="420" posX="270" posY="0" spriteX="1150" spriteY="420" frame="1" />
+	<item name="Effet" path="data/menus/MainMenuScreen.png" width="300" height="600" posX="0" posY="0" spriteX="850" spriteY="0" frame="1" />
+	<item name="BandeauNoir" path="data/menus/MainMenuScreen.png" width="375" height="25" posX="0" posY="427" spriteX="0" spriteY="600" frame="1" />
+	<item name="Separateur" path="data/menus/MainMenuScreen.png" width="250" height="1" posX="50" posY="365" spriteX="0" spriteY="625" frame="1" />
+</splashscreen>

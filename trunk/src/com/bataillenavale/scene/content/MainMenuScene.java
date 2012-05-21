@@ -47,7 +47,7 @@ public class MainMenuScene implements Scene {
         if (!this.m_init) {
             System.out.println("Main Menu Scene (init)");            
             try {
-                Singleton.getGraphic().loadSprites("config/MainMenuSreen.xml");
+                Singleton.getGraphic().loadSprites("config/MainMenuScreen.xml");
             } catch (Exception ex) {
                 Logger.getLogger(Splashscreen.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -82,12 +82,12 @@ public class MainMenuScene implements Scene {
                 }
                 if ("Settings".equals(listMenu.get(indexSelectedMenu))) {
                     this.m_init = false;
-                    Singleton.getGraphic().getGame().getScreen().nextScene(new SettingsScene(true));
+                    Singleton.getGraphic().getGame().getScreen().nextScene(new SettingsScene(false));
                     this.m_newScene = true;
                 }
                 if ("About".equals(listMenu.get(indexSelectedMenu))) {
                     this.m_init = false;
-                    Singleton.getGraphic().getGame().getScreen().nextScene(new AboutScene(true));
+                    Singleton.getGraphic().getGame().getScreen().nextScene(new AboutScene(false));
                     this.m_newScene = true;
                 }                
             }
