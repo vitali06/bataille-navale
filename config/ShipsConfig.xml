@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<setDragged>
+	<item name="Lance-Torpilles" touch="true" hp="2" />
+	<item name="Contre-Torpilleur" touch="true" hp="3" />
+	<item name="Sous-Marin" touch="true" hp="3" />
+	<item name="Cuirasse" touch="true" hp="4" />
+	<item name="Porte Avions" touch="true" hp="5" />
+</setDragged>

@@ -128,6 +128,8 @@ public interface Graphic {
      */
     public boolean isInit();
     
+    public void setTouchable(String name, boolean touch);
+    
     /**
      * Set alpha Actor
      * @param name Actor name

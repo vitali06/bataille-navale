@@ -5,9 +5,14 @@
  */
 package com.bataillenavale.scene.content;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Rectangle;
 import com.bataillenavale.game.Singleton;
+import com.bataillenavale.items.gdx.Ships;
 import com.bataillenavale.scene.Scene;
+import com.bataillenavale.tools.Grid;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Scene of Game
@@ -38,8 +43,19 @@ public class GameScene implements Scene {
     public void init() {
         if (!this.m_init) {
             System.out.println("Game Scene (init)");
-            Singleton.getGraphic().createTextFont("NouveauTest", "{Game Scene}", 270, 50, "Ascent");
-            Singleton.getGraphic().setColorText("NouveauTest", 1.f, 0.f, 0.f);
+            // Map standard
+             int posX = ((Gdx.graphics.getWidth() - 300 - 450) / 2) + 300;
+             int posY = ((Gdx.graphics.getHeight() - 450) / 2);
+             Singleton.getGraphic().createSprite("Map01", "data/Maps/Map01.png", posX, posY, 450, 450, 0, 0, 1);
+            // Grille de positionnement
+            Grid grille = new Grid(9);
+            try {
+                Singleton.getGraphic().loadSprites("config/PrepareGameScene.xml");
+            } catch (Exception ex) {
+                Logger.getLogger(Splashscreen.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            Ships t_ships = new Ships();
+            Singleton.getGraphic().createTextFont("PGame", "{Game}", 120, 550, "Ascent");
             this.m_init = true;
         }
     }
