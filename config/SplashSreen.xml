@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<splashscreen>
-	<item name="Java" path="data/sprites/SplashScreen_sprite.png" width="64" height="64" posX="270" posY="310" spriteX="0" spriteY="500" frame="1" />
-	<item name="LibGDX" path="data/sprites/SplashScreen_sprite.png" width="128" height="50" posX="380" posY="300" spriteX="200" spriteY="500" frame="1" />
-	<item name="Backgound Slpashsreen" path="data/sprites/SplashScreen_sprite.png" width="500" height="274" posX="150" posY="326" spriteX="0" spriteY="0" frame="1" />
-	<item name="Bandeau" path="data/sprites/SplashScreen_sprite.png" width="800" height="120" posX="0" posY="200" spriteX="0" spriteY="290" frame="1" />
-	<item name="Enter" path="data/sprites/SplashScreen_sprite.png" width="48" height="48" posX="500" posY="240" spriteX="350" spriteY="500" frame="1" />
-</splashscreen>
