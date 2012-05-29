@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<positions>
+	<item name="Effet" path="data/menus/MainMenuScreen.png" width="300" height="600" posX="0" posY="0" spriteX="850" spriteY="0" frame="1" />
+	<item name="Separateur" path="data/menus/MainMenuScreen.png" width="250" height="1" posX="50" posY="300" spriteX="0" spriteY="625" frame="1" />
+	<item name="Lance-Torpilles" path="data/navires/SpriteShips.png" width="100" height="40" posX="0" posY="0" spriteX="0" spriteY="0" frame="1" />
+	<item name="Contre-Torpilleur" path="data/navires/SpriteShips.png" width="150" height="40" posX="0" posY="50" spriteX="0" spriteY="40" frame="1" />
+	<item name="Sous-Marin" path="data/navires/SpriteShips.png" width="150" height="40" posX="0" posY="100" spriteX="0" spriteY="80" frame="1" />
+	<item name="Cuirasse" path="data/navires/SpriteShips.png" width="200" height="50" posX="0" posY="160" spriteX="0" spriteY="120" frame="1" />
+	<item name="Porte Avions" path="data/navires/SpriteShips.png" width="250" height="55" posX="0" posY="215" spriteX="0" spriteY="170" frame="1" />
+</positions>

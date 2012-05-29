@@ -53,6 +53,7 @@ public class ActorGDX extends Actor {
         this.y = _posY;
         this.width = _width;
         this.height = _height;
+        this.touchable = false;
     }
 
     /**
@@ -76,7 +77,7 @@ public class ActorGDX extends Actor {
      * @see Actor#touchDown(float, float, int)
      */
     @Override
-    public boolean touchDown(float x, float y, int pointer) {        
+    public boolean touchDown(float x, float y, int pointer) {
         return true;
     }
 
@@ -92,6 +93,8 @@ public class ActorGDX extends Actor {
      */
     @Override
     public void touchDragged(float x, float y, int pointer) {
+        this.x = Gdx.input.getX() - this.width / 2;
+        this.y = Gdx.graphics.getHeight() - Gdx.input.getY() - this.height / 2;
     }
 
     /**
@@ -110,5 +113,12 @@ public class ActorGDX extends Actor {
     public void setPosition(float x, float y){
         this.x = x;
         this.y = y;
+    }
+    /**
+     * Set Actor touchable
+     * @param touch True touchable
+     */
+    public void setTouchable(boolean touch){
+        this.touchable = touch;
     }
 }

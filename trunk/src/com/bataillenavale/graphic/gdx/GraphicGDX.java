@@ -5,10 +5,14 @@
  */
 package com.bataillenavale.graphic.gdx;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
+import com.badlogic.gdx.files.FileHandle;
+import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.math.Rectangle;
 import com.bataillenavale.graphic.Graphic;
+import com.bataillenavale.tools.Grid;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
@@ -140,20 +144,20 @@ public class GraphicGDX implements Graphic{
      */
     @Override
     public void setPositionActor(String name, float posX, float posY){
-        //boolean t_check = false;
         if (this.m_listText.containsKey(name)){
             this.m_listText.get(name).setPosition(posX, posY);
-            //t_check = true;
         }
         else if (this.m_listActors.containsKey(name)){
             this.m_listActors.get(name).setPosition(posX, posY);
-            //t_check = true;
         }
         else if (this.m_listAnim.containsKey(name)){
             this.m_listAnim.get(name).setPosition(posX, posY);
         }
-        else{
-            System.out.println("[Position] : L'Actor" + name + " n'existe pas !");
+    }
+    
+    public void setTouchable(String name, boolean touch){
+        if (this.m_listActors.containsKey(name)){
+            this.m_listActors.get(name).setTouchable(touch);
         }
     }
     
@@ -162,16 +166,13 @@ public class GraphicGDX implements Graphic{
      */
     @Override
     public void setAlpha(String name, float alpha){
-        boolean t_check = false;
-        if (!t_check && this.m_listText.containsKey(name)){
+        if (this.m_listText.containsKey(name)){
             this.m_listText.get(name).setAlpha(alpha);
-            t_check = true;
         }
-        if (!t_check && this.m_listActors.containsKey(name)){
+        else if (this.m_listActors.containsKey(name)){
             this.m_listActors.get(name).setAlpha(alpha);
-            t_check = true;
         }
-        if (!t_check && this.m_listAnim.containsKey(name)){
+        else if (this.m_listAnim.containsKey(name)){
             this.m_listAnim.get(name).setAlpha(alpha);
         }
     }

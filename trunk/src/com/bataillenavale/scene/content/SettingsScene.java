@@ -63,7 +63,7 @@ public class SettingsScene implements Scene {
                 Logger.getLogger(Splashscreen.class.getName()).log(Level.SEVERE, null, ex);
             }
 
-            Singleton.getGraphic().createTextFont("Settings", "{Settings}", 30, 550, "Ascent");
+            Singleton.getGraphic().createTextFont("Settings", "{Settings}", 65, 550, "Ascent");
             Singleton.getGraphic().createTextFont("Sound", "SOUND", 216, 450, "Calibrib");
             Singleton.getGraphic().createTextFont("OnSound", "ON", 375, 450, "Calibrib");
             Singleton.getGraphic().createTextFont("OffSound", "OFF", 450, 450, "Calibrib");
