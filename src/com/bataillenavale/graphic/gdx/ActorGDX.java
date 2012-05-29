@@ -27,6 +27,7 @@ public class ActorGDX extends Actor {
     private Texture m_texture;
     private int m_frame;
     private Color m_color;
+    private boolean m_touch;
 
     /**
      * Constructor
@@ -53,7 +54,8 @@ public class ActorGDX extends Actor {
         this.y = _posY;
         this.width = _width;
         this.height = _height;
-        this.touchable = false;
+        // this.touchable = false;
+        this.m_touch = false;
     }
 
     /**
@@ -86,6 +88,7 @@ public class ActorGDX extends Actor {
      */
     @Override
     public void touchUp(float x, float y, int pointer) {
+        System.out.println(this.name);
     }
 
     /**
@@ -93,8 +96,10 @@ public class ActorGDX extends Actor {
      */
     @Override
     public void touchDragged(float x, float y, int pointer) {
-        this.x = Gdx.input.getX() - this.width / 2;
-        this.y = Gdx.graphics.getHeight() - Gdx.input.getY() - this.height / 2;
+        if (this.m_touch){
+            this.x = Gdx.input.getX() - this.width / 2;
+            this.y = Gdx.graphics.getHeight() - Gdx.input.getY() - this.height / 2;
+        }
     }
 
     /**
@@ -119,6 +124,7 @@ public class ActorGDX extends Actor {
      * @param touch True touchable
      */
     public void setTouchable(boolean touch){
-        this.touchable = touch;
+        // this.touchable = touch;
+        this.m_touch = touch;
     }
 }
