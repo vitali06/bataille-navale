@@ -7,10 +7,13 @@ package com.bataillenavale.scene.content;
 
 import com.bataillenavale.game.Singleton;
 import com.bataillenavale.scene.Scene;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.xml.parsers.ParserConfigurationException;
+import org.xml.sax.SAXException;
 
 /**
  * Main Menu Scene
@@ -48,10 +51,10 @@ public class MainMenuScene implements Scene {
             System.out.println("Main Menu Scene (init)");            
             try {
                 Singleton.getGraphic().loadSprites("config/MainMenuScreen.xml");
-            } catch (Exception ex) {
+            } catch (ParserConfigurationException | IOException | SAXException ex) {
                 Logger.getLogger(Splashscreen.class.getName()).log(Level.SEVERE, null, ex);
             }
-            Singleton.getGraphic().createTextFont("Main Menu", "{Main Menu}", 30, 550, "Ascent");
+            Singleton.getGraphic().createTextFont("Main Menu", "{Main Menu}", 20, 550, "Ascent");
             Singleton.getGraphic().createTextFont("Game", "GAME", 230, 450, "Calibrib");
             Singleton.getGraphic().createTextFont("Settings", "SETTINGS", 195, 400, "Calibrib");
             Singleton.getGraphic().createTextFont("About", "ABOUT", 220, 350, "Calibrib");

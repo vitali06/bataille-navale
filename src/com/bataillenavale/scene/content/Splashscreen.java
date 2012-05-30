@@ -5,12 +5,13 @@
  */
 package com.bataillenavale.scene.content;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
 import com.bataillenavale.game.Singleton;
 import com.bataillenavale.scene.Scene;
+import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.xml.parsers.ParserConfigurationException;
+import org.xml.sax.SAXException;
 
 /**
  * SplashSrceen Scene
@@ -47,7 +48,7 @@ public class Splashscreen implements Scene{
             System.out.println("Splash Screen Scene (Init)");
             try {
                 Singleton.getGraphic().loadSprites("config/SplashScreen.xml");
-            } catch (Exception ex) {
+            } catch (ParserConfigurationException | IOException | SAXException ex) {
                 Logger.getLogger(Splashscreen.class.getName()).log(Level.SEVERE, null, ex);
             }
             Singleton.getGraphic().createTextFont("Test", "Presented by : Laurent SITTLER, Melissa WEISSMULLER, Alexis DORR", 150, 20, "Calibri");
