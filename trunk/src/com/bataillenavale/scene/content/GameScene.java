@@ -10,9 +10,13 @@ import com.badlogic.gdx.math.Rectangle;
 import com.bataillenavale.game.Singleton;
 import com.bataillenavale.items.gdx.Ships;
 import com.bataillenavale.scene.Scene;
+import com.bataillenavale.tools.Cases;
 import com.bataillenavale.tools.Grid;
+import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.xml.parsers.ParserConfigurationException;
+import org.xml.sax.SAXException;
 
 /**
  * Scene of Game
@@ -51,11 +55,11 @@ public class GameScene implements Scene {
             Grid grille = new Grid(9);
             try {
                 Singleton.getGraphic().loadSprites("config/PrepareGameScene.xml");
-            } catch (Exception ex) {
+            } catch (ParserConfigurationException | IOException | SAXException ex) {
                 Logger.getLogger(Splashscreen.class.getName()).log(Level.SEVERE, null, ex);
             }
             Ships t_ships = new Ships();
-            Singleton.getGraphic().createTextFont("PGame", "{Game}", 120, 550, "Ascent");
+            Singleton.getGraphic().createTextFont("PGame", "{Game}", 70, 550, "Ascent");
             this.m_init = true;
         }
     }
@@ -67,6 +71,7 @@ public class GameScene implements Scene {
     public void update() {
         if (this.m_init){
             //System.out.println("GameScene Update");
+            Cases test = new Cases((int)Gdx.input.getX(), (int)(Gdx.graphics.getHeight() - Gdx.input.getY()), "Select");
         }
     }
 

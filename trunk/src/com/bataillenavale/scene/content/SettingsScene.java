@@ -5,14 +5,16 @@
  */
 package com.bataillenavale.scene.content;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Rectangle;
 import com.bataillenavale.game.Singleton;
 import com.bataillenavale.scene.Scene;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.xml.parsers.ParserConfigurationException;
+import org.xml.sax.SAXException;
 
 /**
  * Scene of Settings
@@ -59,11 +61,11 @@ public class SettingsScene implements Scene {
 //            System.out.println("Settings Scene (init)");
             try {
                 Singleton.getGraphic().loadSprites("config/SettingsScreen.xml");
-            } catch (Exception ex) {
+            } catch (ParserConfigurationException | IOException | SAXException ex) {
                 Logger.getLogger(Splashscreen.class.getName()).log(Level.SEVERE, null, ex);
             }
 
-            Singleton.getGraphic().createTextFont("Settings", "{Settings}", 65, 550, "Ascent");
+            Singleton.getGraphic().createTextFont("Settings", "{Settings}", 45, 550, "Ascent");
             Singleton.getGraphic().createTextFont("Sound", "SOUND", 216, 450, "Calibrib");
             Singleton.getGraphic().createTextFont("OnSound", "ON", 375, 450, "Calibrib");
             Singleton.getGraphic().createTextFont("OffSound", "OFF", 450, 450, "Calibrib");

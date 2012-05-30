@@ -107,11 +107,27 @@ public interface Graphic {
     
     /**
      * Set position actor
-     * @param name Name Actor
+     * @param name Actor Name
      * @param posX Position X Screen
      * @param posY Position Y Screen
      */
     public void setPositionActor(String name, float posX, float posY);
+    
+    /**
+     * Set if Actor is touchable
+     * @param name Actor Name
+     * @param touch True if touchable
+     */
+    public void setTouchable(String name, boolean touch);
+    
+    /**
+     * Set Actor visibility
+     * @param name Actor Name 
+     * @param visible True if visible
+     */
+    public void setVisible(String name, boolean visible);
+    
+    public boolean getVisible(String name);
     
     /**
      * Load File XML for create multiple Actors
@@ -127,8 +143,6 @@ public interface Graphic {
      * @return True if initialized
      */
     public boolean isInit();
-    
-    public void setTouchable(String name, boolean touch);
     
     /**
      * Set alpha Actor

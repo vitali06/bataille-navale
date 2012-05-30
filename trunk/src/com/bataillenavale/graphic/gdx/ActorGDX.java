@@ -12,6 +12,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.bataillenavale.tools.Cases;
 import java.io.File;
 
 /**
@@ -25,7 +26,6 @@ public class ActorGDX extends Actor {
     private TextureRegion m_region;
     private String m_absolutePath;
     private Texture m_texture;
-    private int m_frame;
     private Color m_color;
     private boolean m_touch;
 
@@ -43,7 +43,6 @@ public class ActorGDX extends Actor {
      */
     public ActorGDX(String _name, String _path, float _posX, float _posY, int _width, int _height, int spriteX, int spriteY, int _frame) {
         super(_name);
-        this.m_frame = _frame;
         this.m_absolutePath = new File(_path).getAbsolutePath();
         FileHandle t_file = Gdx.files.absolute(this.m_absolutePath);
         this.m_texture = new Texture(t_file);
@@ -54,7 +53,6 @@ public class ActorGDX extends Actor {
         this.y = _posY;
         this.width = _width;
         this.height = _height;
-        // this.touchable = false;
         this.m_touch = false;
     }
 
@@ -88,7 +86,9 @@ public class ActorGDX extends Actor {
      */
     @Override
     public void touchUp(float x, float y, int pointer) {
-        System.out.println(this.name);
+        // System.out.println(this.name);
+        // Test Cases Colors
+        // Cases reuh = new Cases((int)Gdx.input.getX(), (int)(Gdx.graphics.getHeight() - Gdx.input.getY()), "Use");
     }
 
     /**
@@ -124,7 +124,22 @@ public class ActorGDX extends Actor {
      * @param touch True touchable
      */
     public void setTouchable(boolean touch){
-        // this.touchable = touch;
         this.m_touch = touch;
+    }
+    
+    /**
+     * Set Actor visibility
+     * @param visible True if visible
+     */
+    public void setVisible(boolean visible){
+        this.visible = visible;
+    }
+    
+    /**
+     * Get Actor visibility
+     * @return True if Actor is visible
+     */
+    public boolean getVisible(){
+        return this.visible;
     }
 }

@@ -155,9 +155,27 @@ public class GraphicGDX implements Graphic{
         }
     }
     
+    @Override
     public void setTouchable(String name, boolean touch){
         if (this.m_listActors.containsKey(name)){
             this.m_listActors.get(name).setTouchable(touch);
+        }
+    }
+    
+    @Override
+    public void setVisible(String name, boolean visible){
+        if (this.m_listActors.containsKey(name)){
+            this.m_listActors.get(name).setVisible(visible);
+        }
+    }
+    
+    @Override
+    public boolean getVisible(String name){
+        if (this.m_listActors.containsKey(name)){
+            return this.m_listActors.get(name).getVisible();
+        }
+        else{
+            return false;
         }
     }
     
