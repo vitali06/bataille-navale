@@ -1,6 +1,7 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * Bataille Navale
+ * http://code.google.com/p/bataille-navale/
+ * Alexis Dörr - Mélissa Weissmuller - Laurent Sittler
  */
 package com.bataillenavale.items.gdx;
 
@@ -20,28 +21,39 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 /**
- *
- * @author sittlerl
+ * Ships Class
+ * 
+ * @author Alexis, Mélissa, Laurent
  */
 public class Ships {
-    
+
+    /**
+     * Constructor
+     */
     public Ships() {
         try {
             loadConf("config/ShipsConfig.xml");
-        } catch (Exception ex) {
+        } catch (ParserConfigurationException | IOException | SAXException ex) {
             Logger.getLogger(Splashscreen.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
+    /**
+     * Load config file ships
+     * @param path Path File
+     * @throws ParserConfigurationException
+     * @throws IOException
+     * @throws SAXException
+     */
     private void loadConf(String path) throws ParserConfigurationException, IOException, SAXException {
         File file = new File(path);
         DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
         Document doc = builder.parse(file);
         doc.getDocumentElement().normalize();
-        
+
         Element elem = doc.getDocumentElement();
         NodeList child = elem.getChildNodes();
-        
+
         for (int i = 0; i < child.getLength(); i++) {
             Node n = child.item(i);
             if (n.getNodeType() == Node.ELEMENT_NODE) {
@@ -49,19 +61,28 @@ public class Ships {
                 String name = e.getAttribute("name");
                 boolean touch = Boolean.parseBoolean(e.getAttribute("touch"));
                 int hp = Integer.parseInt(e.getAttribute("hp"));
-                
+
                 setDragged(name, touch);
                 setPosition(name);
             }
         }
     }
-    
-    private void setDragged(String name, boolean touch){
+
+    /**
+     * Set Actor dragging
+     * @param name Actor/Ship name
+     * @param touch True = Drag
+     */
+    private void setDragged(String name, boolean touch) {
         Singleton.getGraphic().setTouchable(name, touch);
     }
-    
-    private void setPosition(String name){
-        if (Singleton.getGraphic().getActors().containsKey(name)){
+
+    /**
+     * Set position Ships
+     * @param name Actor/Ship name
+     */
+    private void setPosition(String name) {
+        if (Singleton.getGraphic().getActors().containsKey(name)) {
             float posX = (300 - Singleton.getGraphic().getActors().get(name).width) / 2;
             Singleton.getGraphic().getActors().get(name).setPosition(posX, Singleton.getGraphic().getActors().get(name).y);
         }
