@@ -7,9 +7,12 @@ package com.bataillenavale.graphic.gdx;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.GL10;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -19,11 +22,11 @@ import com.bataillenavale.scene.content.Splashscreen;
 
 /**
  * ScreenGDX Class
- * 
+ *
  * @author Alexis, Mélissa, Laurent
  */
 public class ScreenGDX implements Screen {
-    
+
     /// Attributes
     private Scene m_scene;
     private Scene m_nextScene;
@@ -31,34 +34,40 @@ public class ScreenGDX implements Screen {
     private Stage m_stage;
     private SpriteBatch m_spriteBatch;
     private BitmapFont m_font;
-    
+    private TextureRegion m_cursor;
+    private Texture m_tCursor;
+
     /**
      * Constructor
      */
-    public ScreenGDX(){
+    public ScreenGDX() {
         System.out.println("Constructor ScreenGDX");
     }
-    
+
     /**
      * @see Screen#render()
      */
     @Override
     public void render(float delta) {
-        // System.out.println("Render ScreenGDX");
         Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
         this.m_stage.act(Gdx.graphics.getDeltaTime());
-        
+
         this.m_stage.draw();
-        
-        //Show FPS Windows
+
+        // Begin draw
         this.m_spriteBatch.begin();
+        // Cursor Game
+        this.m_spriteBatch.draw(this.m_cursor, Gdx.input.getX(), Gdx.graphics.getHeight() - Gdx.input.getY() - 32);
+
+        //Show FPS Windows
         if (this.m_scene.getFps()) {
             int fps = (int) (1f / Gdx.graphics.getDeltaTime());
             this.m_font.draw(this.m_spriteBatch, "fps: " + fps, 10, 20);
         }
         this.m_spriteBatch.end();
-        
-        if (m_scene.newScene()){
+
+        // Change Scene
+        if (m_scene.newScene()) {
             setScene();
         }
     }
@@ -77,19 +86,25 @@ public class ScreenGDX implements Screen {
     @Override
     public void show() {
         this.m_spriteBatch = new SpriteBatch();
-        
+
         this.m_stage = new Stage(Singleton.getGraphic().getDimensions().width, Singleton.getGraphic().getDimensions().height, true);
         System.out.println("Size Screen : " + Singleton.getGraphic().getDimensions().width + "x" + Singleton.getGraphic().getDimensions().height);
         this.m_font = new BitmapFont();
         this.m_scene = new Splashscreen(false);
         this.m_group = new Group("GroupeActors");
-        
+
+        FileHandle t_file = Gdx.files.absolute("data/items/Cursor.png");
+        this.m_tCursor = new Texture(t_file);
+        this.m_cursor = new TextureRegion(this.m_tCursor, 0, 0, 25, 32);
+
         this.m_stage.addActor(m_group);
         Gdx.input.setInputProcessor(m_stage);
-        
+        // Hide cursor mouse
+        Gdx.input.setCursorCatched(true);
+
         this.m_scene.init();
         System.out.println("Show ScreenGDX");
-        
+
     }
 
     /**
@@ -100,71 +115,71 @@ public class ScreenGDX implements Screen {
     }
 
     /**
-     * @see Screen#pause() 
+     * @see Screen#pause()
      */
     @Override
     public void pause() {
     }
 
     /**
-     * @see Screen#resume() 
+     * @see Screen#resume()
      */
     @Override
     public void resume() {
     }
 
     /**
-     * @see Screen#dispose() 
+     * @see Screen#dispose()
      */
     @Override
     public void dispose() {
     }
-    
+
     /**
      * Get current scene
      * @return Current Scene
      */
-    public Scene getScene(){
+    public Scene getScene() {
         return this.m_scene;
     }
-    
+
     /**
      * Add Actor in group
      * @param actor Actor
      */
-    public void addActor(Actor actor){
+    public void addActor(Actor actor) {
         this.m_group.addActor(actor);
     }
-    
+
     /**
      * Set next scene after event and backup current scene
      * @param scene Next Scene
      */
-    public void nextScene(Scene scene){
+    public void nextScene(Scene scene) {
         this.m_nextScene = scene;
     }
-    
+
     /**
      * Get Group Actors
      * @return Group Actors
      */
-    public Group getGroup(){
+    public Group getGroup() {
         return this.m_group;
     }
-    
+
     /**
      * Set new Scene
      */
-    public void setScene(){
+    public void setScene() {
         System.out.println("Before Clean");
-        if (this.m_scene != null){
+        if (this.m_scene != null) {
             this.m_group.clear();
             this.m_scene.destroy();
         }
-        
+
         this.m_scene = m_nextScene;
-        
-        if (this.m_scene != null){
+
+        if (this.m_scene != null) {
             this.m_scene.init();
         }
     }

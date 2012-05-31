@@ -1,6 +1,7 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * Bataille Navale
+ * http://code.google.com/p/bataille-navale/
+ * Alexis Dörr - Mélissa Weissmuller - Laurent Sittler
  */
 package com.bataillenavale.tools;
 
@@ -8,43 +9,56 @@ import com.badlogic.gdx.Gdx;
 import com.bataillenavale.game.Singleton;
 
 /**
- *
- * @author sittlerl
+ * Tool draw grids
+ * 
+ * @author Alexis, Mélissa, Laurent
  */
 public class Grid {
-    
+
     /// Attibutes
     private int m_size;
     private String m_path;
-    
-    public Grid(int size){
+
+    /**
+     * Constructor
+     *
+     * @param size Number of colonnes and lines
+     */
+    public Grid(int size) {
         this.m_size = size;
         this.m_path = "data/items/SpriteCases.png";
-        
-        // Check grid hidden (Check)
-        for (int i = 0; i < this.m_size; i++){
-            for (int j = 0; j < this.m_size; j++){
+
+        // The order of draw is very important
+
+        drawCheckGrid();
+        drawUseGrid();
+        drawSelectGrid();
+        drawGrid();
+
+        // End drw
+        System.out.println("Grilles créées!");
+    }
+
+    /**
+     * Draw first grid position
+     */
+    private void drawGrid() {
+        for (int i = 0; i < this.m_size; i++) {
+            for (int j = 0; j < this.m_size; j++) {
                 int posX = ((Gdx.graphics.getWidth() - 300 - 50 * this.m_size) / 2) + 300 + 50 * i;
                 int posY = ((Gdx.graphics.getHeight() - 50 * this.m_size) / 2) + 50 * j;
-                Singleton.getGraphic().createSprite("Check" + i + j, this.m_path, posX, posY, 50, 50, 150, 0, 1);
-                Singleton.getGraphic().setVisible("Check" + i + j, false);
+                Singleton.getGraphic().createSprite("Case" + i + j, this.m_path, posX, posY, 50, 50, 0, 0, 1);
+                Singleton.getGraphic().setAlpha("Case" + i + j, 0.35f);
             }
         }
-        
-        // Use grid hidden (Use)
-        for (int i = 0; i < this.m_size; i++){
-            for (int j = 0; j < this.m_size; j++){
-                int posX = ((Gdx.graphics.getWidth() - 300 - 50 * this.m_size) / 2) + 300 + 50 * i;
-                int posY = ((Gdx.graphics.getHeight() - 50 * this.m_size) / 2) + 50 * j;
-                Singleton.getGraphic().createSprite("Use" + i + j, this.m_path, posX, posY, 50, 50, 100, 0, 1);
-                Singleton.getGraphic().setVisible("Use" + i + j, false);
-                Singleton.getGraphic().setAlpha("Use" + i + j, 0.5f);
-            }
-        }
-        
-        // Select grid hidden (Select)
-        for (int i = 0; i < this.m_size; i++){
-            for (int j = 0; j < this.m_size; j++){
+    }
+
+    /**
+     * Draw select grid (Hidden)
+     */
+    private void drawSelectGrid() {
+        for (int i = 0; i < this.m_size; i++) {
+            for (int j = 0; j < this.m_size; j++) {
                 int posX = ((Gdx.graphics.getWidth() - 300 - 50 * this.m_size) / 2) + 300 + 50 * i;
                 int posY = ((Gdx.graphics.getHeight() - 50 * this.m_size) / 2) + 50 * j;
                 Singleton.getGraphic().createSprite("Select" + i + j, this.m_path, posX, posY, 50, 50, 50, 0, 1);
@@ -52,17 +66,34 @@ public class Grid {
                 Singleton.getGraphic().setAlpha("Select" + i + j, 0.35f);
             }
         }
-        
-        // Basic grid visible (Case)
-        for (int i = 0; i < this.m_size; i++){
-            for (int j = 0; j < this.m_size; j++){
+    }
+
+    /**
+     * Draw use grid (Hidden)
+     */
+    private void drawUseGrid() {
+        for (int i = 0; i < this.m_size; i++) {
+            for (int j = 0; j < this.m_size; j++) {
                 int posX = ((Gdx.graphics.getWidth() - 300 - 50 * this.m_size) / 2) + 300 + 50 * i;
                 int posY = ((Gdx.graphics.getHeight() - 50 * this.m_size) / 2) + 50 * j;
-                Singleton.getGraphic().createSprite("Case" + i + j, this.m_path, posX, posY, 50, 50, 0, 0, 1);
-                Singleton.getGraphic().setAlpha("Case" + i + j, 0.35f);
+                Singleton.getGraphic().createSprite("Use" + i + j, this.m_path, posX, posY, 50, 50, 100, 0, 1);
+                Singleton.getGraphic().setVisible("Use" + i + j, false);
+                Singleton.getGraphic().setAlpha("Use" + i + j, 0.5f);
             }
         }
-        System.out.println("Grilles créées!");
     }
-    
+
+    /**
+     * Draw check grid (Hidden)
+     */
+    private void drawCheckGrid() {
+        for (int i = 0; i < this.m_size; i++) {
+            for (int j = 0; j < this.m_size; j++) {
+                int posX = ((Gdx.graphics.getWidth() - 300 - 50 * this.m_size) / 2) + 300 + 50 * i;
+                int posY = ((Gdx.graphics.getHeight() - 50 * this.m_size) / 2) + 50 * j;
+                Singleton.getGraphic().createSprite("Check" + i + j, this.m_path, posX, posY, 50, 50, 150, 0, 1);
+                Singleton.getGraphic().setVisible("Check" + i + j, false);
+            }
+        }
+    }
 }

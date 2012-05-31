@@ -5,14 +5,10 @@
  */
 package com.bataillenavale.graphic.gdx;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
-import com.badlogic.gdx.files.FileHandle;
-import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.math.Rectangle;
 import com.bataillenavale.graphic.Graphic;
-import com.bataillenavale.tools.Grid;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
@@ -27,43 +23,43 @@ import org.xml.sax.SAXException;
 
 /**
  * GraphicGDX Class
- * 
+ *
  * @author Alexis, Mélissa, Laurent
  */
-public class GraphicGDX implements Graphic{
-    
+public class GraphicGDX implements Graphic {
+
     /// Attributes
     private GameGDX m_gameGDX;
     private LwjglApplication m_application;
     private Rectangle m_gameDimensions;
-    private boolean  m_init = false;
+    private boolean m_init = false;
     private HashMap<String, ActorGDX> m_listActors;
     private HashMap<String, AnimationGDX> m_listAnim;
     private HashMap<String, TextGDX> m_listText;
-    
+
     /**
      * Constructor
      */
-    public GraphicGDX(){
+    public GraphicGDX() {
         super();
         this.m_gameDimensions = new Rectangle();
     }
-    
+
     /**
      * @see Graphic#update()
      */
     @Override
     public void update() {
-        if (this.m_gameGDX.getInit()){
+        if (this.m_gameGDX.getInit()) {
             this.m_gameGDX.getScene().update();
         }
     }
-    
+
     /**
      * Initialize game
      * @param conf Configuration of graphic
      */
-    private void init(LwjglApplicationConfiguration conf){
+    private void init(LwjglApplicationConfiguration conf) {
         this.m_listActors = new HashMap<>();
         this.m_listAnim = new HashMap<>();
         this.m_listText = new HashMap<>();
@@ -71,36 +67,37 @@ public class GraphicGDX implements Graphic{
         this.m_application = new LwjglApplication(this.m_gameGDX, conf);
         // System.out.print("Create Run termined!!!!");
     }
-    
+
     /**
      * @see Graphic#init(int, int, java.lang.String, boolean)
      */
     @Override
-    public void init(int _width, int _height, String _title, boolean _fullScreen){
+    public void init(int _width, int _height, String _title, boolean _fullScreen) {
         LwjglApplicationConfiguration conf = new LwjglApplicationConfiguration();
-        
+
         conf.width = _width;
         this.m_gameDimensions.setWidth(_width);
         conf.height = _height;
         this.m_gameDimensions.setHeight(_height);
         conf.title = _title;
         conf.fullscreen = _fullScreen;
-        
+
         init(conf);
         System.out.println("Graphic is initiliaze!!!");
         this.m_init = true;
     }
-    
+
     /**
-     * @see Graphic#getDimensions() 
+     * @see Graphic#getDimensions()
      */
     @Override
-    public Rectangle getDimensions(){
+    public Rectangle getDimensions() {
         return this.m_gameDimensions;
     }
 
     /**
-     * @see Graphic#createSprite(java.lang.String, java.lang.String, float, float, int, int, int, int, int)
+     * @see Graphic#createSprite(java.lang.String, java.lang.String, float,
+     * float, int, int, int, int, int)
      */
     @Override
     public void createSprite(String _name, String _path, float _posX, float _posY, int _width, int _height, int spriteX, int spriteY, int _frame) {
@@ -108,29 +105,32 @@ public class GraphicGDX implements Graphic{
         this.m_listActors.put(_name, actor);
         this.m_gameGDX.addActor(actor);
     }
-    
+
     /**
-     * @see Graphic#createAnimation(java.lang.String, java.lang.String, float, float, int, int, int, int, int)
+     * @see Graphic#createAnimation(java.lang.String, java.lang.String, float,
+     * float, int, int, int, int, int)
      */
     @Override
-    public void createAnimation(String _name, String _path, float _posX, float _posY, int _width, int _height, int spriteX, int spriteY, int _frame){
+    public void createAnimation(String _name, String _path, float _posX, float _posY, int _width, int _height, int spriteX, int spriteY, int _frame) {
         AnimationGDX anim = new AnimationGDX(_name, _path, _posX, _posY, _width, _height, spriteX, spriteY, _frame);
         this.m_listAnim.put(_name, anim);
         this.m_gameGDX.addActor(anim);
     }
-    
+
     /**
-     * @see Graphic#createTextActor(java.lang.String, java.lang.String, float, float)
+     * @see Graphic#createTextActor(java.lang.String, java.lang.String, float,
+     * float)
      */
     @Override
-    public void createTextActor(String _name, String _content, float _posX, float _posY){
+    public void createTextActor(String _name, String _content, float _posX, float _posY) {
         TextGDX text = new TextGDX(_name, _content, _posX, _posY);
         this.m_listText.put(_name, text);
         this.m_gameGDX.addActor(text);
     }
-    
+
     /**
-     * @see Graphic#createTextFont(java.lang.String, java.lang.String, float, float, java.lang.String)  
+     * @see Graphic#createTextFont(java.lang.String, java.lang.String, float,
+     * float, java.lang.String)
      */
     @Override
     public void createTextFont(String _name, String _content, float _posX, float _posY, String _font) {
@@ -138,59 +138,63 @@ public class GraphicGDX implements Graphic{
         this.m_listText.put(_name, text);
         this.m_gameGDX.addActor(text);
     }
-    
+
     /**
-     * @see Graphic#setPositionActor(java.lang.String, float, float)  
+     * @see Graphic#setPositionActor(java.lang.String, float, float)
      */
     @Override
-    public void setPositionActor(String name, float posX, float posY){
-        if (this.m_listText.containsKey(name)){
+    public void setPositionActor(String name, float posX, float posY) {
+        if (this.m_listText.containsKey(name)) {
             this.m_listText.get(name).setPosition(posX, posY);
-        }
-        else if (this.m_listActors.containsKey(name)){
+        } else if (this.m_listActors.containsKey(name)) {
             this.m_listActors.get(name).setPosition(posX, posY);
-        }
-        else if (this.m_listAnim.containsKey(name)){
+        } else if (this.m_listAnim.containsKey(name)) {
             this.m_listAnim.get(name).setPosition(posX, posY);
         }
     }
-    
+
+    /**
+     * @see Graphic#setTouchable(java.lang.String, boolean)
+     */
     @Override
-    public void setTouchable(String name, boolean touch){
-        if (this.m_listActors.containsKey(name)){
+    public void setTouchable(String name, boolean touch) {
+        if (this.m_listActors.containsKey(name)) {
             this.m_listActors.get(name).setTouchable(touch);
         }
     }
-    
+
+    /**
+     * @see Graphic#setVisible(java.lang.String, boolean)
+     */
     @Override
-    public void setVisible(String name, boolean visible){
-        if (this.m_listActors.containsKey(name)){
+    public void setVisible(String name, boolean visible) {
+        if (this.m_listActors.containsKey(name)) {
             this.m_listActors.get(name).setVisible(visible);
         }
     }
-    
+
+    /**
+     * @see Graphic#getVisible(java.lang.String)
+     */
     @Override
-    public boolean getVisible(String name){
-        if (this.m_listActors.containsKey(name)){
+    public boolean getVisible(String name) {
+        if (this.m_listActors.containsKey(name)) {
             return this.m_listActors.get(name).getVisible();
-        }
-        else{
+        } else {
             return false;
         }
     }
-    
+
     /**
-     * @see Graphic#setAlpha(java.lang.String, float) 
+     * @see Graphic#setAlpha(java.lang.String, float)
      */
     @Override
-    public void setAlpha(String name, float alpha){
-        if (this.m_listText.containsKey(name)){
+    public void setAlpha(String name, float alpha) {
+        if (this.m_listText.containsKey(name)) {
             this.m_listText.get(name).setAlpha(alpha);
-        }
-        else if (this.m_listActors.containsKey(name)){
+        } else if (this.m_listActors.containsKey(name)) {
             this.m_listActors.get(name).setAlpha(alpha);
-        }
-        else if (this.m_listAnim.containsKey(name)){
+        } else if (this.m_listAnim.containsKey(name)) {
             this.m_listAnim.get(name).setAlpha(alpha);
         }
     }
@@ -204,10 +208,10 @@ public class GraphicGDX implements Graphic{
         DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
         Document doc = builder.parse(file);
         doc.getDocumentElement().normalize();
-        
+
         Element elem = doc.getDocumentElement();
         NodeList child = elem.getChildNodes();
-        
+
         for (int i = 0; i < child.getLength(); i++) {
             Node n = child.item(i);
             if (n.getNodeType() == Node.ELEMENT_NODE) {
@@ -221,11 +225,10 @@ public class GraphicGDX implements Graphic{
                 int spriteX = Integer.parseInt(e.getAttribute("spriteX"));
                 int spriteY = Integer.parseInt(e.getAttribute("spriteY"));
                 int frame = Integer.parseInt(e.getAttribute("frame"));
-                
-                if (frame > 1){
+
+                if (frame > 1) {
                     createAnimation(name, imgPath, posX, posY, width, height, spriteX, spriteY, frame);
-                }
-                else{
+                } else {
                     createSprite(name, imgPath, posX, posY, width, height, spriteX, spriteY, frame);
                 }
             }
@@ -247,46 +250,46 @@ public class GraphicGDX implements Graphic{
     public GameGDX getGame() {
         return this.m_gameGDX;
     }
-    
+
     /**
      * @see Graphic#destroy()
      */
     @Override
-    public void destroy(){
+    public void destroy() {
         this.m_application.exit();
     }
-    
+
     /**
-     * @see Graphic#setColorText(java.lang.String, float, float, float) 
+     * @see Graphic#setColorText(java.lang.String, float, float, float)
      */
     @Override
-    public void setColorText(String name, float r, float g, float b){
-        if (this.m_listText.containsKey(name)){
+    public void setColorText(String name, float r, float g, float b) {
+        if (this.m_listText.containsKey(name)) {
             this.m_listText.get(name).setColor(r, g, b);
         }
     }
-    
+
     /**
-     * @see Graphic#getActors()  
+     * @see Graphic#getActors()
      */
     @Override
-    public HashMap<String, ActorGDX> getActors(){
+    public HashMap<String, ActorGDX> getActors() {
         return this.m_listActors;
     }
-    
+
     /**
-     * @see Graphic#getAnim() 
+     * @see Graphic#getAnim()
      */
     @Override
-    public HashMap<String, AnimationGDX> getAnim(){
+    public HashMap<String, AnimationGDX> getAnim() {
         return this.m_listAnim;
     }
-    
+
     /**
-     * @see Graphic#getText()  
+     * @see Graphic#getText()
      */
     @Override
-    public HashMap<String, TextGDX> getText(){
+    public HashMap<String, TextGDX> getText() {
         return this.m_listText;
     }
 }

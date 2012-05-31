@@ -26,7 +26,6 @@ public interface Graphic {
      * Get current Game render
      * @return AppGDX Game
      */
-    // public AppGDX getGame();
     public GameGDX getGame();
     
     /**
@@ -127,6 +126,11 @@ public interface Graphic {
      */
     public void setVisible(String name, boolean visible);
     
+    /**
+     * Get Actor visibility
+     * @param name Actor name
+     * @return True if actor visible
+     */
     public boolean getVisible(String name);
     
     /**

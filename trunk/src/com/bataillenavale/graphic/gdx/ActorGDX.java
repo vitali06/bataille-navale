@@ -14,20 +14,22 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.bataillenavale.tools.Cases;
 import java.io.File;
+import java.util.Map;
 
 /**
  * Actors in the Scene
- * 
+ *
  * @author Alexis, Mélissa, Laurent
  */
 public class ActorGDX extends Actor {
-    
+
     /// Attributes
     private TextureRegion m_region;
     private String m_absolutePath;
     private Texture m_texture;
     private Color m_color;
     private boolean m_touch;
+    private Cases m_pos;
 
     /**
      * Constructor
@@ -47,7 +49,7 @@ public class ActorGDX extends Actor {
         FileHandle t_file = Gdx.files.absolute(this.m_absolutePath);
         this.m_texture = new Texture(t_file);
         this.m_region = new TextureRegion(this.m_texture, spriteX, spriteY, _width, _height);
-        
+
         this.m_color = new Color(1, 1, 1, 1);
         this.x = _posX;
         this.y = _posY;
@@ -64,12 +66,12 @@ public class ActorGDX extends Actor {
         batch.setColor(this.m_color.r, this.m_color.g, this.m_color.b, this.m_color.a);
         batch.draw(this.m_region, x, y);
     }
-    
+
     /**
      * Set alpha current Actor
      * @param _alpha Alpha
      */
-    public void setAlpha(float _alpha){
+    public void setAlpha(float _alpha) {
         this.m_color.a = _alpha;
     }
 
@@ -78,6 +80,12 @@ public class ActorGDX extends Actor {
      */
     @Override
     public boolean touchDown(float x, float y, int pointer) {
+        if (this.m_touch) {
+            if (this.m_touch) {
+                this.m_pos = new Cases((int) this.x, (int) this.y, (int) this.width, (int) this.height);
+                this.m_pos.setBackup((int) this.x, (int) this.y);
+            }
+        }
         return true;
     }
 
@@ -86,7 +94,17 @@ public class ActorGDX extends Actor {
      */
     @Override
     public void touchUp(float x, float y, int pointer) {
-        // System.out.println(this.name);
+        if (this.m_touch) {
+            if (this.m_pos.getActive() && this.m_pos.getX() !=0 && this.m_pos.getY() != 0) {
+                this.x = this.m_pos.getX();
+                this.y = this.m_pos.getY();
+            } else {
+                for (Map.Entry<Integer, Integer> entry : this.m_pos.getBackup().entrySet()) {
+                    this.x = entry.getKey();
+                    this.y = entry.getValue();
+                }
+            }
+        }
         // Test Cases Colors
         // Cases reuh = new Cases((int)Gdx.input.getX(), (int)(Gdx.graphics.getHeight() - Gdx.input.getY()), "Use");
     }
@@ -96,50 +114,52 @@ public class ActorGDX extends Actor {
      */
     @Override
     public void touchDragged(float x, float y, int pointer) {
-        if (this.m_touch){
+        if (this.m_touch) {
             this.x = Gdx.input.getX() - this.width / 2;
             this.y = Gdx.graphics.getHeight() - Gdx.input.getY() - this.height / 2;
+            this.m_pos.setPos((int) this.x, (int) this.y);
         }
     }
 
     /**
-     * @see Actor#hit(float, float) 
+     * @see Actor#hit(float, float)
      */
     @Override
     public Actor hit(float x, float y) {
         return x > 0 && x < this.width && y > 0 && y < this.height ? this : null;
     }
-    
+
     /**
      * Set position current Actor
      * @param x Position X
      * @param y Position Y
      */
-    public void setPosition(float x, float y){
+    public void setPosition(float x, float y) {
         this.x = x;
         this.y = y;
     }
+
     /**
      * Set Actor touchable
      * @param touch True touchable
      */
-    public void setTouchable(boolean touch){
+    public void setTouchable(boolean touch) {
         this.m_touch = touch;
     }
-    
+
     /**
      * Set Actor visibility
      * @param visible True if visible
      */
-    public void setVisible(boolean visible){
+    public void setVisible(boolean visible) {
         this.visible = visible;
     }
-    
+
     /**
      * Get Actor visibility
      * @return True if Actor is visible
      */
-    public boolean getVisible(){
+    public boolean getVisible() {
         return this.visible;
     }
 }
