@@ -80,7 +80,7 @@ public class MainMenuScene implements Scene {
             if (Singleton.getInput().isEnterPressed()) {                
                 if ("Game".equals(listMenu.get(indexSelectedMenu))) {
                     this.m_init = false;
-                    Singleton.getGraphic().getGame().getScreen().nextScene(new GameScene(true));
+                    Singleton.getGraphic().getGame().getScreen().nextScene(new PrepareGameScene(true));
                     this.m_newScene = true;
                 }
                 if ("Settings".equals(listMenu.get(indexSelectedMenu))) {

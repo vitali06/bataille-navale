@@ -5,9 +5,9 @@
  */
 package com.bataillenavale.tools;
 
-import com.badlogic.gdx.Gdx;
 import com.bataillenavale.game.Singleton;
 import com.bataillenavale.graphic.gdx.ActorGDX;
+import com.bataillenavale.graphic.gdx.ShipsGridGDX;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -25,7 +25,7 @@ public class Cases {
     private int m_aWidth;
     private int m_aHeight;
     private HashMap<Integer, Integer> m_positions = new HashMap<>();
-    private List<ActorGDX> m_actors = new LinkedList<>();
+    private List<ShipsGridGDX> m_actors = new LinkedList<>();
     private boolean m_active;
     private int m_backupX;
     private int m_backupY;
@@ -67,7 +67,7 @@ public class Cases {
      * Backup all Case type in List and redirect to type run
      */
     private void activeCase() {
-        for (Entry<String, ActorGDX> entry : Singleton.getGraphic().getActors().entrySet()) {
+        for (Entry<String, ShipsGridGDX> entry : Singleton.getGraphic().getShipsGrid().entrySet()) {
             if (entry.getValue().name.startsWith("Case") || entry.getValue().name.startsWith("Select") || entry.getValue().name.startsWith("Use") || entry.getValue().name.startsWith("Check")) {
                 this.m_actors.add(entry.getValue());
             }
@@ -89,12 +89,13 @@ public class Cases {
      * Type select case (temporary)
      * @param a List of Actor Cases
      */
-    private void selectCase(List<ActorGDX> a) {
-        for (ActorGDX item : a) {
+    private void selectCase(List<ShipsGridGDX> a) {
+        for (ShipsGridGDX item : a) {
             if (item.name.startsWith("Case") && hit(item)) {
                 this.m_active = true;
                 if (!Singleton.getGraphic().getVisible("Use" + item.name.substring(item.name.length() - 2)) && !Singleton.getGraphic().getVisible("Check" + item.name.substring(item.name.length() - 2)) && !Singleton.getGraphic().getVisible("Select" + item.name.substring(item.name.length() - 2))) {
                     Singleton.getGraphic().setVisible("Case" + item.name.substring(item.name.length() - 2), false);
+                    System.out.println(item.name.substring(item.name.length() - 2));
                     Singleton.getGraphic().setVisible("Select" + item.name.substring(item.name.length() - 2), true);
                 }
             } else if (item.name.startsWith("Case") && !hit(item)) {
@@ -125,9 +126,9 @@ public class Cases {
      * Case touched (not temporary)
      * @param a List of Actor Case
      */
-    private void useCase(List<ActorGDX> a) {
-        for (ActorGDX item : a) {
-            if (item.name.startsWith("Case") && hit(item)) {
+    private void useCase(List<ShipsGridGDX> a) {
+        for (ShipsGridGDX item : a) {
+            if (item.name.startsWith("Case") && hit(item)) {                
                 if (!Singleton.getGraphic().getVisible("Use" + item.name.substring(item.name.length() - 2)) && !Singleton.getGraphic().getVisible("Check" + item.name.substring(item.name.length() - 2))) {
                     Singleton.getGraphic().setVisible("Case" + item.name.substring(item.name.length() - 2), false);
                     Singleton.getGraphic().setVisible("Select" + item.name.substring(item.name.length() - 2), false);
@@ -141,8 +142,8 @@ public class Cases {
      * Case touched and fire (not temporrary)
      * @param a List of Actor Case
      */
-    private void checkCase(List<ActorGDX> a) {
-        for (ActorGDX item : a) {
+    private void checkCase(List<ShipsGridGDX> a) {
+        for (ShipsGridGDX item : a) {
             if (item.name.startsWith("Case") && hit(item)) {
                 if (!Singleton.getGraphic().getVisible("Use" + item.name.substring(item.name.length() - 2)) && !Singleton.getGraphic().getVisible("Check" + item.name.substring(item.name.length() - 2))) {
                     Singleton.getGraphic().setVisible("Case" + item.name.substring(item.name.length() - 2), false);
@@ -158,7 +159,7 @@ public class Cases {
      * @param a Actor test hit
      * @return True if HIT
      */
-    private boolean hit(ActorGDX a) {
+    private boolean hit(ShipsGridGDX a) {
         boolean result = false;
         for (Entry<Integer, Integer> entry : this.m_positions.entrySet()) {
             if (entry.getKey() > a.x && entry.getKey() < a.x + a.width && entry.getValue() > a.y && entry.getValue() < a.y + a.width) {
@@ -182,9 +183,9 @@ public class Cases {
      * @return Position X
      */
     public int getX() {
-        ActorGDX result = null;
+        ShipsGridGDX result = null;
         int i = 0;
-        for (ActorGDX item : this.m_actors) {
+        for (ShipsGridGDX item : this.m_actors) {
             if (item.name.startsWith("Case")) {
                 if (i < 1) {
                     result = item;
@@ -208,7 +209,7 @@ public class Cases {
      */
     public int getY() {
         int y = 0;
-        for (ActorGDX a : this.m_actors){
+        for (ShipsGridGDX a : this.m_actors){
             if (hit(a)){
                 y = (int)a.y;
             }
@@ -251,10 +252,10 @@ public class Cases {
      * Get last case top/right
      * @return Actor case
      */
-    private ActorGDX lastCase() {
-        ActorGDX result = null;
+    private ShipsGridGDX lastCase() {
+        ShipsGridGDX result = null;
         int i = 0;
-        for (ActorGDX item : this.m_actors) {
+        for (ShipsGridGDX item : this.m_actors) {
             if (item.name.startsWith("Case")) {
                 if (i < 1) {
                     result = item;

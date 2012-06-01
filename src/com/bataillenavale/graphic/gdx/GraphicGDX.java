@@ -36,6 +36,8 @@ public class GraphicGDX implements Graphic {
     private HashMap<String, ActorGDX> m_listActors;
     private HashMap<String, AnimationGDX> m_listAnim;
     private HashMap<String, TextGDX> m_listText;
+    private HashMap<String, ShipsGridGDX> m_listShipsGrid;
+    private HashMap<String, ShipsGDX> m_listShips;
 
     /**
      * Constructor
@@ -63,6 +65,8 @@ public class GraphicGDX implements Graphic {
         this.m_listActors = new HashMap<>();
         this.m_listAnim = new HashMap<>();
         this.m_listText = new HashMap<>();
+        this.m_listShipsGrid = new HashMap<>();
+        this.m_listShips = new HashMap<>();
         this.m_gameGDX = new GameGDX(conf.fullscreen);
         this.m_application = new LwjglApplication(this.m_gameGDX, conf);
         // System.out.print("Create Run termined!!!!");
@@ -138,6 +142,20 @@ public class GraphicGDX implements Graphic {
         this.m_listText.put(_name, text);
         this.m_gameGDX.addActor(text);
     }
+    
+    @Override
+    public void createShipsGrid(String _name, String _path, float _posX, float _posY, int _width, int _height, int _spriteX, int _spriteY) {
+        ShipsGridGDX shipsGrid = new ShipsGridGDX(_name, _path, _posX, _posY, _width, _height, _spriteX, _spriteY);
+        this.m_listShipsGrid.put(_name, shipsGrid);
+        this.m_gameGDX.addActor(shipsGrid);
+    }
+    
+    @Override
+    public void createShips(String _name, String _path, float _posX, float _posY, int _width, int _height, int _spriteX, int _spriteY, int _life) {
+        ShipsGDX ships = new ShipsGDX(_name, _path, _posX, _posY, _width, _height, _spriteX, _spriteY, _life);
+        this.m_listShips.put(_name, ships);
+        this.m_gameGDX.addActor(ships);
+    }
 
     /**
      * @see Graphic#setPositionActor(java.lang.String, float, float)
@@ -170,6 +188,8 @@ public class GraphicGDX implements Graphic {
     public void setVisible(String name, boolean visible) {
         if (this.m_listActors.containsKey(name)) {
             this.m_listActors.get(name).setVisible(visible);
+        } else if (this.m_listShipsGrid.containsKey(name)) {
+            this.m_listShipsGrid.get(name).setVisible(visible);
         }
     }
 
@@ -180,6 +200,8 @@ public class GraphicGDX implements Graphic {
     public boolean getVisible(String name) {
         if (this.m_listActors.containsKey(name)) {
             return this.m_listActors.get(name).getVisible();
+        } else if (this.m_listShipsGrid.containsKey(name)) {
+            return this.m_listShipsGrid.get(name).getVisible();
         } else {
             return false;
         }
@@ -195,7 +217,9 @@ public class GraphicGDX implements Graphic {
         } else if (this.m_listActors.containsKey(name)) {
             this.m_listActors.get(name).setAlpha(alpha);
         } else if (this.m_listAnim.containsKey(name)) {
-            this.m_listAnim.get(name).setAlpha(alpha);
+            this.m_listAnim.get(name).setAlpha(alpha);        
+        } else if (this.m_listShipsGrid.containsKey(name)) {
+            this.m_listShipsGrid.get(name).setAlpha(alpha);
         }
     }
 
@@ -231,6 +255,38 @@ public class GraphicGDX implements Graphic {
                 } else {
                     createSprite(name, imgPath, posX, posY, width, height, spriteX, spriteY, frame);
                 }
+            }
+        }
+    }
+    
+    @Override
+    public void loadShips(String path) throws ParserConfigurationException, IOException, SAXException {
+        File file = new File(path);
+        DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+        Document doc = builder.parse(file);
+        doc.getDocumentElement().normalize();
+
+        Element elem = doc.getDocumentElement();
+        NodeList child = elem.getChildNodes();
+
+        for (int i = 0; i < child.getLength(); i++) {
+            Node n = child.item(i);
+            if (n.getNodeType() == Node.ELEMENT_NODE) {
+                Element e = (Element) n;
+                String _name = e.getAttribute("name");
+                String _path = e.getAttribute("path");
+                int _width = Integer.parseInt(e.getAttribute("width"));
+                int _height = Integer.parseInt(e.getAttribute("height"));
+                int _posX = Integer.parseInt(e.getAttribute("posX"));
+                int _posY = Integer.parseInt(e.getAttribute("posY"));
+                int _spriteX = Integer.parseInt(e.getAttribute("spriteX"));
+                int _spriteY = Integer.parseInt(e.getAttribute("spriteY"));
+                int hp = Integer.parseInt(e.getAttribute("hp"));
+
+                this.createShips(_name, _path, _posX, _posY, _width, _height, _spriteX, _spriteY, hp);
+
+                //setDragged(_name, touch);
+                //setPosition(_name);
             }
         }
     }
@@ -291,5 +347,15 @@ public class GraphicGDX implements Graphic {
     @Override
     public HashMap<String, TextGDX> getText() {
         return this.m_listText;
+    }
+    
+    @Override
+    public HashMap<String, ShipsGridGDX> getShipsGrid() {
+        return this.m_listShipsGrid;
+    }
+    
+    @Override
+    public HashMap<String, ShipsGDX> getShips() {
+        return this.m_listShips;
     }
 }
