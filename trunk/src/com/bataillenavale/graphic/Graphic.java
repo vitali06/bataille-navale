@@ -6,10 +6,7 @@
 package com.bataillenavale.graphic;
 
 import com.badlogic.gdx.math.Rectangle;
-import com.bataillenavale.graphic.gdx.ActorGDX;
-import com.bataillenavale.graphic.gdx.AnimationGDX;
-import com.bataillenavale.graphic.gdx.GameGDX;
-import com.bataillenavale.graphic.gdx.TextGDX;
+import com.bataillenavale.graphic.gdx.*;
 import java.io.IOException;
 import java.util.HashMap;
 import javax.xml.parsers.ParserConfigurationException;
@@ -95,6 +92,10 @@ public interface Graphic {
      */
     public void createTextFont(String _name, String _content, float _posX, float _posY, String _font);
     
+    public void createShipsGrid(String _name, String _path, float _posX, float _posY, int _width, int _height, int _spriteX, int _spriteY);
+    
+    public void createShips(String _name, String _path, float _posX, float _posY, int _width, int _height, int _spriteX, int _spriteY, int _life);
+    
     /**
      * Set Color Text Actor
      * @param name Actor name
@@ -142,6 +143,8 @@ public interface Graphic {
      */
     public void loadSprites(String path) throws ParserConfigurationException, IOException, SAXException;
     
+    public void loadShips(String path) throws ParserConfigurationException, IOException, SAXException;
+    
     /**
      * Check if create game is initialized
      * @return True if initialized
@@ -177,4 +180,8 @@ public interface Graphic {
      * @return HashMap TextGDX
      */
     public HashMap<String, TextGDX> getText();
+    
+    public HashMap<String, ShipsGridGDX> getShipsGrid();
+    
+    public HashMap<String, ShipsGDX> getShips();
 }
