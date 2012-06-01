@@ -49,7 +49,7 @@ public class ShipsGridGDX extends Actor {
         this.height = _height;
         
         m_color = new Color(1,1,1,1);
-        m_shipsGrid = new ShipsGrid();
+        //m_shipsGrid = new ShipsGrid();
     }
 
     @Override
