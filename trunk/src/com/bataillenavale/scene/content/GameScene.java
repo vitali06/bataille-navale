@@ -46,7 +46,7 @@ public class GameScene implements Scene {
                 Singleton.getGraphic().loadSprites("config/PrepareGameScene.xml");
                 
             } catch (ParserConfigurationException | IOException | SAXException ex) {
-                Logger.getLogger(Splashscreen.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(GameScene.class.getName()).log(Level.SEVERE, null, ex);
             }
             //Ships t_ships = new Ships();
             Singleton.getGraphic().createTextFont("Game", "{Game}", 70, 550, "Ascent");
