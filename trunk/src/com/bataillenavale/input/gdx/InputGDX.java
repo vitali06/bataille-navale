@@ -99,7 +99,7 @@ public class InputGDX implements Input {
              * If DOWN is the last button clicked 
              * And if the time since you clicked this button is greater than 0,2 seconds
              */
-            else if (now - lastPressedTime > 100) {
+            else if (now - lastPressedTime > 200 && lastKeyPressed == com.badlogic.gdx.Input.Keys.DOWN) {
                 lastKeyPressed = com.badlogic.gdx.Input.Keys.DOWN;
                 lastPressedTime = now;
                 return true;
@@ -158,6 +158,24 @@ public class InputGDX implements Input {
             }
             if (now - lastPressedTime > 200 && lastKeyPressed == com.badlogic.gdx.Input.Keys.LEFT) {
                 lastKeyPressed = com.badlogic.gdx.Input.Keys.LEFT;
+                lastPressedTime = now;
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    @Override
+    public boolean isSpacePressed() {
+        if (Gdx.input.isKeyPressed(com.badlogic.gdx.Input.Keys.SPACE)) {
+            long now = new Date().getTime();
+            if (lastKeyPressed != com.badlogic.gdx.Input.Keys.SPACE) {
+                lastKeyPressed = com.badlogic.gdx.Input.Keys.SPACE;
+                lastPressedTime = now;
+                return true;
+            }
+            if (now - lastPressedTime > 200 && lastKeyPressed == com.badlogic.gdx.Input.Keys.SPACE) {
+                lastKeyPressed = com.badlogic.gdx.Input.Keys.SPACE;
                 lastPressedTime = now;
                 return true;
             }

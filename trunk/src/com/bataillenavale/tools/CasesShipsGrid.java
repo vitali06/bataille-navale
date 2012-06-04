@@ -6,7 +6,6 @@
 package com.bataillenavale.tools;
 
 import com.bataillenavale.game.Singleton;
-import com.bataillenavale.graphic.gdx.ActorGDX;
 import com.bataillenavale.graphic.gdx.ShipsGridGDX;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -18,7 +17,7 @@ import java.util.Map.Entry;
  * 
  * @author Alexis, Mélissa, Laurent
  */
-public class Cases {
+public class CasesShipsGrid {
 
     // Attributes
     private String m_mode;
@@ -36,7 +35,7 @@ public class Cases {
      * @param y
      * @param mode
      */
-    public Cases(int x, int y, String mode) {
+    public CasesShipsGrid(int x, int y, String mode) {
         this.m_positions.put(x, y);
         this.m_mode = mode;
         this.m_active = false;
@@ -52,7 +51,7 @@ public class Cases {
      * @param width Width Actor (Ship)
      * @param height Height actor (Ship)
      */
-    public Cases(int x, int y, int width, int height) {
+    public CasesShipsGrid(int x, int y, int width, int height) {
         this.m_positions.put(x, y);
         this.m_aWidth = width;
         this.m_aHeight = height;

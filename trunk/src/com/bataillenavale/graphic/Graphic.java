@@ -96,6 +96,8 @@ public interface Graphic {
     
     public void createShips(String _name, String _path, float _posX, float _posY, int _width, int _height, int _spriteX, int _spriteY, int _life);
     
+    public void createShootingGrid(String _name, String _path, float _posX, float _posY, int _width, int _height, int _spriteX, int _spriteY);
+    
     /**
      * Set Color Text Actor
      * @param name Actor name
@@ -184,4 +186,6 @@ public interface Graphic {
     public HashMap<String, ShipsGridGDX> getShipsGrid();
     
     public HashMap<String, ShipsGDX> getShips();
+    
+    public HashMap<String, ShootingGridGDX> getShootingGrid();
 }

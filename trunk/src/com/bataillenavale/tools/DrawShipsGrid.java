@@ -13,7 +13,7 @@ import com.bataillenavale.game.Singleton;
  * 
  * @author Alexis, Mélissa, Laurent
  */
-public class Grid {
+public class DrawShipsGrid {
 
     /// Attibutes
     private int m_size;
@@ -24,7 +24,7 @@ public class Grid {
      *
      * @param size Number of colonnes and lines
      */
-    public Grid(int size) {
+    public DrawShipsGrid(int size) {
         this.m_size = size;
         this.m_path = "data/items/SpriteCases.png";
 
@@ -36,7 +36,7 @@ public class Grid {
         drawGrid();
 
         // End drw
-        System.out.println("Grilles créées!");
+        System.out.println("Grilles Ships créées!");
     }
 
     /**

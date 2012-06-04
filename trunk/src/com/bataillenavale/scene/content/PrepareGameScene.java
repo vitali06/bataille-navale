@@ -8,9 +8,10 @@ package com.bataillenavale.scene.content;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Rectangle;
 import com.bataillenavale.game.Singleton;
-import com.bataillenavale.items.gdx.Ships;
+import com.bataillenavale.graphic.gdx.ShipsGDX;
+import com.bataillenavale.graphic.gdx.ShipsGridGDX;
 import com.bataillenavale.scene.Scene;
-import com.bataillenavale.tools.Grid;
+import com.bataillenavale.tools.DrawShipsGrid;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -29,6 +30,8 @@ public class PrepareGameScene implements Scene {
     private boolean m_fps;
     private Rectangle m_sizeGame;
     private boolean m_newScene;
+    //private ShipsGridGDX shipsGridGDX = new ShipsGridGDX();
+    //private ShipsGDX shipsGDX = new ShipsGDX();
 
     /**
      * Constructor
@@ -54,7 +57,7 @@ public class PrepareGameScene implements Scene {
             int posY = ((Gdx.graphics.getHeight() - 450) / 2);
             Singleton.getGraphic().createSprite("Map01", "data/Maps/Map01.png", posX, posY, 450, 450, 0, 0, 1);
             // Grille de positionnement
-            Grid grille = new Grid(9);
+            DrawShipsGrid grille = new DrawShipsGrid(9);
             try {
                 Singleton.getGraphic().loadSprites("config/PrepareGameScene.xml");
                 Singleton.getGraphic().loadShips("config/ShipsConfig.xml");
@@ -64,7 +67,7 @@ public class PrepareGameScene implements Scene {
             }
             //Ships t_ships = new Ships();
             Singleton.getGraphic().createTextFont("PGame", "{Game}", 70, 550, "Ascent");
-            Singleton.getGraphic().setColorText("Porte Avions", 1.f, 0.f, 0.f);
+            //Singleton.getGraphic().setColorText("Porte Avions", 1.f, 0.f, 0.f);
             this.m_init = true;
         }
     }
@@ -79,9 +82,16 @@ public class PrepareGameScene implements Scene {
             // Cases test = new Cases((int)Gdx.input.getX(), (int)(Gdx.graphics.getHeight() - Gdx.input.getY()), "Select");
             
             if (Singleton.getInput().isEnterPressed()) {
+                ShipsGridGDX.fillGrid();
+                //s.getShipsGrid().outString();
                 this.m_init = false;
                 Singleton.getGraphic().getGame().getScreen().nextScene(new GameScene(false));
                 this.m_newScene = true;
+            }
+            
+            if(Singleton.getInput().isSpacePressed())
+            {
+                //Rotation à faire                
             }
         }
     }

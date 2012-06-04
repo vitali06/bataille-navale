@@ -51,4 +51,9 @@ public interface Input {
      * Return true if the arrow left is pressed
      */
     public boolean isLeftPressed(); 
+    
+    /**
+     * Return true if space is pressed
+     */
+    public boolean isSpacePressed();
 }
