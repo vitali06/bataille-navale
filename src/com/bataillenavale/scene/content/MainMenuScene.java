@@ -52,7 +52,7 @@ public class MainMenuScene implements Scene {
             try {
                 Singleton.getGraphic().loadSprites("config/MainMenuScreen.xml");
             } catch (ParserConfigurationException | IOException | SAXException ex) {
-                Logger.getLogger(Splashscreen.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(MainMenuScene.class.getName()).log(Level.SEVERE, null, ex);
             }
             Singleton.getGraphic().createTextFont("Main Menu", "{Main Menu}", 20, 550, "Ascent");
             Singleton.getGraphic().createTextFont("Game", "GAME", 230, 450, "Calibrib");

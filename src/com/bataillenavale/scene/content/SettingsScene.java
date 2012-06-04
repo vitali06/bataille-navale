@@ -62,7 +62,7 @@ public class SettingsScene implements Scene {
             try {
                 Singleton.getGraphic().loadSprites("config/SettingsScreen.xml");
             } catch (ParserConfigurationException | IOException | SAXException ex) {
-                Logger.getLogger(Splashscreen.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(SettingsScene.class.getName()).log(Level.SEVERE, null, ex);
             }
 
             Singleton.getGraphic().createTextFont("Settings", "{Settings}", 45, 550, "Ascent");
