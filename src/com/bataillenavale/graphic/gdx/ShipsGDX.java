@@ -12,7 +12,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.bataillenavale.items.gdx.Ships;
-import com.bataillenavale.tools.Cases;
+import com.bataillenavale.tools.CasesShipsGrid;
 import java.io.File;
 import java.util.Map;
 
@@ -28,8 +28,12 @@ public class ShipsGDX extends Actor {
     private String m_absolutePath;
     private Texture m_texture;
     private Ships ships;
-    private Cases m_pos;
-
+    private CasesShipsGrid m_pos;
+    private boolean horizontal;
+    
+    public ShipsGDX() {
+    }
+    
     public ShipsGDX(String _name, String _path, float _posX, float _posY, int _width, int _height, int _spriteX, int _spriteY, int life) {
         super(_name);
 
@@ -44,6 +48,7 @@ public class ShipsGDX extends Actor {
         this.height = _height;
 
         m_color = new Color(1, 1, 1, 1);
+        this.horizontal = true;
         
         ships = new Ships(name, life);
     }
@@ -57,8 +62,8 @@ public class ShipsGDX extends Actor {
     @Override
     public boolean touchDown(float x, float y, int pointer) {
         System.out.println("Ships Down " + this.name);
-        this.m_pos = new Cases((int) this.x, (int) this.y, (int) this.width, (int) this.height);
-        this.m_pos.setBackup((int) this.x, (int) this.y);
+        this.m_pos = new CasesShipsGrid((int) this.x, (int) this.y, (int) this.width, (int) this.height);
+        this.m_pos.setBackup((int) this.x, (int) this.y);        
         return true;
     }
 
@@ -107,5 +112,20 @@ public class ShipsGDX extends Actor {
      */
     public void setShips(Ships ships) {
         this.ships = ships;
+    }
+
+    /**
+     * @return the horizontal
+     */
+    public boolean isHorizontal() {
+        return horizontal;
+    }
+
+    /**
+     * @param horizontal the horizontal to set
+     */
+    public void setHorizontal(boolean horizontal) {
+        //this.rotation = new Float(0.25);
+        this.horizontal = horizontal;
     }
 }

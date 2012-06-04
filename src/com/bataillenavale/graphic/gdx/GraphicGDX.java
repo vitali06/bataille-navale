@@ -38,6 +38,7 @@ public class GraphicGDX implements Graphic {
     private HashMap<String, TextGDX> m_listText;
     private HashMap<String, ShipsGridGDX> m_listShipsGrid;
     private HashMap<String, ShipsGDX> m_listShips;
+    private HashMap<String, ShootingGridGDX> m_listShootingGrid;
 
     /**
      * Constructor
@@ -67,6 +68,7 @@ public class GraphicGDX implements Graphic {
         this.m_listText = new HashMap<>();
         this.m_listShipsGrid = new HashMap<>();
         this.m_listShips = new HashMap<>();
+        this.m_listShootingGrid = new HashMap<>();
         this.m_gameGDX = new GameGDX(conf.fullscreen);
         this.m_application = new LwjglApplication(this.m_gameGDX, conf);
         // System.out.print("Create Run termined!!!!");
@@ -156,6 +158,13 @@ public class GraphicGDX implements Graphic {
         this.m_listShips.put(_name, ships);
         this.m_gameGDX.addActor(ships);
     }
+    
+    @Override
+    public void createShootingGrid(String _name, String _path, float _posX, float _posY, int _width, int _height, int _spriteX, int _spriteY) {
+        ShootingGridGDX shootingGrid = new ShootingGridGDX(_name, _path, _posX, _posY, _width, _height, _spriteX, _spriteY);
+        this.m_listShootingGrid.put(_name, shootingGrid);
+        this.m_gameGDX.addActor(shootingGrid);
+    }
 
     /**
      * @see Graphic#setPositionActor(java.lang.String, float, float)
@@ -190,6 +199,8 @@ public class GraphicGDX implements Graphic {
             this.m_listActors.get(name).setVisible(visible);
         } else if (this.m_listShipsGrid.containsKey(name)) {
             this.m_listShipsGrid.get(name).setVisible(visible);
+        } else if (this.m_listShootingGrid.containsKey(name)) {
+            this.m_listShootingGrid.get(name).setVisible(visible);
         }
     }
 
@@ -202,6 +213,8 @@ public class GraphicGDX implements Graphic {
             return this.m_listActors.get(name).getVisible();
         } else if (this.m_listShipsGrid.containsKey(name)) {
             return this.m_listShipsGrid.get(name).getVisible();
+        } else if (this.m_listShootingGrid.containsKey(name)) {
+            return this.m_listShootingGrid.get(name).getVisible();
         } else {
             return false;
         }
@@ -220,6 +233,8 @@ public class GraphicGDX implements Graphic {
             this.m_listAnim.get(name).setAlpha(alpha);        
         } else if (this.m_listShipsGrid.containsKey(name)) {
             this.m_listShipsGrid.get(name).setAlpha(alpha);
+        } else if (this.m_listShootingGrid.containsKey(name)) {
+            this.m_listShootingGrid.get(name).setAlpha(alpha);
         }
     }
 
@@ -357,5 +372,10 @@ public class GraphicGDX implements Graphic {
     @Override
     public HashMap<String, ShipsGDX> getShips() {
         return this.m_listShips;
+    }
+    
+    @Override
+    public HashMap<String, ShootingGridGDX> getShootingGrid() {
+        return this.m_listShootingGrid;
     }
 }

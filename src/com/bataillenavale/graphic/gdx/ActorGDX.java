@@ -12,7 +12,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Actor;
-import com.bataillenavale.tools.Cases;
+import com.bataillenavale.tools.CasesShipsGrid;
 import java.io.File;
 import java.util.Map;
 
@@ -29,7 +29,7 @@ public class ActorGDX extends Actor {
     private Texture m_texture;
     private Color m_color;
     private boolean m_touch;
-    private Cases m_pos;
+    private CasesShipsGrid m_pos;
 
     /**
      * Constructor
