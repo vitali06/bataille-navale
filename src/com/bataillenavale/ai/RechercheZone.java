@@ -5,6 +5,7 @@
  */
 package com.bataillenavale.ai;
 
+import com.bataillenavale.tools.Coordonnee;
 import java.util.Random;
 
 public class RechercheZone implements Strategie 

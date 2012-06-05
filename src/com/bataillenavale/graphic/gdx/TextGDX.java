@@ -136,4 +136,22 @@ public class TextGDX extends Actor{
         this.x = x;
         this.y = y;
     }
+    
+        /**
+     * Set Actor visibility
+     *
+     * @param visible True if visible
+     */
+    public void setVisible(boolean visible) {
+        this.visible = visible;
+    }
+
+    /**
+     * Get Actor visibility
+     *
+     * @return True if Actor is visible
+     */
+    public boolean getVisible() {
+        return this.visible;
+    }
 }

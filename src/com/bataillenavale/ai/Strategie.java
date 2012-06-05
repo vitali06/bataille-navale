@@ -6,6 +6,8 @@
 
 package com.bataillenavale.ai;
 
+import com.bataillenavale.tools.Coordonnee;
+
 public interface Strategie 
 {
     public Coordonnee execute();

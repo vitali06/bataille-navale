@@ -5,8 +5,6 @@
  */
 package com.bataillenavale.game;
 
-import com.bataillenavale.ai.AIInterface;
-import com.bataillenavale.ai.IntelligenceArtificielle;
 import com.bataillenavale.graphic.Graphic;
 import com.bataillenavale.graphic.gdx.GraphicGDX;
 import com.bataillenavale.input.Input;
@@ -30,7 +28,7 @@ public class Singleton {
     private static Input m_input = null;
     private static Items m_items = null;
     private static Sound m_sound = null;
-    private static AIInterface m_ai = null;
+    //private static AIInterface m_ai = null;
     private static Network m_network = null;
     
     /**
@@ -76,12 +74,12 @@ public class Singleton {
     /**
      * @return the Artificial Intelligence component singleton
      */
-    public static AIInterface getAI(){
-        if (m_ai == null){
-            m_ai = new IntelligenceArtificielle();
-        }
-        return m_ai;
-    }
+//    public static AIInterface getAI(){
+//        if (m_ai == null){
+//            m_ai = new IntelligenceArtificielle();
+//        }
+//        return m_ai;
+//    }
     
     /**
      * @return the Network component singleton

@@ -201,6 +201,8 @@ public class GraphicGDX implements Graphic {
             this.m_listShipsGrid.get(name).setVisible(visible);
         } else if (this.m_listShootingGrid.containsKey(name)) {
             this.m_listShootingGrid.get(name).setVisible(visible);
+        } else if (this.m_listText.containsKey(name)) {
+            this.m_listText.get(name).setVisible(visible);
         }
     }
 
@@ -215,6 +217,8 @@ public class GraphicGDX implements Graphic {
             return this.m_listShipsGrid.get(name).getVisible();
         } else if (this.m_listShootingGrid.containsKey(name)) {
             return this.m_listShootingGrid.get(name).getVisible();
+        } else if (this.m_listText.containsKey(name)) {
+            return this.m_listText.get(name).getVisible();
         } else {
             return false;
         }

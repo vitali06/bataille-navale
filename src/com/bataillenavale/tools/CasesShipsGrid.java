@@ -94,7 +94,6 @@ public class CasesShipsGrid {
                 this.m_active = true;
                 if (!Singleton.getGraphic().getVisible("Use" + item.name.substring(item.name.length() - 2)) && !Singleton.getGraphic().getVisible("Check" + item.name.substring(item.name.length() - 2)) && !Singleton.getGraphic().getVisible("Select" + item.name.substring(item.name.length() - 2))) {
                     Singleton.getGraphic().setVisible("Case" + item.name.substring(item.name.length() - 2), false);
-                    System.out.println(item.name.substring(item.name.length() - 2));
                     Singleton.getGraphic().setVisible("Select" + item.name.substring(item.name.length() - 2), true);
                 }
             } else if (item.name.startsWith("Case") && !hit(item)) {
@@ -264,7 +263,7 @@ public class CasesShipsGrid {
                 }
             }
         }
-        System.out.println("Last Case : " + result.name + " = " + result.x + "x" + result.y);
+        //System.out.println("Last Case : " + result.name + " = " + result.x + "x" + result.y);
         return result;
     }
 }

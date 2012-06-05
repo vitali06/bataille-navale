@@ -5,6 +5,8 @@
  */
 package com.bataillenavale.ai;
 
+import com.bataillenavale.tools.Coordonnee;
+
 public class NavireTouche implements Strategie
 {
     Matrice mat;
