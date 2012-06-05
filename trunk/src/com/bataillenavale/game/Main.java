@@ -43,7 +43,7 @@ public class Main {
                 Singleton.getInput().update();
                 Singleton.getItems().update();
                 Singleton.getSound().update();
-                Singleton.getAI().update();
+                //Singleton.getAI().update();
                 Singleton.getNetwork().update();
                 Thread.sleep(10);
             } catch (InterruptedException ex) {

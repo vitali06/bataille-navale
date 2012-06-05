@@ -2,11 +2,11 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.bataillenavale.ai;
+package com.bataillenavale.tools;
 
 /**
  *
- * @author Nanahara
+ * @author Alexis
  */
 public class Coordonnee 
 {

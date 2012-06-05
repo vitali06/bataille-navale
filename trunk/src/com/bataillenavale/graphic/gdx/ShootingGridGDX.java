@@ -11,9 +11,12 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.bataillenavale.game.Singleton;
+import com.bataillenavale.items.gdx.Ships;
 import com.bataillenavale.items.gdx.ShipsGrid;
 import com.bataillenavale.tools.CasesShootingGrid;
 import com.bataillenavale.items.gdx.ShootingGrid;
+import com.bataillenavale.tools.Coordonnee;
 import java.io.File;
 
 /**
@@ -74,20 +77,35 @@ public class ShootingGridGDX extends Actor {
 
     @Override
     public boolean touchDown(float x, float y, int pointer) {
-        System.out.println("ShootingGridGDX : " + this.name);
+        //System.out.println("ShootingGridGDX : " + this.name);
         return true;
     }
 
     @Override
-    public void touchUp(float x, float y, int pointer) {
-        // Test Cases Colors
+    public void touchUp(float x, float y, int pointer) { 
         int colonne = Integer.parseInt(this.name.substring(this.name.length()-2, this.name.length()-1));
         int ligne = Integer.parseInt(this.name.substring(this.name.length()-1));
-        System.out.println(colonne);
-        System.out.println(ligne);
         
         if (ShipsGrid.hasAShip(ligne, colonne)) {
             ShootingGrid.setToValue(ligne,colonne,1);
+            for (Ships ships : Ships.getShipsList()) {
+                if (ships.getIntervale().contains(new Coordonnee(ligne, colonne))) {
+                    ships.setLife(ships.getLife() - 1);
+                    System.out.println("Le " + ships.getName() + " a ete touche.");                  
+                    
+                    if (ships.isSeek()) {
+                        System.out.println("Le " + ships.getName() + " est coulé.");
+                        Ships.getShipsList().remove(ships);
+                    }
+                    if(Ships.getShipsList().isEmpty())
+                    {
+                        System.out.println("VOUS AVEZ GAGNE");
+                        Singleton.getGraphic().createTextFont("GAGNE", "Vous avez gagne ! ", 70, 400, "Calibrib");
+                    }
+                    break;
+                }
+            }
+            
             CasesShootingGrid cases = new CasesShootingGrid((int)Gdx.input.getX(), (int)(Gdx.graphics.getHeight() - Gdx.input.getY()), "Check");
         } else {
             ShootingGrid.setToValue(ligne,colonne,2);

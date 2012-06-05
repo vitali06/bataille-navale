@@ -4,6 +4,7 @@
  */
 package com.bataillenavale.items.gdx;
 
+import com.bataillenavale.tools.Intervale;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,7 +18,8 @@ public class Ships {
 
     private String name;
     private int life;
-    private List<Ships> shipsList = new ArrayList<>();
+    private static List<Ships> shipsList = new ArrayList<>();
+    private Intervale intervale;
 
     public Ships(String name, int life) {
 //        try {
@@ -28,6 +30,7 @@ public class Ships {
 
         this.name = name;
         this.life = life;
+        this.intervale = new Intervale();
         shipsList.add(this);
     }
 
@@ -81,15 +84,8 @@ public class Ships {
     /**
      * @return the shipsList
      */
-    public List<Ships> getShipsList() {
+    public static List<Ships> getShipsList() {
         return shipsList;
-    }
-
-    /**
-     * @param shipsList the shipsList to set
-     */
-    public void setShipsList(List<Ships> shipsList) {
-        this.shipsList = shipsList;
     }
     
     public Ships getShipsByName(String name)
@@ -103,5 +99,26 @@ public class Ships {
         }
         
         return null;
+    }
+
+    /**
+     * @return the intervale
+     */
+    public Intervale getIntervale() {
+        return intervale;
+    }
+
+    /**
+     * @param intervale the intervale to set
+     */
+    public void setIntervale(Intervale intervale) {
+        this.intervale = intervale;
+    }
+    
+    public boolean isSeek() {
+        if (this.life == 0) {
+            return true;
+        }
+        return false;
     }
 }

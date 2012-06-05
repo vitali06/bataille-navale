@@ -5,6 +5,8 @@
  */
 package com.bataillenavale.ai;
 
+import com.bataillenavale.tools.Intervale;
+import com.bataillenavale.tools.Coordonnee;
 import java.util.ArrayList;
 import java.util.Random;
 
