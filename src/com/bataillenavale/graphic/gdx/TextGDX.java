@@ -154,4 +154,8 @@ public class TextGDX extends Actor{
     public boolean getVisible() {
         return this.visible;
     }
+    
+    public void destroy() {
+        this.remove();
+    }
 }

@@ -65,7 +65,7 @@ public class PrepareGameScene implements Scene {
                 Logger.getLogger(PrepareGameScene.class.getName()).log(Level.SEVERE, null, ex);
             }
             //Ships t_ships = new Ships();
-            Singleton.getGraphic().createTextFont("PGame", "{Game}", 70, 550, "Ascent");
+            Singleton.getGraphic().createTextFont("PGame", "{Game}", 60, 550, "Ascent");
             //Singleton.getGraphic().setColorText("Porte Avions", 1.f, 0.f, 0.f);
             this.m_init = true;
         }
