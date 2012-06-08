@@ -60,6 +60,7 @@ public class GraphicGDX implements Graphic {
 
     /**
      * Initialize game
+     *
      * @param conf Configuration of graphic
      */
     private void init(LwjglApplicationConfiguration conf) {
@@ -89,7 +90,7 @@ public class GraphicGDX implements Graphic {
         conf.fullscreen = _fullScreen;
 
         init(conf);
-        System.out.println("Graphic is initiliaze!!!");
+        //System.out.println("Graphic is initiliaze!!!");
         this.m_init = true;
     }
 
@@ -144,21 +145,21 @@ public class GraphicGDX implements Graphic {
         this.m_listText.put(_name, text);
         this.m_gameGDX.addActor(text);
     }
-    
+
     @Override
     public void createShipsGrid(String _name, String _path, float _posX, float _posY, int _width, int _height, int _spriteX, int _spriteY) {
         ShipsGridGDX shipsGrid = new ShipsGridGDX(_name, _path, _posX, _posY, _width, _height, _spriteX, _spriteY);
         this.m_listShipsGrid.put(_name, shipsGrid);
         this.m_gameGDX.addActor(shipsGrid);
     }
-    
+
     @Override
     public void createShips(String _name, String _path, float _posX, float _posY, int _width, int _height, int _spriteX, int _spriteY, int _life) {
         ShipsGDX ships = new ShipsGDX(_name, _path, _posX, _posY, _width, _height, _spriteX, _spriteY, _life);
         this.m_listShips.put(_name, ships);
         this.m_gameGDX.addActor(ships);
     }
-    
+
     @Override
     public void createShootingGrid(String _name, String _path, float _posX, float _posY, int _width, int _height, int _spriteX, int _spriteY) {
         ShootingGridGDX shootingGrid = new ShootingGridGDX(_name, _path, _posX, _posY, _width, _height, _spriteX, _spriteY);
@@ -234,7 +235,7 @@ public class GraphicGDX implements Graphic {
         } else if (this.m_listActors.containsKey(name)) {
             this.m_listActors.get(name).setAlpha(alpha);
         } else if (this.m_listAnim.containsKey(name)) {
-            this.m_listAnim.get(name).setAlpha(alpha);        
+            this.m_listAnim.get(name).setAlpha(alpha);
         } else if (this.m_listShipsGrid.containsKey(name)) {
             this.m_listShipsGrid.get(name).setAlpha(alpha);
         } else if (this.m_listShootingGrid.containsKey(name)) {
@@ -277,7 +278,7 @@ public class GraphicGDX implements Graphic {
             }
         }
     }
-    
+
     @Override
     public void loadShips(String path) throws ParserConfigurationException, IOException, SAXException {
         File file = new File(path);
@@ -367,17 +368,17 @@ public class GraphicGDX implements Graphic {
     public HashMap<String, TextGDX> getText() {
         return this.m_listText;
     }
-    
+
     @Override
     public HashMap<String, ShipsGridGDX> getShipsGrid() {
         return this.m_listShipsGrid;
     }
-    
+
     @Override
     public HashMap<String, ShipsGDX> getShips() {
         return this.m_listShips;
     }
-    
+
     @Override
     public HashMap<String, ShootingGridGDX> getShootingGrid() {
         return this.m_listShootingGrid;

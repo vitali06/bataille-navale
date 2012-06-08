@@ -23,6 +23,20 @@ import java.util.Map;
 //Controller Ships 
 public class ShipsGDX extends Actor {
 
+    /**
+     * @return the selected
+     */
+    public static ShipsGDX getSelected() {
+        return selected;
+    }
+
+    /**
+     * @param aSelected the selected to set
+     */
+    public static void setSelected(ShipsGDX aSelected) {
+        selected = aSelected;
+    }
+
     private Color m_color;
     private TextureRegion m_region;
     private String m_absolutePath;
@@ -30,6 +44,7 @@ public class ShipsGDX extends Actor {
     private Ships ships;
     private CasesShipsGrid m_pos;
     private boolean horizontal;
+    private static ShipsGDX selected;
     
     public ShipsGDX() {
     }
@@ -51,17 +66,19 @@ public class ShipsGDX extends Actor {
         this.horizontal = true;
         
         ships = new Ships(name, life);
+        ShipsGDX.selected = null;
     }
 
     @Override
-    public void draw(SpriteBatch batch, float parentAlpha) {
+    public void draw(SpriteBatch batch, float parentAlpha) {        
         batch.setColor(this.m_color.r, this.m_color.g, this.m_color.b, this.m_color.a);
-        batch.draw(this.m_region, x, y);
+        batch.draw(this.m_region, x, y, 0, 0, this.width, this.height, 1f, 1f, this.rotation);
+        //batch.draw(this.m_region, x, y);        
     }
 
     @Override
     public boolean touchDown(float x, float y, int pointer) {
-        System.out.println("Ships Down " + this.name);
+        ShipsGDX.setSelected(this);
         this.m_pos = new CasesShipsGrid((int) this.x, (int) this.y, (int) this.width, (int) this.height);
         this.m_pos.setBackup((int) this.x, (int) this.y);        
         return true;
@@ -124,8 +141,14 @@ public class ShipsGDX extends Actor {
     /**
      * @param horizontal the horizontal to set
      */
-    public void setHorizontal(boolean horizontal) {
-        //this.rotation = new Float(0.25);
+    public void setHorizontal(boolean horizontal) {        
         this.horizontal = horizontal;
+        
     }
+    
+    public void doRotation() {
+        this.rotation = (this.rotation - 90) % 180;        
+        this.setHorizontal(!this.isHorizontal());
+    }
+
 }

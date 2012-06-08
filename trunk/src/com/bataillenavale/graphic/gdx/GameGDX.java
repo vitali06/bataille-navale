@@ -27,7 +27,7 @@ public class GameGDX extends Game {
     public GameGDX(boolean _fullScreen){
         this.m_fullScreen = _fullScreen;
         this.m_init = false;
-        System.out.println("Constructor GameGDX");
+        //System.out.println("Constructor GameGDX");
     }
     
     /**
@@ -35,7 +35,7 @@ public class GameGDX extends Game {
      */
     @Override
     public void create() {
-        System.out.println("Create GameGDX");
+        //System.out.println("Create GameGDX");
         this.m_screen = new ScreenGDX();
         this.setScreen(m_screen);
         this.m_init = true;

@@ -45,7 +45,7 @@ public class Splashscreen implements Scene{
     @Override
     public void init() {
         if(!this.m_init){
-            System.out.println("Splash Screen Scene (Init)");
+            //System.out.println("Splash Screen Scene (Init)");
             try {
                 Singleton.getGraphic().loadSprites("config/SplashScreen.xml");
             } catch (ParserConfigurationException | IOException | SAXException ex) {

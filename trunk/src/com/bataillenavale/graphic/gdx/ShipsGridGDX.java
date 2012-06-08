@@ -29,12 +29,11 @@ public class ShipsGridGDX extends Actor {
     private TextureRegion m_region;
     private String m_absolutePath;
     private Texture m_texture;
-    private ShipsGrid m_shipsGrid;
-    private boolean horizontal;
+    //private ShipsGrid m_shipsGrid;
 
-    public ShipsGridGDX() {
-        m_shipsGrid = new ShipsGrid();
-    }
+//    public ShipsGridGDX() {
+//        m_shipsGrid = new ShipsGrid();
+//    }
 
     public ShipsGridGDX(String _name, String _path, float _posX, float _posY, int _width, int _height, int _spriteX, int _spriteY) {
         super(_name);
@@ -50,9 +49,6 @@ public class ShipsGridGDX extends Actor {
         this.height = _height;
 
         m_color = new Color(1, 1, 1, 1);
-        //this.horizontal = true;
-
-        //m_shipsGrid = new ShipsGrid();
     }
 
     @Override
@@ -80,7 +76,7 @@ public class ShipsGridGDX extends Actor {
 
     @Override
     public boolean touchDown(float x, float y, int pointer) {
-        System.out.println("ShipsGridGDX : " + this.name);
+        //System.out.println("ShipsGridGDX : " + this.name + "x : " + this.x + ", y : " + this.y);
         return true;
     }
 
@@ -117,10 +113,6 @@ public class ShipsGridGDX extends Actor {
         return this.visible;
     }
 
-    public ShipsGrid getShipsGrid() {
-        return this.m_shipsGrid;
-    }
-
     public static void fillGrid() {
         //Pour chaque navire, on compare sa position x et y avec la position de la grille
 
@@ -131,32 +123,26 @@ public class ShipsGridGDX extends Actor {
 //            System.out.println("ShipsGDX " + entry.getKey());
 //            System.out.println("ShipsGDX --> x : " + entry.getValue().x + " y :" + entry.getValue().y);
             for (Map.Entry<String, ShipsGridGDX> e : Singleton.getGraphic().getShipsGrid().entrySet()) {
-                if (e.getKey().startsWith("Case")) {
-//                    System.out.println("ShipsGridGDX " + e.getKey());
-//                    System.out.println("ShipsGridGDX --> x : " + e.getValue().x + " y :" + e.getValue().y);                    
-                }
-
                 if (e.getValue().getPositionX() == entry.getValue().getPositionX()
                         && e.getValue().getPositionY() == entry.getValue().getPositionY()
                         && e.getKey().startsWith("Case")) {
                     Ships ships = entry.getValue().getShips();
                     int colonne = Integer.parseInt(e.getKey().substring(4, 5));
                     int ligne = Integer.parseInt(e.getKey().substring(5));
-//                    System.out.println("Colonne : " + colonne);
-//                    System.out.println("Ligne : " + ligne);
+                    //System.out.println("Colonne : " + colonne);
+                    //System.out.println("Ligne : " + ligne);
                     if (entry.getValue().isHorizontal()) {
                         for (int i = 0; i < ships.getLife(); i++) {
                             ShipsGrid.setToTrue(ligne, colonne);
                             ships.getIntervale().add(new Coordonnee(ligne,colonne));
-                            //System.out.println("Colonne : " + colonne);
                             colonne++;
                         }
                     } else {
+                        ligne--;
                         for (int i = 0; i < ships.getLife(); i++) {
                             ShipsGrid.setToTrue(ligne, colonne);
                             ships.getIntervale().add(new Coordonnee(ligne,colonne));
-                            //System.out.println("Colonne : " + colonne);
-                            ligne++;
+                            ligne--;
                         }
                     }
 

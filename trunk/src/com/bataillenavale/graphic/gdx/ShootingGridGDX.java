@@ -18,6 +18,8 @@ import com.bataillenavale.tools.CasesShootingGrid;
 import com.bataillenavale.items.gdx.ShootingGrid;
 import com.bataillenavale.tools.Coordonnee;
 import java.io.File;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -78,6 +80,12 @@ public class ShootingGridGDX extends Actor {
     @Override
     public boolean touchDown(float x, float y, int pointer) {
         //System.out.println("ShootingGridGDX : " + this.name);
+        Singleton.getSound().shooting();
+        try {
+            Thread.sleep(800);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(ShootingGridGDX.class.getName()).log(Level.SEVERE, null, ex);
+        }
         return true;
     }
 
@@ -90,6 +98,7 @@ public class ShootingGridGDX extends Actor {
             ShootingGrid.setToValue(ligne,colonne,1);
             for (Ships ships : Ships.getShipsList()) {
                 if (ships.getIntervale().contains(new Coordonnee(ligne, colonne))) {
+                    Singleton.getSound().explosion();
                     ships.setLife(ships.getLife() - 1);
                     System.out.println("Le " + ships.getName() + " a ete touche.");                  
                     
@@ -99,6 +108,7 @@ public class ShootingGridGDX extends Actor {
                     }
                     if(Ships.getShipsList().isEmpty())
                     {
+                        Singleton.getSound().applauses();
                         System.out.println("VOUS AVEZ GAGNE");
                         Singleton.getGraphic().createTextFont("GAGNE", "Vous avez gagne ! ", 70, 400, "Calibrib");
                     }
@@ -108,6 +118,7 @@ public class ShootingGridGDX extends Actor {
             
             CasesShootingGrid cases = new CasesShootingGrid((int)Gdx.input.getX(), (int)(Gdx.graphics.getHeight() - Gdx.input.getY()), "Check");
         } else {
+            Singleton.getSound().splash();
             ShootingGrid.setToValue(ligne,colonne,2);
             CasesShootingGrid cases = new CasesShootingGrid((int)Gdx.input.getX(), (int)(Gdx.graphics.getHeight() - Gdx.input.getY()), "Use");
         }         

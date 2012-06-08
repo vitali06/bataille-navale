@@ -48,7 +48,7 @@ public class MainMenuScene implements Scene {
     @Override
     public void init() {
         if (!this.m_init) {
-            System.out.println("Main Menu Scene (init)");            
+            //System.out.println("Main Menu Scene (init)");            
             try {
                 Singleton.getGraphic().loadSprites("config/MainMenuScreen.xml");
             } catch (ParserConfigurationException | IOException | SAXException ex) {

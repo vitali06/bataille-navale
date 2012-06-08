@@ -7,6 +7,7 @@ package com.bataillenavale.scene.content;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.scenes.scene2d.actions.RotateTo;
 import com.bataillenavale.game.Singleton;
 import com.bataillenavale.graphic.gdx.ShipsGDX;
 import com.bataillenavale.graphic.gdx.ShipsGridGDX;
@@ -30,8 +31,6 @@ public class PrepareGameScene implements Scene {
     private boolean m_fps;
     private Rectangle m_sizeGame;
     private boolean m_newScene;
-    //private ShipsGridGDX shipsGridGDX = new ShipsGridGDX();
-    //private ShipsGDX shipsGDX = new ShipsGDX();
 
     /**
      * Constructor
@@ -51,7 +50,7 @@ public class PrepareGameScene implements Scene {
     @Override
     public void init() {
         if (!this.m_init) {
-            System.out.println("Prepare Game Scene (init)");
+            //System.out.println("Prepare Game Scene (init)");
             // Map standard
             int posX = ((Gdx.graphics.getWidth() - 300 - 450) / 2) + 300;
             int posY = ((Gdx.graphics.getHeight() - 450) / 2);
@@ -61,7 +60,7 @@ public class PrepareGameScene implements Scene {
             try {
                 Singleton.getGraphic().loadSprites("config/PrepareGameScene.xml");
                 Singleton.getGraphic().loadShips("config/ShipsConfig.xml");
-                
+
             } catch (ParserConfigurationException | IOException | SAXException ex) {
                 Logger.getLogger(PrepareGameScene.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -78,20 +77,16 @@ public class PrepareGameScene implements Scene {
     @Override
     public void update() {
         if (this.m_init) {
-            //System.out.println("GameScene Update");
-            // Cases test = new Cases((int)Gdx.input.getX(), (int)(Gdx.graphics.getHeight() - Gdx.input.getY()), "Select");
-            
             if (Singleton.getInput().isEnterPressed()) {
                 ShipsGridGDX.fillGrid();
-                //s.getShipsGrid().outString();
                 this.m_init = false;
                 Singleton.getGraphic().getGame().getScreen().nextScene(new GameScene(false));
                 this.m_newScene = true;
             }
-            
-            if(Singleton.getInput().isSpacePressed())
-            {
-                //Rotation à faire                
+
+            if (Singleton.getInput().isSpacePressed()) {
+                ShipsGDX.getSelected().doRotation();                
+                ShipsGDX.getSelected().x = Gdx.input.getX();                
             }
         }
     }
@@ -128,6 +123,6 @@ public class PrepareGameScene implements Scene {
      */
     @Override
     public boolean newScene() {
-        return this.m_newScene;      
+        return this.m_newScene;
     }
 }

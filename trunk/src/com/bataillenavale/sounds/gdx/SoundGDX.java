@@ -59,6 +59,26 @@ public class SoundGDX implements com.bataillenavale.sounds.Sound {
         play("data/sounds/enterPressed.mp3");        
     }
     
+    @Override
+    public void explosion() {
+        play("data/sounds/explosion.mp3");        
+    }
+    
+    @Override
+    public void applauses() {
+        play("data/sounds/applaudissement.mp3");        
+    }
+    
+    @Override
+    public void shooting() {
+        play("data/sounds/missile.mp3");        
+    }
+    
+    @Override
+    public void splash() {
+        play("data/sounds/splash.mp3");        
+    }
+    
     /**
      * @see Sound#changeVolume(float volume)
      */

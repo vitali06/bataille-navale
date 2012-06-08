@@ -38,6 +38,14 @@ public interface Sound {
      */
     public void enterPressed();
     
+    public void explosion();
+    
+    public void applauses();
+    
+    public void shooting();
+    
+    public void splash();
+    
     /**
      * change the volume of the sounds which are played
      * @param volume volume of the sounds which are played 
