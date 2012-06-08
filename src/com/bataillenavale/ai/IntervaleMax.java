@@ -19,7 +19,7 @@ public class IntervaleMax implements Strategie
     public IntervaleMax(Matrice _mat)
     {
         mat = _mat;
-        liste_intermax = new ArrayList<Intervale>();
+        liste_intermax = new ArrayList();
         taillemax = 0;
     }
     
@@ -86,7 +86,7 @@ public class IntervaleMax implements Strategie
     @Override
     public Coordonnee execute() 
     {
-        Coordonnee c = new Coordonnee();
+        Coordonnee c;
         interHorizontal();
         interVerticale();
         Random r= new Random();
