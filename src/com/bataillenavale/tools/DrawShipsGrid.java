@@ -35,8 +35,8 @@ public class DrawShipsGrid {
         drawSelectGrid();
         drawGrid();
 
-        // End drw
-        System.out.println("Grilles Ships créées!");
+        // End draws
+        //System.out.println("Grilles Ships créées!");
     }
 
     /**

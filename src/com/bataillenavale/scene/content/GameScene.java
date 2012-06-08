@@ -6,9 +6,7 @@ package com.bataillenavale.scene.content;
 
 import com.badlogic.gdx.Gdx;
 import com.bataillenavale.game.Singleton;
-import com.bataillenavale.graphic.gdx.ShipsGridGDX;
 import com.bataillenavale.scene.Scene;
-import com.bataillenavale.tools.DrawShipsGrid;
 import com.bataillenavale.tools.DrawShootingGrid;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -34,8 +32,8 @@ public class GameScene implements Scene {
 
     @Override
     public void init() {
-                if (!this.m_init) {
-            System.out.println("Game Scene (init)");
+        if (!this.m_init) {
+            //System.out.println("Game Scene (init)");
             // Map standard
             int posX = ((Gdx.graphics.getWidth() - 300 - 450) / 2) + 300;
             int posY = ((Gdx.graphics.getHeight() - 450) / 2);
@@ -44,7 +42,7 @@ public class GameScene implements Scene {
             DrawShootingGrid grille = new DrawShootingGrid(9);
             try {
                 Singleton.getGraphic().loadSprites("config/PrepareGameScene.xml");
-                
+
             } catch (ParserConfigurationException | IOException | SAXException ex) {
                 Logger.getLogger(GameScene.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -57,6 +55,8 @@ public class GameScene implements Scene {
 
     @Override
     public void update() {
+        if (this.m_init) {
+        }
     }
 
     @Override
@@ -75,6 +75,6 @@ public class GameScene implements Scene {
 
     @Override
     public boolean newScene() {
-        return this.m_newScene;        
+        return this.m_newScene;
     }
 }

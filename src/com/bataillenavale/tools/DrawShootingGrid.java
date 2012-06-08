@@ -35,8 +35,8 @@ public class DrawShootingGrid {
         drawSelectGrid();
         drawGrid();
 
-        // End drw
-        System.out.println("Grilles Shooting créées!");
+        // End draws
+        //System.out.println("Grilles Shooting créées!");
     }
 
     /**

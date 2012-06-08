@@ -41,7 +41,7 @@ public class ScreenGDX implements Screen {
      * Constructor
      */
     public ScreenGDX() {
-        System.out.println("Constructor ScreenGDX");
+        //System.out.println("Constructor ScreenGDX");
     }
 
     /**
@@ -88,7 +88,7 @@ public class ScreenGDX implements Screen {
         this.m_spriteBatch = new SpriteBatch();
 
         this.m_stage = new Stage(Singleton.getGraphic().getDimensions().width, Singleton.getGraphic().getDimensions().height, true);
-        System.out.println("Size Screen : " + Singleton.getGraphic().getDimensions().width + "x" + Singleton.getGraphic().getDimensions().height);
+        //System.out.println("Size Screen : " + Singleton.getGraphic().getDimensions().width + "x" + Singleton.getGraphic().getDimensions().height);
         this.m_font = new BitmapFont();
         this.m_scene = new Splashscreen(false);
         this.m_group = new Group("GroupeActors");
@@ -103,7 +103,7 @@ public class ScreenGDX implements Screen {
         Gdx.input.setCursorCatched(true);
 
         this.m_scene.init();
-        System.out.println("Show ScreenGDX");
+        //System.out.println("Show ScreenGDX");
 
     }
 
@@ -171,7 +171,7 @@ public class ScreenGDX implements Screen {
      * Set new Scene
      */
     public void setScene() {
-        System.out.println("Before Clean");
+        //System.out.println("Before Clean");
         if (this.m_scene != null) {
             this.m_group.clear();
             this.m_scene.destroy();
