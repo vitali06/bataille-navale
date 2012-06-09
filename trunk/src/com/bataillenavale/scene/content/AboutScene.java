@@ -20,6 +20,7 @@ public class AboutScene implements Scene {
     private boolean m_init;
     private boolean m_fps;
     private Rectangle m_sizeGame;
+    private boolean m_newScene;
     
     /**
      * Constructor
@@ -29,6 +30,7 @@ public class AboutScene implements Scene {
         this.m_fps = _fps;
         m_sizeGame = Singleton.getGraphic().getDimensions();
         this.m_init = false;
+        this.m_newScene = false;
     }
     
     /**
@@ -36,8 +38,7 @@ public class AboutScene implements Scene {
      */
     @Override
     public void init() {
-        if (!this.m_init) {
-            System.out.println("About Scene (init)");
+        if (!this.m_init) {            
             Singleton.getGraphic().createTextFont("AboutScene", "{About Scene}", 270, 50, "Ascent");
             Singleton.getGraphic().setColorText("AboutScene", 1.f, 0.f, 0.f);
             this.m_init = true;
@@ -86,6 +87,6 @@ public class AboutScene implements Scene {
      */
     @Override
     public boolean newScene() {
-        return false;
+        return this.m_newScene;
     }
 }

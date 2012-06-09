@@ -86,8 +86,7 @@ public class SettingsScene implements Scene {
      */
     @Override
     public void update() {
-        if (this.m_init) {
-            //System.out.println("SettingsScene Update");
+        if (this.m_init) {            
             this.m_count++;
 
             if (this.mainMenuSelected) {
@@ -97,7 +96,6 @@ public class SettingsScene implements Scene {
                     Singleton.getGraphic().setAlpha(listMenuSound.get(indexSelectedSoundMenu), this.m_count / 0.25f);
                 }
             }
-
 
             if (Singleton.getInput().isEnterPressed()) {
                 if ("BackMainMenu".equals(listMenu.get(indexSelectedMenu))) {

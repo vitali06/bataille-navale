@@ -35,7 +35,6 @@ public class GameGDX extends Game {
      */
     @Override
     public void create() {
-        //System.out.println("Create GameGDX");
         this.m_screen = new ScreenGDX();
         this.setScreen(m_screen);
         this.m_init = true;
