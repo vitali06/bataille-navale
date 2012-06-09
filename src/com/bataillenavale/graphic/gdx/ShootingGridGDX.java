@@ -18,8 +18,8 @@ import com.bataillenavale.tools.CasesShootingGrid;
 import com.bataillenavale.items.gdx.ShootingGrid;
 import com.bataillenavale.tools.Coordonnee;
 import java.io.File;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -32,11 +32,10 @@ public class ShootingGridGDX extends Actor {
     private TextureRegion m_region;
     private String m_absolutePath;
     private Texture m_texture;
-    //private ShootingGrid m_shootingGrid;
-
-//    public ShootingGridGDX() {
-//        m_shootingGrid = new ShootingGrid();
-//    }
+    private CasesShootingGrid cases;
+    private static List<ShootingGridGDX> list = new ArrayList<>();
+    
+    
     public ShootingGridGDX(String _name, String _path, float _posX, float _posY, int _width, int _height, int _spriteX, int _spriteY) {
         super(_name);
 
@@ -51,6 +50,7 @@ public class ShootingGridGDX extends Actor {
         this.height = _height;
 
         m_color = new Color(1, 1, 1, 1);
+        list.add(this);
     }
 
     @Override
@@ -79,13 +79,13 @@ public class ShootingGridGDX extends Actor {
     @Override
     public boolean touchDown(float x, float y, int pointer) {
         if (Singleton.getGraphic().getText().containsKey("Manque")) {
-            Singleton.getGraphic().getText().get("Manque").destroy();
+            Singleton.getGraphic().getText().get("Manque").remove();
         }
         if (Singleton.getGraphic().getText().containsKey("Touch")) {
-            Singleton.getGraphic().getText().get("Touch").destroy();
+            Singleton.getGraphic().getText().get("Touch").remove();
         }
         if (Singleton.getGraphic().getText().containsKey("Coule")) {
-            Singleton.getGraphic().getText().get("Coule").destroy();
+            Singleton.getGraphic().getText().get("Coule").remove();
         }
         return true;
     }
@@ -101,34 +101,41 @@ public class ShootingGridGDX extends Actor {
                 if (ships.getIntervale().contains(new Coordonnee(ligne, colonne))) {
                     ships.setLife(ships.getLife() - 1);
 
-                    if (ships.isSeek()) {
-                        Singleton.getGraphic().createTextFont("Coule", ships.getName() + " coule", 20, 150, "Calibrib");
+                    if (ships.isSeek()) {                        
+                        Singleton.getGraphic().createTextFont("Coule", ships.getName() + " Coule", 20, 150, "Calibrib");
                         Singleton.getGraphic().setColorText("Coule", 1.f, 0.f, 0.f);
-                        Ships.getShipsList().remove(ships);
+                        Ships.getShipsList().remove(ships);                        
                     } else {
-                        Singleton.getGraphic().createTextFont("Touch", ships.getName() + " touche", 20, 150, "Calibrib");
-                        Singleton.getGraphic().setColorText("Touch", 1.f, 0.f, 0.f);
+                        Singleton.getGraphic().createTextFont("Touch", ships.getName() + " Touche", 20, 150, "Calibrib");
+                        Singleton.getGraphic().setColorText("Touch", 1.f, 0.f, 0.f);                        
                     }
 
                     if (Ships.getShipsList().isEmpty()) {
                         Singleton.getSound().applauses();                        
-                        Singleton.getGraphic().createTextFont("GAGNE", "Vous avez gagne ! ", 60, 400, "Calibrib");
+                        Singleton.getGraphic().createTextFont("GAGNE", "VOUS AVEZ GAGNE!", 5, 400, "SimHei");
+                        for (ShootingGridGDX s : ShootingGridGDX.list) {                            
+                            s.setTouchable(false);
+                        }
                     }
                     break;
                 }
             }
 
-            CasesShootingGrid cases = new CasesShootingGrid((int) Gdx.input.getX(), (int) (Gdx.graphics.getHeight() - Gdx.input.getY()), "Check");
+            cases = new CasesShootingGrid((int) Gdx.input.getX(), (int) (Gdx.graphics.getHeight() - Gdx.input.getY()), "Check");
+            
+            //Ne pas pouvoir cliquer deux fois sur la même case
+            Singleton.getGraphic().getShootingGrid().get("ShootingCheck"+colonne+ligne).setTouchable(false);
+            list.remove(Singleton.getGraphic().getShootingGrid().get("ShootingCheck"+colonne+ligne));
             Singleton.getSound().explosion();
 
         } else {
             ShootingGrid.setToValue(ligne, colonne, 2);
-            CasesShootingGrid cases = new CasesShootingGrid((int) Gdx.input.getX(), (int) (Gdx.graphics.getHeight() - Gdx.input.getY()), "Use");
+            cases = new CasesShootingGrid((int) Gdx.input.getX(), (int) (Gdx.graphics.getHeight() - Gdx.input.getY()), "Use");
             Singleton.getSound().splash();
             Singleton.getGraphic().createTextFont("Manque", "Manque", 100, 150, "Calibrib");
+            Singleton.getGraphic().getShootingGrid().get("ShootingUse"+colonne+ligne).setTouchable(false);
+            list.remove(Singleton.getGraphic().getShootingGrid().get("ShootingUse"+colonne+ligne));
         }
-
-
     }
 
     @Override
@@ -157,7 +164,8 @@ public class ShootingGridGDX extends Actor {
     public boolean getVisible() {
         return this.visible;
     }
-//    public ShootingGrid getShipsGrid() {
-//        return this.m_shootingGrid;
-//    }
+    
+    public void setTouchable(boolean touchable) {
+        this.touchable = touchable;
+    }
 }

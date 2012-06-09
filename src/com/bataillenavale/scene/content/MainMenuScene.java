@@ -26,7 +26,7 @@ public class MainMenuScene implements Scene {
     private boolean m_init;
     private boolean m_fps;
     private boolean m_newScene;
-    private int m_count;    
+    private int m_count;
     private int indexSelectedMenu = 0;
     private List<String> listMenu = new ArrayList<>();
 
@@ -48,7 +48,6 @@ public class MainMenuScene implements Scene {
     @Override
     public void init() {
         if (!this.m_init) {
-            //System.out.println("Main Menu Scene (init)");            
             try {
                 Singleton.getGraphic().loadSprites("config/MainMenuScreen.xml");
             } catch (ParserConfigurationException | IOException | SAXException ex) {
@@ -61,8 +60,8 @@ public class MainMenuScene implements Scene {
 
             listMenu.add("Game");
             listMenu.add("Settings");
-            listMenu.add("About");           
-            
+            listMenu.add("About");
+
             this.m_init = true;
         }
     }
@@ -77,7 +76,7 @@ public class MainMenuScene implements Scene {
 
             Singleton.getGraphic().setAlpha(listMenu.get(indexSelectedMenu), this.m_count / 0.25f);
 
-            if (Singleton.getInput().isEnterPressed()) {                
+            if (Singleton.getInput().isEnterPressed()) {
                 if ("Game".equals(listMenu.get(indexSelectedMenu))) {
                     this.m_init = false;
                     Singleton.getGraphic().getGame().getScreen().nextScene(new PrepareGameScene(true));
@@ -92,24 +91,24 @@ public class MainMenuScene implements Scene {
                     this.m_init = false;
                     Singleton.getGraphic().getGame().getScreen().nextScene(new AboutScene(false));
                     this.m_newScene = true;
-                }                
+                }
             }
 
-            if (Singleton.getInput().isDownPressed()) {                
+            if (Singleton.getInput().isDownPressed()) {
                 if (indexSelectedMenu + 1 < listMenu.size()) {
                     Singleton.getSound().changeMenu();
                     Singleton.getGraphic().setAlpha(listMenu.get(indexSelectedMenu), 1f);
                     indexSelectedMenu++;
-                    Singleton.getGraphic().setPositionActor("BandeauNoir", 0, Singleton.getGraphic().getText().get(listMenu.get(indexSelectedMenu)).y - 23);                                                                    
-                }                
+                    Singleton.getGraphic().setPositionActor("BandeauNoir", 0, Singleton.getGraphic().getText().get(listMenu.get(indexSelectedMenu)).y - 23);
+                }
             }
 
-            if (Singleton.getInput().isUpPressed()) {                
+            if (Singleton.getInput().isUpPressed()) {
                 if (indexSelectedMenu - 1 >= 0) {
                     Singleton.getSound().changeMenu();
                     Singleton.getGraphic().setAlpha(listMenu.get(indexSelectedMenu), 1f);
                     indexSelectedMenu--;
-                    Singleton.getGraphic().setPositionActor("BandeauNoir", 0, Singleton.getGraphic().getText().get(listMenu.get(indexSelectedMenu)).y - 23);                            
+                    Singleton.getGraphic().setPositionActor("BandeauNoir", 0, Singleton.getGraphic().getText().get(listMenu.get(indexSelectedMenu)).y - 23);
                 }
             }
         }

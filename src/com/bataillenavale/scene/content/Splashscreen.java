@@ -84,7 +84,6 @@ public class Splashscreen implements Scene{
             // Changement de scene
             if (Singleton.getInput().isEnterPressed()) {
                 this.m_init = false;
-                // Singleton.getGraphic().getGame().getScreen().nextScene(new GameScene(true));
                 Singleton.getGraphic().getGame().getScreen().nextScene(new MainMenuScene(false));
                 this.m_newScene = true;
             }

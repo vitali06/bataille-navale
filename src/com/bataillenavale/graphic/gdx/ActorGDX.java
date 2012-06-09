@@ -14,7 +14,6 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.bataillenavale.tools.CasesShipsGrid;
 import java.io.File;
-import java.util.Map;
 
 /**
  * Actors in the Scene
@@ -80,12 +79,6 @@ public class ActorGDX extends Actor {
      */
     @Override
     public boolean touchDown(float x, float y, int pointer) {
-//        if (this.m_touch) {
-//            if (this.m_touch) {
-//                this.m_pos = new Cases((int) this.x, (int) this.y, (int) this.width, (int) this.height);
-//                this.m_pos.setBackup((int) this.x, (int) this.y);
-//            }
-//        }
         return true;
     }
 
@@ -94,19 +87,6 @@ public class ActorGDX extends Actor {
      */
     @Override
     public void touchUp(float x, float y, int pointer) {
-//        if (this.m_touch) {
-//            if (this.m_pos.getActive() && this.m_pos.getX() !=0 && this.m_pos.getY() != 0) {
-//                this.x = this.m_pos.getX();
-//                this.y = this.m_pos.getY();
-//            } else {
-//                for (Map.Entry<Integer, Integer> entry : this.m_pos.getBackup().entrySet()) {
-//                    this.x = entry.getKey();
-//                    this.y = entry.getValue();
-//                }
-//            }
-//        }
-        // Test Cases Colors
-        // Cases reuh = new Cases((int)Gdx.input.getX(), (int)(Gdx.graphics.getHeight() - Gdx.input.getY()), "Use");
     }
 
     /**
@@ -114,11 +94,6 @@ public class ActorGDX extends Actor {
      */
     @Override
     public void touchDragged(float x, float y, int pointer) {
-//        if (this.m_touch) {
-//            this.x = Gdx.input.getX() - this.width / 2;
-//            this.y = Gdx.graphics.getHeight() - Gdx.input.getY() - this.height / 2;
-//            this.m_pos.setPos((int) this.x, (int) this.y);
-//        }
     }
 
     /**

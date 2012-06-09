@@ -90,7 +90,7 @@ public class GraphicGDX implements Graphic {
         conf.fullscreen = _fullScreen;
 
         init(conf);
-        //System.out.println("Graphic is initiliaze!!!");
+        
         this.m_init = true;
     }
 
@@ -304,9 +304,6 @@ public class GraphicGDX implements Graphic {
                 int hp = Integer.parseInt(e.getAttribute("hp"));
 
                 this.createShips(_name, _path, _posX, _posY, _width, _height, _spriteX, _spriteY, hp);
-
-                //setDragged(_name, touch);
-                //setPosition(_name);
             }
         }
     }

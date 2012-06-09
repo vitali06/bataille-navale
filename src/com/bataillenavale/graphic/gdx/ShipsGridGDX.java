@@ -29,11 +29,6 @@ public class ShipsGridGDX extends Actor {
     private TextureRegion m_region;
     private String m_absolutePath;
     private Texture m_texture;
-    //private ShipsGrid m_shipsGrid;
-
-//    public ShipsGridGDX() {
-//        m_shipsGrid = new ShipsGrid();
-//    }
 
     public ShipsGridGDX(String _name, String _path, float _posX, float _posY, int _width, int _height, int _spriteX, int _spriteY) {
         super(_name);
@@ -76,14 +71,11 @@ public class ShipsGridGDX extends Actor {
 
     @Override
     public boolean touchDown(float x, float y, int pointer) {
-        //System.out.println("ShipsGridGDX : " + this.name + "x : " + this.x + ", y : " + this.y);
         return true;
     }
 
     @Override
     public void touchUp(float x, float y, int pointer) {
-        // Test Cases Colors
-        //CasesShipsGrid reuh = new CasesShipsGrid((int)Gdx.input.getX(), (int)(Gdx.graphics.getHeight() - Gdx.input.getY()), "Use");
     }
 
     @Override
@@ -147,7 +139,6 @@ public class ShipsGridGDX extends Actor {
                     }
 
                 }
-
             }
         }
 

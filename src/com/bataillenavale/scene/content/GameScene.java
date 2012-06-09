@@ -33,11 +33,12 @@ public class GameScene implements Scene {
     @Override
     public void init() {
         if (!this.m_init) {
-            //System.out.println("Game Scene (init)");
+            
             // Map standard
             int posX = ((Gdx.graphics.getWidth() - 300 - 450) / 2) + 300;
             int posY = ((Gdx.graphics.getHeight() - 450) / 2);
             Singleton.getGraphic().createSprite("Map01", "data/Maps/Map01.png", posX, posY, 450, 450, 0, 0, 1);
+            
             // Grille de positionnement
             DrawShootingGrid grille = new DrawShootingGrid(9);
             try {
@@ -46,9 +47,8 @@ public class GameScene implements Scene {
             } catch (ParserConfigurationException | IOException | SAXException ex) {
                 Logger.getLogger(GameScene.class.getName()).log(Level.SEVERE, null, ex);
             }
-            //Ships t_ships = new Ships();
-            Singleton.getGraphic().createTextFont("Game", "{Game}", 60, 550, "Ascent");
-            //Singleton.getGraphic().setColorText("Porte Avions", 1.f, 0.f, 0.f);
+            
+            Singleton.getGraphic().createTextFont("Game", "{Game}", 60, 550, "Ascent");            
             this.m_init = true;
         }
     }
