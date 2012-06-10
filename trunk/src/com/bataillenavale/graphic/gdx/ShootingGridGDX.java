@@ -42,6 +42,8 @@ public class ShootingGridGDX extends Actor {
     private static int res_tir;
     private static boolean prem_touche = false;
     private static boolean navire_coule = false;
+    private static int d;
+    private static int horizontal_verticale;
 
     public ShootingGridGDX(String _name, String _path, float _posX, float _posY, int _width, int _height, int _spriteX, int _spriteY) {
         super(_name);
@@ -150,23 +152,23 @@ public class ShootingGridGDX extends Actor {
         //Début de l'IA
         if(res_tir == 1 || prem_touche)
         {
-            cpu.strategieChange(1);
+            cpu.strategieChange(1,d,horizontal_verticale);
         }
         else
         {
             if(compteur_tir_ia > 10)
             {
                 cpu.setRayon_zone(1);
-                cpu.strategieChange(res_tir);
+                cpu.strategieChange(res_tir,0,0);
             }
             else if(compteur_tir_ia > 20)
             {
                 cpu.setRayon_zone(0);
-                cpu.strategieChange(res_tir);
+                cpu.strategieChange(res_tir,0,0);
             }
             else
             {
-                cpu.strategieChange(res_tir);
+                cpu.strategieChange(res_tir,0,0);
             }
         }
         Coordonnee c = cpu.Fire();
@@ -176,10 +178,13 @@ public class ShootingGridGDX extends Actor {
         {
             res_tir = 1;
             cpu.updateMat(c, 1);
+            d++;
             if(!prem_touche)
             {
                 cpu.setNavire_trouve(c);
                 prem_touche = true;
+                d = 1;
+                horizontal_verticale = 1;
             }
             System.out.println("Has a ship");
             for (Ships ships : Ships.getShipsList()) {
@@ -189,6 +194,7 @@ public class ShootingGridGDX extends Actor {
                     {
                         res_tir = 0;
                         prem_touche = false;
+                        d = 1;
                         Ships.getShipsList().remove(ships);                       
                     }
                     System.out.println(ships.getName());
@@ -206,6 +212,8 @@ public class ShootingGridGDX extends Actor {
         {
             cpu.updateMat(c, 2);
             res_tir = 0;
+            d = 1;
+            horizontal_verticale++;
         }
     }
 
