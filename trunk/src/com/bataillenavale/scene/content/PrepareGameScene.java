@@ -10,6 +10,7 @@ import com.badlogic.gdx.math.Rectangle;
 import com.bataillenavale.game.Singleton;
 import com.bataillenavale.graphic.gdx.ShipsGDX;
 import com.bataillenavale.graphic.gdx.ShipsGridGDX;
+import com.bataillenavale.graphic.gdx.ShootingGridGDX;
 import com.bataillenavale.scene.Scene;
 import com.bataillenavale.tools.DrawShipsGrid;
 import java.io.IOException;
@@ -77,6 +78,7 @@ public class PrepareGameScene implements Scene {
         if (this.m_init) {
             if (Singleton.getInput().isEnterPressed()) {
                 ShipsGridGDX.fillGrid();
+                ShootingGridGDX.createCpu();
                 this.m_init = false;
                 Singleton.getGraphic().getGame().getScreen().nextScene(new GameScene(false));
                 this.m_newScene = true;

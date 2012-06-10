@@ -28,11 +28,11 @@ public class RechercheZone implements Strategie
         while(pointTrouve == false)
         {
             Random r = new Random();
-            x = r.nextInt(10);
-            y = r.nextInt(10);
+            x = r.nextInt(8);
+            y = r.nextInt(8);
             c.setX(x);
             c.setY(y);
-            if(getMat().estTire(c) == false)
+            if(getMat().estTire(c) == 0)
             {
                 pointTrouve = true;
             }
@@ -51,7 +51,7 @@ public class RechercheZone implements Strategie
          for(int j = 0; j<=rayon + rayon && (x < mat.getTaille() && x <= c.getX() + rayon) && m; j++)
          {
            Coordonnee tmp = new Coordonnee(x, y);
-           if(mat.estTire(tmp))
+           if(mat.estTire(tmp) > 0)
            {
              m = false;
            }
@@ -82,10 +82,10 @@ public class RechercheZone implements Strategie
     @Override
     public Coordonnee execute() 
     { 
-       Coordonnee c = rechercheTir();
-       if(!testZone(c))
+       Coordonnee c = null;
+       while(c == null)
        {
-           c = null;
+           c = rechercheTir();
        }
        return c;
     }

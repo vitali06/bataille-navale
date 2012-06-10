@@ -43,4 +43,28 @@ public class Intervale {
         }
         return false;
     }
+    
+    public boolean containsIntervale(Intervale intervale)
+    {
+        for(Coordonnee c1 : intervale.getTab())
+        {
+            for(Coordonnee c2: this.getTab())
+            {
+                if(c1.equals(c2))
+                {
+                    return true;
+                }
+            }
+        }
+        
+        return false;
+    }
+    
+    public void outString()
+    {
+        for(Coordonnee c : this.getTab())
+        {
+            System.out.println("x : " + c.getX() + " y : " + c.getY());
+        }
+    }
 }

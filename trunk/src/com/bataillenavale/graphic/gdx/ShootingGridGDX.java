@@ -11,15 +11,17 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.bataillenavale.ai.Computer;
 import com.bataillenavale.game.Singleton;
-import com.bataillenavale.items.gdx.Ships;
-import com.bataillenavale.items.gdx.ShipsGrid;
+import com.bataillenavale.items.gdx.*;
 import com.bataillenavale.tools.CasesShootingGrid;
-import com.bataillenavale.items.gdx.ShootingGrid;
 import com.bataillenavale.tools.Coordonnee;
+import com.bataillenavale.tools.Intervale;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -34,8 +36,13 @@ public class ShootingGridGDX extends Actor {
     private Texture m_texture;
     private CasesShootingGrid cases;
     private static List<ShootingGridGDX> list = new ArrayList<>();
-    
-    
+    private static Computer cpu;
+    private static ShipsGridComputer ships_grid_cpu;
+    private static int compteur_tir_ia = 0;
+    private static int res_tir;
+    private static boolean prem_touche = false;
+    private static boolean navire_coule = false;
+
     public ShootingGridGDX(String _name, String _path, float _posX, float _posY, int _width, int _height, int _spriteX, int _spriteY) {
         super(_name);
 
@@ -95,25 +102,26 @@ public class ShootingGridGDX extends Actor {
         int colonne = Integer.parseInt(this.name.substring(this.name.length() - 2, this.name.length() - 1));
         int ligne = Integer.parseInt(this.name.substring(this.name.length() - 1));
 
-        if (ShipsGrid.hasAShip(ligne, colonne)) {
-            ShootingGrid.setToValue(ligne, colonne, 1);
-            for (Ships ships : Ships.getShipsList()) {
-                if (ships.getIntervale().contains(new Coordonnee(ligne, colonne))) {
+        if (ShipsGridComputer.hasAShip(colonne, ligne)) {
+            ShootingGrid.setToValue(colonne, ligne, 1);
+            for (ShipsComputer ships : ShipsComputer.getShipsList()) {
+                if (ships.getIntervale().contains(new Coordonnee(colonne, ligne))) {
                     ships.setLife(ships.getLife() - 1);
+                    //System.out.println(ships.getName());
 
-                    if (ships.isSeek()) {                        
+                    if (ships.isSeek()) {
                         Singleton.getGraphic().createTextFont("Coule", ships.getName() + " Coule", 20, 150, "Calibrib");
                         Singleton.getGraphic().setColorText("Coule", 1.f, 0.f, 0.f);
-                        Ships.getShipsList().remove(ships);                        
+                        ShipsComputer.getShipsList().remove(ships);
                     } else {
                         Singleton.getGraphic().createTextFont("Touch", ships.getName() + " Touche", 20, 150, "Calibrib");
-                        Singleton.getGraphic().setColorText("Touch", 1.f, 0.f, 0.f);                        
+                        Singleton.getGraphic().setColorText("Touch", 1.f, 0.f, 0.f);
                     }
 
-                    if (Ships.getShipsList().isEmpty()) {
-                        Singleton.getSound().applauses();                        
+                    if (ShipsComputer.getShipsList().isEmpty()) {
+                        Singleton.getSound().applauses();
                         Singleton.getGraphic().createTextFont("GAGNE", "VOUS AVEZ GAGNE!", 5, 400, "SimHei");
-                        for (ShootingGridGDX s : ShootingGridGDX.list) {                            
+                        for (ShootingGridGDX s : ShootingGridGDX.list) {
                             s.setTouchable(false);
                         }
                     }
@@ -122,10 +130,10 @@ public class ShootingGridGDX extends Actor {
             }
 
             cases = new CasesShootingGrid((int) Gdx.input.getX(), (int) (Gdx.graphics.getHeight() - Gdx.input.getY()), "Check");
-            
+
             //Ne pas pouvoir cliquer deux fois sur la même case
-            Singleton.getGraphic().getShootingGrid().get("ShootingCheck"+colonne+ligne).setTouchable(false);
-            list.remove(Singleton.getGraphic().getShootingGrid().get("ShootingCheck"+colonne+ligne));
+            Singleton.getGraphic().getShootingGrid().get("ShootingCheck" + colonne + ligne).setTouchable(false);
+            list.remove(Singleton.getGraphic().getShootingGrid().get("ShootingCheck" + colonne + ligne));
             Singleton.getSound().explosion();
 
         } else {
@@ -133,8 +141,71 @@ public class ShootingGridGDX extends Actor {
             cases = new CasesShootingGrid((int) Gdx.input.getX(), (int) (Gdx.graphics.getHeight() - Gdx.input.getY()), "Use");
             Singleton.getSound().splash();
             Singleton.getGraphic().createTextFont("Manque", "Manque", 100, 150, "Calibrib");
-            Singleton.getGraphic().getShootingGrid().get("ShootingUse"+colonne+ligne).setTouchable(false);
-            list.remove(Singleton.getGraphic().getShootingGrid().get("ShootingUse"+colonne+ligne));
+            Singleton.getGraphic().getShootingGrid().get("ShootingUse" + colonne + ligne).setTouchable(false);
+            list.remove(Singleton.getGraphic().getShootingGrid().get("ShootingUse" + colonne + ligne));
+        }
+
+        //Fin du joueur
+
+        //Début de l'IA
+        if(res_tir == 1 || prem_touche)
+        {
+            cpu.strategieChange(1);
+        }
+        else
+        {
+            if(compteur_tir_ia > 10)
+            {
+                cpu.setRayon_zone(1);
+                cpu.strategieChange(res_tir);
+            }
+            else if(compteur_tir_ia > 20)
+            {
+                cpu.setRayon_zone(0);
+                cpu.strategieChange(res_tir);
+            }
+            else
+            {
+                cpu.strategieChange(res_tir);
+            }
+        }
+        Coordonnee c = cpu.Fire();
+        compteur_tir_ia++;
+        System.out.println("x : " + c.getX() + " y : " +c.getY());
+        if(ShipsGrid.hasAShip(c.getX(), c.getY()))
+        {
+            res_tir = 1;
+            cpu.updateMat(c, 1);
+            if(!prem_touche)
+            {
+                cpu.setNavire_trouve(c);
+                prem_touche = true;
+            }
+            System.out.println("Has a ship");
+            for (Ships ships : Ships.getShipsList()) {
+                if (ships.getIntervale().contains(new Coordonnee(c.getX(), c.getY()))) {
+                    ships.setLife(ships.getLife() - 1);
+                    if(ships.isSeek())
+                    {
+                        res_tir = 0;
+                        prem_touche = false;
+                        Ships.getShipsList().remove(ships);                       
+                    }
+                    System.out.println(ships.getName());
+                    
+                    if(Ships.getShipsList().isEmpty())
+                    {
+                        System.out.println("Joueur Perdu, IA Gagné");
+                    }
+                    
+                    break;
+                }
+            }
+        }
+        else
+        {
+            cpu.updateMat(c, 2);
+            res_tir = 0;
         }
     }
 
@@ -164,8 +235,34 @@ public class ShootingGridGDX extends Actor {
     public boolean getVisible() {
         return this.visible;
     }
-    
+
     public void setTouchable(boolean touchable) {
         this.touchable = touchable;
+    }
+
+    public static void createCpu() {
+        cpu = Computer.getElement();
+        ShootingGridGDX.fillGridComputer();
+    }
+
+    public static void fillGridComputer() {
+        HashMap<String, Intervale> list_position_navire = new HashMap<>();
+        list_position_navire = cpu.placerNavire();
+        ShipsComputer ships;
+
+//        cpu.placerNavire(5);
+//        cpu.placerNavire(4);
+//        cpu.placerNavire(3);
+//        cpu.placerNavire(3);
+//        cpu.placerNavire(2);
+//        list_position_navire = cpu.getPosition_navire();
+        for (Map.Entry<String, Intervale> entry : list_position_navire.entrySet()) {
+            ShipsGridComputer.setToTrue(entry.getValue());
+            ships = new ShipsComputer(entry.getKey(), entry.getValue().getTaille(), entry.getValue());
+            //System.out.println(entry.getKey());
+            //entry.getValue().outString();
+        }
+
+        //ShipsGridComputer.outString();
     }
 }
