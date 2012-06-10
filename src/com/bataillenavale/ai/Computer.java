@@ -45,9 +45,9 @@ public class Computer {
         mat_tir.Feu(c, res_tir);
     }
 
-    public void strategieChange(int etat_recherche) {
+    public void strategieChange(int etat_recherche,int d, int h_v) {
         if (etat_recherche == 1) {
-            strategie = new NavireTouche(mat_tir, getNavire_trouve());
+            strategie = new NavireTouche(mat_tir, getNavire_trouve(),d, h_v);
         } else {
             if (rayon_zone < 1) {
                 strategie = new IntervaleMax(mat_tir);
@@ -232,4 +232,5 @@ public class Computer {
     public void setNavire_trouve(Coordonnee navire_trouve) {
         this.navire_trouve = navire_trouve;
     }
+
 }
