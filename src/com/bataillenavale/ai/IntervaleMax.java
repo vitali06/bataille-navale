@@ -31,7 +31,7 @@ public class IntervaleMax implements Strategie
          for(int j = 0; j < mat.getTaille() ;j++)
          {
              Coordonnee c= new Coordonnee(i,j);
-             if(mat.estTire(c) || j == mat.getTaille() -1)
+             if(mat.estTire(c) > 0 || j == mat.getTaille() -1)
              {
                  if(inter.getTaille() == taillemax)
                  {
@@ -61,7 +61,7 @@ public class IntervaleMax implements Strategie
          for(int j = 0; j < mat.getTaille() ;j++)
          {
              Coordonnee c= new Coordonnee(j,i);
-             if(mat.estTire(c) || j == mat.getTaille() -1)
+             if(mat.estTire(c) > 0 || j == mat.getTaille() -1)
              {
                  if(inter.getTaille() == taillemax)
                  {

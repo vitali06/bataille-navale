@@ -14,8 +14,11 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.bataillenavale.game.Singleton;
 import com.bataillenavale.items.gdx.Ships;
 import com.bataillenavale.items.gdx.ShipsGrid;
+import com.bataillenavale.items.gdx.ShipsGridComputer;
 import com.bataillenavale.tools.Coordonnee;
+import com.bataillenavale.tools.Intervale;
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Map;
 
 /**
@@ -125,15 +128,15 @@ public class ShipsGridGDX extends Actor {
                     //System.out.println("Ligne : " + ligne);
                     if (entry.getValue().isHorizontal()) {
                         for (int i = 0; i < ships.getLife(); i++) {
-                            ShipsGrid.setToTrue(ligne, colonne);
-                            ships.getIntervale().add(new Coordonnee(ligne,colonne));
+                            ShipsGrid.setToTrue(colonne, ligne);
+                            ships.getIntervale().add(new Coordonnee(colonne,ligne));
                             colonne++;
                         }
                     } else {
                         ligne--;
                         for (int i = 0; i < ships.getLife(); i++) {
-                            ShipsGrid.setToTrue(ligne, colonne);
-                            ships.getIntervale().add(new Coordonnee(ligne,colonne));
+                            ShipsGrid.setToTrue(colonne, ligne);
+                            ships.getIntervale().add(new Coordonnee(colonne,ligne));                            
                             ligne--;
                         }
                     }
@@ -145,4 +148,5 @@ public class ShipsGridGDX extends Actor {
 //        System.out.println("ShipsGrid : ");
 //        ShipsGrid.outString();
     }
+
 }
