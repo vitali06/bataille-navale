@@ -79,6 +79,11 @@ public class SoundGDX implements com.bataillenavale.sounds.Sound {
         play("data/sounds/splash.mp3");        
     }
     
+    @Override
+    public void loose() {
+        play("data/sounds/hueeBig.mp3");        
+    }
+    
     /**
      * @see Sound#changeVolume(float volume)
      */

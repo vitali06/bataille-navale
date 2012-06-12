@@ -57,7 +57,7 @@ public class ScreenGDX implements Screen {
         // Begin draw
         this.m_spriteBatch.begin();
         // Cursor Game
-        this.m_spriteBatch.draw(this.m_cursor, Gdx.input.getX(), Gdx.graphics.getHeight() - Gdx.input.getY() - 32);
+        //this.m_spriteBatch.draw(this.m_cursor, Gdx.input.getX(), Gdx.graphics.getHeight() - Gdx.input.getY() - 32);
 
         //Show FPS Windows
         if (this.m_scene.getFps()) {
@@ -93,14 +93,14 @@ public class ScreenGDX implements Screen {
         this.m_scene = new Splashscreen(false);
         this.m_group = new Group("GroupeActors");
 
-        FileHandle t_file = Gdx.files.absolute("data/items/Cursor.png");
-        this.m_tCursor = new Texture(t_file);
-        this.m_cursor = new TextureRegion(this.m_tCursor, 0, 0, 25, 32);
+        //FileHandle t_file = Gdx.files.absolute("data/items/Cursor.png");
+        //this.m_tCursor = new Texture(t_file);
+        //this.m_cursor = new TextureRegion(this.m_tCursor, 0, 0, 25, 32);
 
         this.m_stage.addActor(m_group);
         Gdx.input.setInputProcessor(m_stage);
         // Hide cursor mouse
-        Gdx.input.setCursorCatched(true);
+        //Gdx.input.setCursorCatched(true);
 
         this.m_scene.init();
         //System.out.println("Show ScreenGDX");

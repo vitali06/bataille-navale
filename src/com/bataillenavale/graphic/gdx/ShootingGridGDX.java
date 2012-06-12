@@ -112,17 +112,18 @@ public class ShootingGridGDX extends Actor {
                     //System.out.println(ships.getName());
 
                     if (ships.isSeek()) {
-                        Singleton.getGraphic().createTextFont("Coule", ships.getName() + " Coule", 20, 150, "Calibrib");
+                        Singleton.getGraphic().createTextFont("Coule", ships.getName() + " Coule", 20, 400, "Calibrib");
                         Singleton.getGraphic().setColorText("Coule", 1.f, 0.f, 0.f);
                         ShipsComputer.getShipsList().remove(ships);
                     } else {
-                        Singleton.getGraphic().createTextFont("Touch", ships.getName() + " Touche", 20, 150, "Calibrib");
+                        Singleton.getGraphic().createTextFont("Touch", ships.getName() + " Touche", 20, 400, "Calibrib");
                         Singleton.getGraphic().setColorText("Touch", 1.f, 0.f, 0.f);
                     }
 
                     if (ShipsComputer.getShipsList().isEmpty()) {
                         Singleton.getSound().applauses();
-                        Singleton.getGraphic().createTextFont("GAGNE", "VOUS AVEZ GAGNE!", 5, 400, "SimHei");
+                        Singleton.getGraphic().createTextFont("GAGNE", "VOUS AVEZ GAGNE !", 400, 570, "SimHei");
+                        Singleton.getGraphic().getText().get("BackMenu").setVisible(true);
                         for (ShootingGridGDX s : ShootingGridGDX.list) {
                             s.setTouchable(false);
                         }
@@ -142,7 +143,7 @@ public class ShootingGridGDX extends Actor {
             ShootingGrid.setToValue(ligne, colonne, 2);
             cases = new CasesShootingGrid((int) Gdx.input.getX(), (int) (Gdx.graphics.getHeight() - Gdx.input.getY()), "Use");
             Singleton.getSound().splash();
-            Singleton.getGraphic().createTextFont("Manque", "Manque", 100, 150, "Calibrib");
+            Singleton.getGraphic().createTextFont("Manque", "Manque", 100, 400, "Calibrib");
             Singleton.getGraphic().getShootingGrid().get("ShootingUse" + colonne + ligne).setTouchable(false);
             list.remove(Singleton.getGraphic().getShootingGrid().get("ShootingUse" + colonne + ligne));
         }
@@ -150,66 +151,61 @@ public class ShootingGridGDX extends Actor {
         //Fin du joueur
 
         //Début de l'IA
-        if(res_tir == 1 || prem_touche)
-        {
-            cpu.strategieChange(1,d,horizontal_verticale);
-        }
-        else
-        {
-            if(compteur_tir_ia > 10)
-            {
+        if (res_tir == 1 || prem_touche) {
+            cpu.strategieChange(1, d, horizontal_verticale);
+        } else {
+            if (compteur_tir_ia > 10) {
                 cpu.setRayon_zone(1);
-                cpu.strategieChange(res_tir,0,0);
-            }
-            else if(compteur_tir_ia > 20)
-            {
+                cpu.strategieChange(res_tir, 0, 0);
+            } else if (compteur_tir_ia > 20) {
                 cpu.setRayon_zone(0);
-                cpu.strategieChange(res_tir,0,0);
-            }
-            else
-            {
-                cpu.strategieChange(res_tir,0,0);
+                cpu.strategieChange(res_tir, 0, 0);
+            } else {
+                cpu.strategieChange(res_tir, 0, 0);
             }
         }
         Coordonnee c = cpu.Fire();
         compteur_tir_ia++;
-        System.out.println("x : " + c.getX() + " y : " +c.getY());
-        if(ShipsGrid.hasAShip(c.getX(), c.getY()))
-        {
+        //System.out.println("x : " + c.getX() + " y : " +c.getY());
+        if (ShipsGrid.hasAShip(c.getX(), c.getY())) {
             res_tir = 1;
             cpu.updateMat(c, 1);
             d++;
-            if(!prem_touche)
-            {
+            if (!prem_touche) {
                 cpu.setNavire_trouve(c);
                 prem_touche = true;
                 d = 1;
                 horizontal_verticale = 1;
             }
-            System.out.println("Has a ship");
+            //System.out.println("Has a ship");
             for (Ships ships : Ships.getShipsList()) {
                 if (ships.getIntervale().contains(new Coordonnee(c.getX(), c.getY()))) {
                     ships.setLife(ships.getLife() - 1);
-                    if(ships.isSeek())
-                    {
+                    if (ships.isSeek()) {
                         res_tir = 0;
                         prem_touche = false;
                         d = 1;
-                        Ships.getShipsList().remove(ships);                       
+                        Ships.getShipsList().remove(ships);
+                        Singleton.getGraphic().getText().get(ships.getName()).setContent(ships.getName() + " : Coule");
+                    } else {
+                        Singleton.getGraphic().getText().get(ships.getName()).setContent(ships.getName() + " : " + ships.getLife() + " vies");
                     }
-                    System.out.println(ships.getName());
-                    
-                    if(Ships.getShipsList().isEmpty())
-                    {
-                        System.out.println("Joueur Perdu, IA Gagné");
+
+
+                    if (Ships.getShipsList().isEmpty()) {
+                        //System.out.println("Joueur Perdu, IA Gagné");
+                        Singleton.getSound().loose();
+                        Singleton.getGraphic().createTextFont("PERDU", "VOUS AVEZ PERDU !", 400, 570, "SimHei");
+                        Singleton.getGraphic().getText().get("BackMenu").setVisible(true);                        
+                        for (ShootingGridGDX s : ShootingGridGDX.list) {
+                            s.setTouchable(false);
+                        }
                     }
-                    
+
                     break;
                 }
             }
-        }
-        else
-        {
+        } else {
             cpu.updateMat(c, 2);
             res_tir = 0;
             d = 1;

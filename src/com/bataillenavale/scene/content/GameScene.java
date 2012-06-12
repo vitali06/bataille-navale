@@ -6,6 +6,8 @@ package com.bataillenavale.scene.content;
 
 import com.badlogic.gdx.Gdx;
 import com.bataillenavale.game.Singleton;
+import com.bataillenavale.items.gdx.Ships;
+import com.bataillenavale.items.gdx.ShipsComputer;
 import com.bataillenavale.scene.Scene;
 import com.bataillenavale.tools.DrawShootingGrid;
 import java.io.IOException;
@@ -23,11 +25,13 @@ public class GameScene implements Scene {
     private boolean m_fps;
     private boolean m_init;
     private boolean m_newScene;
+    private int m_count;
 
     public GameScene(boolean fps) {
         this.m_fps = fps;
         this.m_init = false;
         this.m_newScene = false;
+        this.m_count = 0;
     }
 
     @Override
@@ -48,7 +52,14 @@ public class GameScene implements Scene {
                 Logger.getLogger(GameScene.class.getName()).log(Level.SEVERE, null, ex);
             }
             
-            Singleton.getGraphic().createTextFont("Game", "{Game}", 60, 550, "Ascent");            
+            Singleton.getGraphic().createTextFont("Game", "{Game}", 60, 550, "Ascent");
+            Singleton.getGraphic().createTextFont("Porte-Avions", "Porte-avions : 5 vies", 60, 300, "Calibri");
+            Singleton.getGraphic().createTextFont("Cuirasse", "Cuirasse : 4 vies", 60, 250, "Calibri");
+            Singleton.getGraphic().createTextFont("Sous-Marin", "Sous-Marin : 3 vies", 60, 200, "Calibri");            
+            Singleton.getGraphic().createTextFont("Contre-Torpilleur", "Contre-Torpilleur : 3 vies", 60, 150, "Calibri");
+            Singleton.getGraphic().createTextFont("Lance-Torpilles", "Lance-Torpilles : 2 vies", 60, 100, "Calibri");
+            Singleton.getGraphic().createTextFont("BackMenu", "Pour retourner au menu : Appuyez sur Entree", 400, 50, "Calibri");
+            Singleton.getGraphic().getText().get("BackMenu").setVisible(false);
             this.m_init = true;
         }
     }
@@ -56,6 +67,17 @@ public class GameScene implements Scene {
     @Override
     public void update() {
         if (this.m_init) {
+            if (Ships.getShipsList().isEmpty()
+                    || ShipsComputer.getShipsList().isEmpty()) {
+                this.m_count++;                
+                Singleton.getGraphic().setAlpha("BackMenu", this.m_count / 0.25f);
+                if (Singleton.getInput().isEnterPressed()) {
+                    // Retour au menu principal
+                    this.m_init = false;
+                    Singleton.getGraphic().getGame().getScreen().nextScene(new MainMenuScene(false));
+                    this.m_newScene = true;
+                }
+            }
         }
     }
 
