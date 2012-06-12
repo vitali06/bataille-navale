@@ -101,6 +101,7 @@ public class ShootingGridGDX extends Actor {
 
     @Override
     public void touchUp(float x, float y, int pointer) {
+        boolean detect_bord = false;
         int colonne = Integer.parseInt(this.name.substring(this.name.length() - 2, this.name.length() - 1));
         int ligne = Integer.parseInt(this.name.substring(this.name.length() - 1));
 
@@ -154,7 +155,7 @@ public class ShootingGridGDX extends Actor {
         if (res_tir == 1 || prem_touche) {
             cpu.strategieChange(1, d, horizontal_verticale);
         } else {
-            if (compteur_tir_ia > 10) {
+            if (compteur_tir_ia > 10 && compteur_tir_ia < 20) {
                 cpu.setRayon_zone(1);
                 cpu.strategieChange(res_tir, 0, 0);
             } else if (compteur_tir_ia > 20) {
@@ -167,7 +168,9 @@ public class ShootingGridGDX extends Actor {
         Coordonnee c = cpu.Fire();
         compteur_tir_ia++;
         //System.out.println("x : " + c.getX() + " y : " +c.getY());
-        if (ShipsGrid.hasAShip(c.getX(), c.getY())) {
+        if(c != null)
+        {
+            if (ShipsGrid.hasAShip(c.getX(), c.getY())) {
             res_tir = 1;
             cpu.updateMat(c, 1);
             d++;
@@ -196,7 +199,7 @@ public class ShootingGridGDX extends Actor {
                         //System.out.println("Joueur Perdu, IA Gagné");
                         Singleton.getSound().loose();
                         Singleton.getGraphic().createTextFont("PERDU", "VOUS AVEZ PERDU !", 400, 570, "SimHei");
-                        Singleton.getGraphic().getText().get("BackMenu").setVisible(true);                        
+                        Singleton.getGraphic().getText().get("BackMenu").setVisible(true);
                         for (ShootingGridGDX s : ShootingGridGDX.list) {
                             s.setTouchable(false);
                         }
@@ -210,6 +213,14 @@ public class ShootingGridGDX extends Actor {
             res_tir = 0;
             d = 1;
             horizontal_verticale++;
+            
+        }
+        }
+        else
+        {
+            horizontal_verticale++;
+            res_tir = 0;
+            d = 1;
         }
     }
 
@@ -250,7 +261,7 @@ public class ShootingGridGDX extends Actor {
     }
 
     public static void fillGridComputer() {
-        HashMap<String, Intervale> list_position_navire = new HashMap<>();
+        HashMap<String, Intervale> list_position_navire;
         list_position_navire = cpu.placerNavire();
         ShipsComputer ships;
 

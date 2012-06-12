@@ -31,21 +31,37 @@ public class NavireTouche implements Strategie {
         {
             c.setX(navire_trouve.getX() - decalage);
             c.setY(navire_trouve.getY());
+            if(c.getX() < 0)
+            {
+                return null;
+            }
         }
         else if(horizontale_verticale == 2)
         {
             c.setX(navire_trouve.getX() + decalage);
             c.setY(navire_trouve.getY());
+            if(c.getX() > 8)
+            {
+                return null;
+            }
         }
         else if(horizontale_verticale == 3)
         {
             c.setX(navire_trouve.getX());
             c.setY(navire_trouve.getY() - decalage);
+            if(c.getX() < 0)
+            {
+                return null;
+            }
         }
         else
         {
             c.setX(navire_trouve.getX());
             c.setY(navire_trouve.getY() + decalage);
+            if(c.getY() > 8)
+            {
+                return null;
+            }
         }
 
         return c;
