@@ -46,6 +46,8 @@ public interface Sound {
     
     public void splash();
     
+    public void loose();
+    
     /**
      * change the volume of the sounds which are played
      * @param volume volume of the sounds which are played 

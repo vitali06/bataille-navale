@@ -67,8 +67,8 @@ public class Computer {
         c.setY(0);
         intervale.add(c);
         c = new Coordonnee();
-        c.setX(1);
-        c.setY(0);
+        c.setX(0);
+        c.setY(1);
         intervale.add(c);
         position_navire.put("Lance-Torpilles", intervale);
 
@@ -108,20 +108,20 @@ public class Computer {
         //Coordonnee pour le Cuirasse (4 vies)
         intervale = new Intervale();
         c = new Coordonnee();
-        c.setX(5);
-        c.setY(1);
-        intervale.add(c);
-        c = new Coordonnee();
-        c.setX(6);
-        c.setY(1);
+        c.setX(7);
+        c.setY(0);
         intervale.add(c);
         c = new Coordonnee();
         c.setX(7);
         c.setY(1);
         intervale.add(c);
         c = new Coordonnee();
-        c.setX(8);
-        c.setY(1);
+        c.setX(7);
+        c.setY(2);
+        intervale.add(c);
+        c = new Coordonnee();
+        c.setX(7);
+        c.setY(3);
         intervale.add(c);
         position_navire.put("Cuirasse", intervale);
 
