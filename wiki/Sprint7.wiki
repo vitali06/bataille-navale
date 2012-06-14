@@ -18,3 +18,4 @@
    * Gérer la fin de jeu
  # *Laurent* : Graphisme
    * Continuer à gérer les vues
+   * Gestion des grilles (case rouge si la case a été tirée et qu'il y a un navire présent sur cette case sur la grille de l'adversaire...)
