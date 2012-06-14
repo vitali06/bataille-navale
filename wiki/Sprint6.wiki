@@ -14,3 +14,4 @@
   * Modèle des navires ainsi que des grilles
  # *Laurent* : Graphisme
    * Amélioration graphisme et algorithmes
+   * Placement des navires sur la grille
