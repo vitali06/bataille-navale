@@ -13,4 +13,4 @@
  # *Mélissa* : Création des Modèles
   * Modèle des navires ainsi que des grilles
  # *Laurent* : Graphisme
-   *Amélioration graphisme et algorithmes
+   * Amélioration graphisme et algorithmes
