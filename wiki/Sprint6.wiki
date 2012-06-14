@@ -1,0 +1,16 @@
+= Sprint 6 =
+
+<img src="https://bataille-navale.googlecode.com/svn/wiki/img/calendarIcone.jpg" width="25px" height="30px" align="left" /> 1 Mai2012
+
+== Fin du Sprint 5 ==
+
+== Démonstration ==
+
+== Tâches Sprint 6 ==
+ # *Alexis* : Intelligence artificielle
+   * Réflexion autour des algorithmes
+   * Premières implémentations des algorithmes
+ # *Mélissa* : Création des Modèles
+  * Modèle des navires ainsi que des grilles
+ # *Laurent* : Graphisme
+   *Amélioration graphisme et algorithmes
