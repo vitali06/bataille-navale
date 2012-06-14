@@ -1,0 +1,18 @@
+= Sprint 5 =
+
+<img src="https://bataille-navale.googlecode.com/svn/wiki/img/calendarIcone.jpg" width="25px" height="30px" align="left" /> 17 Avril 2012
+
+== Fin du Sprint 3 ==
+
+== Démonstration ==
+
+== Tâches Sprint 5 ==
+ # *Alexis* : Intelligence artificielle
+  * Architecture de l'IA
+   * Recherche d'un design pattern à utiliser
+ # *Mélissa* : Menu de configuration
+   *Sons à utiliser dans le menu
+   *Possibilité de couper le son dans la scène de config.
+ # *Laurent* : Scène de jeux
+    *Dessins des grilles
+    *Placement des navires
