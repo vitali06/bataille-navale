@@ -8,11 +8,11 @@
 
 == Tâches Sprint 5 ==
  # *Alexis* : Intelligence artificielle
-  *Architecture de l'IA
-   *Recherche d'un design pattern à utiliser
+  * Architecture de l'IA
+   * Recherche d'un design pattern à utiliser
  # *Mélissa* : Menu de configuration
-   *Sons à utiliser dans le menu
-   *Possibilité de couper le son dans la scène de config.
+   * Sons à utiliser dans le menu
+   * Possibilité de couper le son dans la scène de config.
  # *Laurent* : Scène de jeux
-    *Dessins des grilles
-    *Placement des navires
+    * Dessins des grilles
+    * Placement des navires
