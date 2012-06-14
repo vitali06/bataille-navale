@@ -15,4 +15,4 @@
    * Possibilité de couper le son dans la scène de config.
  # *Laurent* : Scène de jeux
     * Dessins des grilles
-    * Placement des navires
+    * Affichage des navires
