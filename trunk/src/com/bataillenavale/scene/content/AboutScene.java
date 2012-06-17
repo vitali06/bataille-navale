@@ -21,6 +21,7 @@ public class AboutScene implements Scene {
     private boolean m_fps;
     private Rectangle m_sizeGame;
     private boolean m_newScene;
+    private int m_count;
     
     /**
      * Constructor
@@ -31,6 +32,7 @@ public class AboutScene implements Scene {
         m_sizeGame = Singleton.getGraphic().getDimensions();
         this.m_init = false;
         this.m_newScene = false;
+        this.m_count=0;
     }
     
     /**
@@ -41,6 +43,11 @@ public class AboutScene implements Scene {
         if (!this.m_init) {            
             Singleton.getGraphic().createTextFont("AboutScene", "{About Scene}", 270, 50, "Ascent");
             Singleton.getGraphic().setColorText("AboutScene", 1.f, 0.f, 0.f);
+            Singleton.getGraphic().createTextFont("Equipe", "Equipe projet : Melissa WEISSMULLER, Alexis DORR, Laurent SITTLER", 30, 400, "Calibri");
+            Singleton.getGraphic().createTextFont("Realisation", "Dans le cadre de notre premiere annee d'etude \"Ingenieur en Informatique\" en alternance a l'ITII", 30, 350, "Calibri");
+            Singleton.getGraphic().createTextFont("Technique", "Application realisee en Java et avec la librairie libGDX", 30, 300, "Calibri");
+            Singleton.getGraphic().createTextFont("BackMenu", "Pour retourner au menu : Appuyez sur Entree", 245, 100, "Calibri");            
+            Singleton.getGraphic().setColorText("BackMenu", 1.f, 0.f, 0.f);
             this.m_init = true;
         }
     }
@@ -50,8 +57,15 @@ public class AboutScene implements Scene {
      */
     @Override
     public void update() {
-        if (this.m_init){
-            //System.out.println("AboutScene Update");
+        if (this.m_init) {
+            this.m_count++;
+            Singleton.getGraphic().setAlpha("BackMenu", this.m_count / 0.25f);
+            if (Singleton.getInput().isEnterPressed()) {
+                // Retour au menu principal
+                this.m_init = false;
+                Singleton.getGraphic().getGame().getScreen().nextScene(new MainMenuScene(false));
+                this.m_newScene = true;
+            }
         }
     }
 
